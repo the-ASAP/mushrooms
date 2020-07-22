@@ -138,7 +138,7 @@ input {
     top: 3%;
     height: 20px;
     width: 20px;
-    background: $accent;
+    background: transparent;
 
     &::after,
     &::before {
@@ -163,67 +163,31 @@ input {
     &:hover::after,
     &:hover::before {
         background-color: $accent;
-
     }
 }
 
 %burger {
-    overflow: visible;
+    width: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 0.2rem;
+    cursor: pointer;
 
+    &::after,
+    &::before,
     &>span {
-        position: relative;
-        margin-top: 7px;
-        margin-bottom: 7px;
-        display: block;
-        width: 22px;
-
-        &,
-        &::after,
-        &::before {
-            background-color: $accent;
-            height: 1px;
-            width: 21px;
-            transition: background-color .3s, transform .3s;
-        }
-
-        &::after,
-        &::before {
-            position: absolute;
-            content: '';
-            left: 0;
-            top: 5px;
-            width: 100%;
-        }
-
-        &::before {
-            top: -5px;
-        }
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: $cream;
+        margin-bottom: 13px;
+        transition: all .3s ease;
     }
 
-    &:hover span {
-
-        &,
-        &::after,
-        &::before {
-            background-color: $accent;
-        }
-    }
-
-    &.active {
-        &>span {
-            background-color: transparent;
-            transition: none;
-
-            &::after {
-                top: 0;
-                transform: rotate(-135deg);
-            }
-
-            &::before {
-                top: 0;
-                transform: rotate(135deg);
-            }
-        }
+    &::after {
+        margin-bottom: 0;
+        width: 50%;
     }
 }
 
@@ -249,6 +213,41 @@ input {
     padding: 30px 0;
     margin: 0 auto;
     display: block;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    @extend .flexbox;
+    justify-content: center;
+    z-index: 5;
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.5);
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    //Вложенное окно с контентом, необходимо задать фиксированные размерыж
+    &__box {
+        padding: 2rem 3rem;
+        box-sizing: border-box;
+        position: relative;
+        background-color: $bgc;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    // Кнопка закрытия
+    &__close {
+        @extend %close-btn;
+    }
 }
 
 .nav-arrow {
@@ -289,10 +288,266 @@ h2 {
     color: #61573E;
 }
 
+/*MODALS*/
+
+.map {
+
+    .modal__box {
+        width: 80%;
+        height: 80%;
+        padding: 0;
+    }
+
+    #map {
+        width: 100%;
+        height: 100%;
+    }
+
+    .modal__close {
+        top: -40px;
+        right: -40px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .modal__close::after,
+    .modal__close::before {
+        background: $cream;
+        height: 2px;
+    }
+}
+
+.enter {
+    .modal__box {
+        padding: 3% 2%;
+        background: #fff;
+        width: 400px;
+    }
+
+    .modal__close {
+        top: 20px;
+        right: 20px;
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 1.5rem;
+        text-align: center;
+        color: $accent;
+        margin-bottom: 1.5625rem;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__input {
+        background: #FEFEFE;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        height: 52px;
+        margin-bottom: 1.5625rem;
+        padding: 0 25px; 
+        font-size: 0.875rem;
+    }
+
+    &__inputs-container {
+        margin-top: 2.1875rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__checkbox-container {
+        position: relative;
+
+        &:before {
+            content: '';
+            width: 19px;
+            height: 19px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid #61573E;
+        }
+    }
+}
+
+/*MENU*/
+
+.menu {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: $accent;
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+    padding: 6vh 5vw;
+    transition: all .3s ease;
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    * {
+        color: $cream;
+    }
+
+    &__title {
+        &-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            position: relative;
+            border-bottom: 1px solid $cream;
+            padding-bottom: 1.875rem;
+        }
+    }
+
+    &__controls {
+        width: 20rem;
+        margin-right: 15%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__close {
+        position: absolute;
+        top: 45%;
+        right: 0;
+        width: 27px;
+        height: 27px;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__account,
+    &__cart {
+        display: flex;
+        align-items: flex-end;
+
+        &-icon {
+            width: 27px;
+            height: 27px;
+            margin-right: 15px;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &-name,
+        &-sum {
+            font-size: 1rem;
+        }
+
+        i {
+            font-style: normal;
+        }
+
+    }
+
+    &__content {
+        display: flex;
+        height: 85%;
+    }
+
+    &__nav {
+        width: 20%;
+        border-right: 1px solid $cream;
+        padding-top: 10vh;
+        position: relative;
+
+        &-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-link {
+            font-weight: 600;
+            font-size: 0.875rem;
+            line-height: 1.0625rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.6875rem 0;
+        }
+
+        &-contacts {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        &-soc {
+            margin-bottom: 2.5rem;
+
+            &-link {
+                width: 27px;
+                height: 27px;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        &-phone {
+            font-size: 1rem;
+        }
+    }
+
+    &__products {
+        padding-top: 10vh;
+        width: 80%;
+        margin-left: 35px;
+        display: flex;
+        justify-content: space-between;
+        padding-right: 3%;
+
+        &-list {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        &-pic {
+            width: 40%;
+            height: 60vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: all .3s ease;
+        }
+    }
+
+    &__product {
+        font-size: 1.5rem;
+        opacity: 0.66;
+        padding: 0.9375rem 0;
+        transition: all .2s ease;
+
+        &.active {
+            font-weight: 600;
+            opacity: 1;
+        }
+
+        &:first-child {
+            padding: 0.6875rem 0 1.375rem;
+        }
+    }
+}
+
 
 /*HEADER*/
-
-
 
 .header {
     background: url(../img/header-bg.jpg) left top/cover no-repeat;
@@ -311,6 +566,19 @@ h2 {
 
     * {
         color: $cream;
+    }
+
+    &__burger {
+        @extend %burger;
+        position: absolute;
+        top: 13%;
+        left: 7%;
+
+        &:hover {
+            &:after {
+                width: 100%;
+            }
+        }
     }
 
     &__nav {
@@ -750,7 +1018,6 @@ h2 {
 
     .wrapper {
         display: flex;
-
     }
 
     * {
@@ -759,7 +1026,6 @@ h2 {
 
     &__content {
         width: 55%;
-
         padding-right: 5%;
     }
 
@@ -767,8 +1033,6 @@ h2 {
         margin-top: 4.6875rem;
         display: flex;
         justify-content: space-between;
-
-
     }
 
     &__item {
@@ -823,7 +1087,9 @@ h2 {
         top: 0;
         width: 45%;
         bottom: 0;
-        background: url(../img/bag.jpg) center/cover no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 }
 
@@ -832,6 +1098,7 @@ h2 {
 .present {
     min-height: 100vh;
     height: auto;
+    padding-bottom: 18.75rem;
 
     &__title {
         width: 50%;
@@ -845,7 +1112,7 @@ h2 {
     }
 
     &__table {
-        margin-top: 5vh;
+        margin-top: 7vh;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -856,7 +1123,7 @@ h2 {
         background-size: cover;
         background-position: 50% top;
         width: 30%;
-        height: 40vh;
+        height: 44vh;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -902,9 +1169,7 @@ h2 {
             &--present {
                 @extend %green-btn;
             }
-
         }
-
     }
 
     &__btn {
@@ -918,7 +1183,161 @@ h2 {
             font-size: 1rem;
         }
     }
+}
+
+/*SHOPS*/
+
+.shops {
+    background: $accent;
 
 
+    .wrapper {
+        border-bottom: 1px solid rgba($cream, 0.6);
+        height: 100%;
+    }
 
+    * {
+        color: $cream;
+    }
+
+    &__table {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10vh;
+    }
+
+    &__item {
+        width: 48%;
+    }
+
+    &__map {
+        width: 100%;
+        height: 45vh;
+        background: red;
+        margin-bottom: 4vh;
+
+        &-title {
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 110.69%;
+            margin-bottom: 0.9375rem;
+        }
+
+        &-address {
+            font-size: 1rem;
+        }
+    }
+}
+
+/*FOOTER*/
+
+.footer {
+    background: $accent;
+    height: auto;
+
+    * {
+        color: $cream;
+    }
+
+    .wrapper {
+        padding-top: 10vh;
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba($cream, 0.6);
+        padding-bottom: 5vh;
+    }
+
+    &__row {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+
+        &:last-child {
+            width: 20%;
+        }
+    }
+
+    &__link {
+        padding: 1.125rem 0;
+        font-size: 1rem;
+    }
+
+    &__search {
+        position: relative;
+        margin-bottom: 4vh;
+
+        &-icon {
+            position: absolute;
+            top: 50%;
+            left: 1.125rem;
+            height: 12px;
+            width: 12px;
+            transform: translateY(-50%);
+
+            svg {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        &-input {
+            background: rgba(255, 255, 255, 0.2);
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+            color: $cream;
+            padding: 0 20px 0 40px;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-phone {
+            font-size: 1.125rem;
+        }
+
+        &-soc {
+            height: 25px;
+            width: 25px;
+
+            svg {
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 45px 0 35px;
+        align-items: center;
+    }
+
+    &__logo {
+        mix-blend-mode: screen;
+    }
+
+    &__policy {
+        font-size: 0.875rem;
+        line-height: 1.125rem;
+        text-align: center;
+        width: 30%;
+    }
+
+    &__asap {
+        width: 85px;
+        height: 35px;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
 }

@@ -6,6 +6,32 @@ const contentFadeInOnReady = () => {
 };
 
 // Открытие модальных окон
+
+
+const bindModalListeners = modalArr => {
+    modalArr.forEach(obj => {
+        let jQTrigger = $(obj.trigger);
+        let jQModal = $(obj.modal);
+
+        jQTrigger.on('click', function() {
+            stopScroll('body');
+            jQModal.addClass('active');
+        });
+
+        jQModal.on('click', function(e) {
+            if($(e.target).hasClass('modal')) {
+                $(this).removeClass('active');
+                $('body').attr("style", '');
+            }
+        });
+
+        jQModal.find('.modal__close').on('click', function() {
+            jQModal.closest('.modal').removeClass('active');
+            $('body').attr("style", '');
+        });
+    });
+}
+
 const modalOpen = (trigger, modal) => {
     $(trigger).on('click', function() {
         // стопаем скролл у боди
@@ -191,5 +217,63 @@ $().ready(() => {
         margin: 40,
         nav: true,
         dots: false
-    })
+    });
+
+    $('.menu__product').on('mouseenter', function() {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+        $('.menu__products-pic').css('background-image', `url(${$(this).attr('data-pic')})`);
+    });
+
+    $('.header__burger').on('click', function() {
+        showMenu();
+    });
+
+    $('.menu__close').on('click', function() {
+        hideMenu();
+    });
+
+    function showMenu() {
+        $('.menu').addClass('active');
+        stopScroll('body');
+    }
+
+    function hideMenu() {
+        $('.menu').removeClass('active');
+        $('body').attr("style", '');
+    }
+
+    function initMap(coords) {
+        let coordsArr = coords.split(',');
+
+        $('#map').html('');
+
+        ymaps.ready(function() {
+            var myMap = new ymaps.Map('map', {
+                    center: coords.split(','),
+                    zoom: 18,
+                    controls: []
+                }, {
+                    searchControlProvider: 'yandex#search'
+                }),
+
+                myPlacemark = new ymaps.Placemark(coords.split(','), {}, {
+                    iconColor: '#d32f2f'
+                });
+
+            myMap.geoObjects.add(myPlacemark);
+            myMap.container.fitToViewport();
+        });
+    }
+
+    bindModalListeners([{ trigger: '.shops__map', modal: '.modal--map' }])
+
+    $('.shops__map').on('click', function() {
+        initMap($(this).attr('data-coords'));
+
+    });
+
+
+
+    // modalOpen('.modal--map');
 });
