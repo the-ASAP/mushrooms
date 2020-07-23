@@ -19,50 +19,29 @@ const bindModalListeners = modalArr => {
         });
 
         jQModal.on('click', function(e) {
-            if($(e.target).hasClass('modal')) {
+            if ($(e.target).hasClass('modal')) {
                 $(this).removeClass('active');
-                $('body').attr("style", '');
+                freeScroll();
             }
         });
 
         jQModal.find('.modal__close').on('click', function() {
-            jQModal.closest('.modal').removeClass('active');
-            $('body').attr("style", '');
+            jQModal.removeClass('active');
+            freeScroll();
+        });
+
+        $(document).keydown((e) => {
+            if (e.keyCode === 27) {
+                $('.modal').removeClass('active');
+                freeScroll();
+                return false;
+            }
         });
     });
 }
 
-const modalOpen = (trigger, modal) => {
-    $(trigger).on('click', function() {
-        // стопаем скролл у боди
-        stopScroll('body');
-        // показываем модалку
-        $(modal).addClass('active');
-    })
-}
-// Закрытие  модалок
-const modalClose = (btn = '.modal__close', modal = '.modal') => {
-    $(btn).on('click', () => {
-        $(this).closest(modal).removeClass('active')
-        // возвращаем скролл для бади
-        $('body').attr("style", '');
-    });
-}
-
-// Закрытие модалок на  ESCAPE
-const closeOnEscape = () => {
-    $(document).keydown((e) => {
-        // 27 = escape
-        if (e.keyCode === 27) {
-            $('.modal').removeClass('active')
-            // возвращаем скролл для бади
-            $('body').attr("style", '');
-            return false;
-        }
-    });
-}
 // Запрещаем скролл для бади 
-const stopScroll = (item) => {
+function stopScroll(item = 'body') {
     let documentWidth = parseInt(document.documentElement.clientWidth),
         windowsWidth = parseInt(window.innerWidth),
         scrollbarWidth = windowsWidth - documentWidth;
@@ -70,8 +49,16 @@ const stopScroll = (item) => {
 }
 
 // возвращаем скролл для бади
-const freeScroll = (item) => {
+function freeScroll(item = 'body') {
     $(item).attr("style", '');
+}
+
+function isTablet() {
+    return $(window).width() <= 1024 && $(window).width() > 768;
+}
+
+function isMobile() {
+    return $(window).width() <= 768;
 }
 
 const initAOS = () => {
@@ -112,79 +99,113 @@ const createNav = (className) => {
     }
 }
 
-$().ready(() => {
-    contentFadeInOnReady()
-    modalClose();
+function showMenu(className) {
+    $(className).addClass('active');
+    stopScroll();
+}
 
-    const initModel = () => {
-        let scene, camera, renderer, hLight, mushroom = null;
+function hideMenu(className) {
+    $(className).removeClass('active');
+    freeScroll();
+}
 
-        function init() {
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(40, $('.eco__model').width() / $('.eco__model').height(), 1, 5000);
-            camera.rotation.y = 45 / 180 * Math.PI;
-            camera.position.x = 1000;
-            camera.position.y = 400;
-            camera.position.z = 1000;
+function initMap(coords) {
+    let coordsArr = coords.split(',');
 
-            hLight = new THREE.AmbientLight(0xB3B3B3, 100);
-            scene.add(hLight);
+    $('#map').html('');
 
-            let directionalLight = new THREE.DirectionalLight(0x737373, 50);
-            directionalLight.position.set(0, 1, 0);
-            directionalLight.castShadow = true;
-            // scene.add(directionalLight);
+    ymaps.ready(function() {
+        var myMap = new ymaps.Map('map', {
+                center: coords.split(','),
+                zoom: 18,
+                controls: []
+            }, {
+                searchControlProvider: 'yandex#search'
+            }),
 
-            // let light = new THREE.PointLight(0xDFDAD1, 5);
-            // light.position.set(0, 300, 500);
-            // scene.add(light);
+            myPlacemark = new ymaps.Placemark(coords.split(','), {}, {
+                iconColor: '#d32f2f'
+            });
 
-            // let light2 = new THREE.PointLight(0xDFDAD1, 5);
-            // light2.position.set(500, 100, 0);
-            // scene.add(light2);
+        myMap.geoObjects.add(myPlacemark);
+        myMap.container.fitToViewport();
+    });
+}
 
-            // let light3 = new THREE.PointLight(0xB4A494, 5);
-            // light3.position.set(0, 100, -500);
-            // scene.add(light3);
+function initModel() {
+    let scene, camera, renderer, hLight, mushroom = null;
 
-            let light4 = new THREE.PointLight(0xB4A494, 5);
-            light4.position.set(-500, 300, 0);
-            scene.add(light4);
+    function init() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(40, $('.eco__model').width() / $('.eco__model').height(), 1, 5000);
+        camera.rotation.y = 45 / 180 * Math.PI;
+        camera.position.x = 1000;
+        camera.position.y = 400;
+        camera.position.z = 1000;
+
+        hLight = new THREE.AmbientLight(0xB3B3B3, 100);
+        scene.add(hLight);
+
+        let directionalLight = new THREE.DirectionalLight(0x737373, 50);
+        directionalLight.position.set(0, 1, 0);
+        directionalLight.castShadow = true;
+        // scene.add(directionalLight);
+
+        // let light = new THREE.PointLight(0xDFDAD1, 5);
+        // light.position.set(0, 300, 500);
+        // scene.add(light);
+
+        // let light2 = new THREE.PointLight(0xDFDAD1, 5);
+        // light2.position.set(500, 100, 0);
+        // scene.add(light2);
+
+        // let light3 = new THREE.PointLight(0xB4A494, 5);
+        // light3.position.set(0, 100, -500);
+        // scene.add(light3);
+
+        let light4 = new THREE.PointLight(0xB4A494, 5);
+        light4.position.set(-500, 300, 0);
+        scene.add(light4);
 
 
-            let light5 = new THREE.PointLight(0xB4A494, 7);
-            light5.position.set(0, 0, 6000);
-            scene.add(light5);
+        let light5 = new THREE.PointLight(0xB4A494, 7);
+        light5.position.set(0, 0, 6000);
+        scene.add(light5);
 
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setClearColor(0x000000, 0);
-            document.querySelector('.eco__model').appendChild(renderer.domElement);
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x000000, 0);
+        document.querySelector('.eco__model').appendChild(renderer.domElement);
 
-            // var controls = new THREE.OrbitControls(camera, renderer.domElement);
-            // controls.addEventListener('change', renderer);
-            // controls.update();
+        // var controls = new THREE.OrbitControls(camera, renderer.domElement);
+        // controls.addEventListener('change', renderer);
+        // controls.update();
 
-            let loader = new THREE.GLTFLoader();
-            loader.load('../vendors/js/mushroom.glb', function(gltf) {
-                mushroom = gltf.scene.children[0];
-                mushroom.scale.set(180, 180, 180);
+        let loader = new THREE.GLTFLoader();
+        loader.load('../vendors/js/mushroom.glb', function(gltf) {
+            mushroom = gltf.scene.children[0];
+            mushroom.scale.set(180, 180, 180);
 
-                scene.add(gltf.scene);
-                animate();
-            })
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            mushroom.rotation.z += 0.002;
-            renderer.render(scene, camera);
-        }
-
-        init()
+            scene.add(gltf.scene);
+            animate();
+        })
     }
 
-    initModel();
+    function animate() {
+        requestAnimationFrame(animate);
+        mushroom.rotation.z += 0.002;
+        renderer.render(scene, camera);
+    }
+
+    init()
+}
+
+$().ready(() => {
+    contentFadeInOnReady();
+    if (!isTablet() && !isMobile()) {
+        initModel();
+    }
+
     initAOS();
 
     let offset = 500;
@@ -199,15 +220,27 @@ $().ready(() => {
         }
     });
 
-    $('.production__slider').owlCarousel({
+    if(!isMobile()) {
+         $('.production__slider').owlCarousel({
         items: 3,
         navText: [createNav('production').prevNav, createNav('production').nextNav],
         navContainer: $('.production__nav'),
         loop: false,
         margin: 40,
         nav: true,
-        dots: false
+        dots: false,
+        responsive: {
+            0: {
+                items: 2,
+            },
+            1024: {
+                items: 3,
+            }
+        }
     });
+
+    
+    }
 
     $('.recipes__slider').owlCarousel({
         items: 3,
@@ -216,8 +249,18 @@ $().ready(() => {
         loop: false,
         margin: 40,
         nav: true,
-        dots: false
+        dots: false,
+        responsive: {
+            0: {
+                items: 1.2,
+            },
+            1200: {
+                items: 3,
+            }
+        }
     });
+
+   
 
     $('.menu__product').on('mouseenter', function() {
         $(this).siblings().removeClass('active');
@@ -226,54 +269,49 @@ $().ready(() => {
     });
 
     $('.header__burger').on('click', function() {
-        showMenu();
+        if(isTablet() || isMobile()) {
+            showMenu('.mobile-menu');
+        } else {
+            showMenu('.menu');
+        }
+        
     });
 
     $('.menu__close').on('click', function() {
-        hideMenu();
+        hideMenu('.menu');
     });
 
-    function showMenu() {
-        $('.menu').addClass('active');
-        stopScroll('body');
-    }
+    $('.mobile-menu__close').on('click', function() {
+        hideMenu('.mobile-menu');
+    });
 
-    function hideMenu() {
-        $('.menu').removeClass('active');
-        $('body').attr("style", '');
-    }
-
-    function initMap(coords) {
-        let coordsArr = coords.split(',');
-
-        $('#map').html('');
-
-        ymaps.ready(function() {
-            var myMap = new ymaps.Map('map', {
-                    center: coords.split(','),
-                    zoom: 18,
-                    controls: []
-                }, {
-                    searchControlProvider: 'yandex#search'
-                }),
-
-                myPlacemark = new ymaps.Placemark(coords.split(','), {}, {
-                    iconColor: '#d32f2f'
-                });
-
-            myMap.geoObjects.add(myPlacemark);
-            myMap.container.fitToViewport();
-        });
-    }
-
-    bindModalListeners([{ trigger: '.shops__map', modal: '.modal--map' }])
+    bindModalListeners([
+        { trigger: '.shops__map', modal: '.modal--map' },
+        { trigger: '.present__item-btn', modal: '.modal--enter' }
+    ])
 
     $('.shops__map').on('click', function() {
         initMap($(this).attr('data-coords'));
-
     });
 
+    if (isTablet() || isMobile()) {
+        $('.present__table').owlCarousel({
+            items: 2.3,
+            loop: false,
+            margin: 15,
+            nav: false,
+            dots: false,
+            responsive: {
+            0: {
+                items: 1.3,
+            },
+            870: {
+                items: 2.3,
+            }
+        }
+
+        });
+    }
 
 
-    // modalOpen('.modal--map');
 });

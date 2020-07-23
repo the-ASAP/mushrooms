@@ -1,59 +1,550 @@
 @media (max-width: 1600px) {
     html {
-        font-size:16px
+        font-size: 16px
     }
 }
 
 @media (max-width: 1550px) {
     html {
-        font-size:15.5px
+        font-size: 15.5px
     }
 }
 
 @media (max-width: 1500px) {
     html {
-        font-size:15px
+        font-size: 15px
     }
 }
 
 @media (max-width: 1450px) {
     html {
-        font-size:14.5px
+        font-size: 14.5px
     }
 }
 
 @media (max-width: 1400px) {
     html {
-        font-size:14px
+        font-size: 14px
     }
 }
 
 @media (max-width: 1350px) {
     html {
-        font-size:13.5px
+        font-size: 13.5px
     }
 }
 
 @media (max-width: 1300px) {
     html {
-        font-size:13px
+        font-size: 13px
     }
 }
 
 @media (max-width: 1250px) {
     html {
-        font-size:12.5px
+        font-size: 12.5px
     }
 }
 
 @media (max-width: 1200px) {
     html {
-        font-size:12px
+        font-size: 12px
     }
 }
 
-@media (max-width: 1024px){
+@media (max-width: 1024px) {
     html {
-        font-size:16px
+        font-size: 15px
     }
+}
+
+
+@media (max-width: 1400px) {
+    .present__title {
+        width: 60%;
+    }
+
+    .header__menu {
+        width: 70%;
+    }
+
+    .header__burger {
+        left: 5%;
+    }
+
+    .eco__model {
+        top: -10%;
+        right: 0;
+    }
+
+    .eco__table-container.third .eco__model {
+        right: 3%;
+        top: 43%;
+    }
+
+    .recipes__all-btn {
+        margin-left: 30%;
+    }
+
+    .present {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 1200px) {
+    .header__menu-item--phone {
+        padding-left: 0.9375rem;
+    }
+
+    .header__icons {
+        width: 13%;
+    }
+
+    .header__burger {
+        top: 10vh;
+    }
+
+    .menu__products-pic {
+        height: 50vh;
+    }
+
+    .shops__map {
+        height: 40vh;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .header__menu,
+    .header__icons {
+        display: none;
+    }
+
+    .header__call-btn {
+        display: block;
+        position: absolute;
+        right: 5%;
+        top: 7.5vh;
+    }
+
+    .header__burger {
+        top: 8vh;
+        z-index: 3;
+    }
+
+    .header__nav {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .header__logo {
+        width: 11.25rem;
+        height: 8.75rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+
+    .wrapper--header {
+        padding-top: 5vh;
+    }
+
+    .wrapper {
+        width: calc(93% - 30px);
+    }
+
+    .wrapper--header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+    }
+
+    .header__content {
+        height: auto;
+    }
+
+    .header {
+        background-position: center;
+    }
+
+    .header__subtitle {
+        font-size: 18px;
+    }
+
+    .header__products {
+        padding: 0;
+        height: 80px;
+        line-height: 80px;
+        width: 40%;
+    }
+
+    .eco__item {
+        width: 100%;
+        align-items: center;
+        margin-bottom: 6.25rem;
+    }
+
+    .eco__more-btn {
+        margin: 5rem auto 0;
+        width: 270px;
+        display: block;
+
+    }
+
+    .recipes__all-btn {
+        display: none;
+    }
+
+    .production {
+        padding-bottom: 0;
+    }
+
+    .recipes {
+        padding-bottom: 8.125rem;
+    }
+
+    .delivery .wrapper {
+        flex-wrap: wrap;
+    }
+
+    .delivery__content {
+        width: 50%;
+    }
+
+    .delivery {
+        padding-bottom: 8.125rem;
+    }
+
+    h2 {
+        font-size: 4.25rem;
+    }
+
+    .present__item {
+        width: auto;
+        height: 450px;
+    }
+
+    .present__table {
+        .owl-stage-outer {
+            overflow: visible !important;
+        }
+    }
+
+    .present {
+        min-height: auto;
+        padding-bottom: 8.125rem;
+    }
+
+    .present__subtitle {
+        margin-top: .9375rem;
+    }
+
+    .present__table {
+        margin-top: 4rem;
+    }
+
+    .shops__table {
+        flex-wrap: wrap;
+        margin-top: 4rem;
+    }
+
+    .shops__item {
+        width: 100%;
+        margin-bottom: 4rem;
+    }
+
+    .shops__map {
+        height: 31.25rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .shops__map-title {
+        font-size: 2rem;
+    }
+
+    .shops__map-address {
+        font-size: 1.5rem;
+    }
+
+    .footer__nav {
+        flex-wrap: wrap;
+
+    }
+
+    .footer__row {
+        width: 45%;
+
+        &:last-child {
+            width: 100%;
+            margin-top: 4rem;
+        }
+    }
+
+    .footer__link {
+        font-size: 1.8rem;
+    }
+
+    .footer__search-input {
+        height: 50px;
+        border-radius: 25px;
+    }
+
+    .footer__footer {
+        display: none;
+    }
+
+    .footer__asap--mobile {
+        display: block;
+    }
+
+    .footer__contacts-phone {
+        display: none;
+    }
+
+    .present__item--present .present__item-text {
+        font-size: 1.3rem;
+    }
+
+    .present__subtitle,
+    .production__subtitle,
+    .recipes__subtitle {
+        font-size: 1.3rem;
+    }
+
+    .eco__item-text {
+        font-size: 1.3rem;
+    }
+
+    .present__title {
+        width: 80%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 12px;
+    }
+
+    .header__products {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .wrapper--header {
+        padding-top: 3vh;
+    }
+
+    .header__logo {
+        width: 175px;
+        height: 140px;
+    }
+
+    .header__subtitle {
+        font-size: 16px;
+        line-height: 140%;
+        width: 50%;
+    }
+
+    .production__nav,
+    .recipes__nav {
+        display: none;
+    }
+
+    .production__slider {
+        display: flex;
+        flex-wrap: wrap;
+        height: auto;
+
+        * {
+            height: auto;
+        }
+    }
+
+    .production__slide {
+        width: 100%;
+        height: 500px;
+        margin-bottom: 90px;
+    }
+
+    .production__slide-pic-container {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .production__slider {
+        margin-bottom: 30px;
+    }
+
+    .production__catalog-btn {
+        width: 100%;
+    }
+
+    .delivery__pic {
+        position: static;
+        width: 100%;
+        height: 600px;
+    }
+
+    .wrapper--delivery {
+        width: 100%;
+    }
+
+    .delivery {
+        padding-bottom: 0;
+    }
+
+    .delivery__content {
+        width: calc(93% - 30px);
+        margin: 0 auto;
+    }
+
+    .delivery__table {
+        flex-wrap: wrap;
+    }
+
+    .delivery__item {
+        width: 100%;
+        margin-bottom: 70px;
+        padding-right: 30%;
+    }
+
+    .delivery__item-text {
+        height: auto;
+    }
+
+    .delivery__item-title {
+        margin-bottom: 15px;
+    }
+
+    .delivery__item-text {
+        margin-bottom: 30px;
+    }
+
+    .eco__item-text,
+    .present__item--present .present__item-text,
+    .present__subtitle,
+    .production__subtitle,
+    .recipes__subtitle {
+        font-size: 16px;
+    }
+
+    h2,
+    h1 {
+        font-size: 36px;
+        line-height: 42px;
+    }
+
+    .header__title {
+        font-size: 40px;
+        line-height: 97.3%;
+    }
+
+    .wrapper {
+        padding-top: 55px;
+    }
+
+    .eco__table {
+        margin-top: 50px;
+    }
+
+    .eco__num {
+        height: 65px;
+        width: 65px;
+
+        i {
+            font-size: 36px;
+            margin-top: -10px;
+        }
+    }
+
+    .eco__item {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+    }
+
+    .eco__item-content {
+        margin-top: 30px;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 20%;
+    }
+
+    .eco__model {
+        display: none;
+    }
+
+    .eco__more-btn {
+        margin-top: 20px;
+        width: 277px;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .eco__table-container {
+        padding-bottom: 70px;
+    }
+
+    .enter__submit,
+    .present__item-btn--present,
+    .production__catalog-btn {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .present__item-icon {
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .shops {
+        height: auto;
+    }
+
+
+}
+
+@media (max-width: 490px) {
+
+    .production__slide {
+        height: 400px;
+    }
+
+    .production__slide-title {
+        width: 100%;
+    }
+
+    .delivery__pic {
+        height: 450px;
+    }
+
+    .shops__map {
+        height: 300px;
+    }
+
+    .shops__map-title {
+        font-size: 24px;
+    }
+
+    .shops__map-address {
+        font-size: 16px;
+    }
+
+    .footer__link {
+        font-size: 16px;
+    }
+
+    .footer__search-input {
+        height: 40px;
+    }
+
 }
