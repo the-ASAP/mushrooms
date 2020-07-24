@@ -1,3 +1,5 @@
+let isDesktop, isTablet, isMobile = false;
+
 // удаляемпрелодер при загрузке страницы
 const contentFadeInOnReady = () => {
     $('.preloader').fadeOut(150, () => {
@@ -53,12 +55,18 @@ function freeScroll(item = 'body') {
     $(item).attr("style", '');
 }
 
-function isTablet() {
-    return $(window).width() <= 1024 && $(window).width() > 768;
-}
+function setDeviceType() {
+    (function setIsDesktop() {
+        ($(window).width() > 1024) ? isDesktop = true: isDesktop = false;
+    })();
 
-function isMobile() {
-    return $(window).width() <= 768;
+    (function setIsTablet() {
+        ($(window).width() <= 1024 && $(window).width() > 768) ? isTablet = true: isTablet = false;
+    })();
+
+    (function setIsMobile() {
+        ($(window).width() <= 768) ? isMobile = true: isMobile = false;
+    })();
 }
 
 const initAOS = () => {
@@ -107,6 +115,12 @@ function showMenu(className) {
 function hideMenu(className) {
     $(className).removeClass('active');
     freeScroll();
+}
+
+let pageName = '';
+
+function setPageName() {
+    pageName = $('name').text().trim();
 }
 
 function initMap(coords) {
@@ -200,81 +214,44 @@ function initModel() {
     init()
 }
 
-$().ready(() => {
-    contentFadeInOnReady();
-    if (!isTablet() && !isMobile()) {
-        initModel();
+function truncText(selector, len) {
+    if ($(selector).length > 0) {
+        $(selector).each(function(i, item) {
+            let shortText = ''
+            if ($(item).text().trim().length > len) {
+                shortText = $(item).text().trim().substr(0, len - 1) + '…';
+                $(item).text(shortText)
+            }
+        });
+    }
+}
+
+function initSlider(selector, params = {}) {
+    let defaultParams = {
+        loop: false,
+        dots: false,
+         nav: true,
+        lazyLoad: true,
+        smartSpeed: 600,
     }
 
-    initAOS();
-
-    let offset = 500;
-
-    $(window).on('scroll', () => {
-        if ($(window).scrollTop() > $('.eco__item:eq(1)').offset().top - offset) {
-            $('.eco__table-container').addClass('second');
-        }
-
-        if ($(window).scrollTop() > $('.eco__item:eq(2)').offset().top - offset) {
-            $('.eco__table-container').addClass('third');
-        }
+    $(selector).owlCarousel({
+        ...defaultParams,
+        ...params,
     });
+}
 
-    if(!isMobile()) {
-         $('.production__slider').owlCarousel({
-        items: 3,
-        navText: [createNav('production').prevNav, createNav('production').nextNav],
-        navContainer: $('.production__nav'),
-        loop: false,
-        margin: 40,
-        nav: true,
-        dots: false,
-        responsive: {
-            0: {
-                items: 2,
-            },
-            1024: {
-                items: 3,
-            }
-        }
-    });
+function initListeners() {
+    // ОБЩИЕ ОБРАБОТЧИКИ
 
-    
-    }
+    // Меню
 
-    $('.recipes__slider').owlCarousel({
-        items: 3,
-        navText: [createNav('recipes').prevNav, createNav('recipes').nextNav],
-        navContainer: $('.recipes__nav'),
-        loop: false,
-        margin: 40,
-        nav: true,
-        dots: false,
-        responsive: {
-            0: {
-                items: 1.2,
-            },
-            1200: {
-                items: 3,
-            }
-        }
-    });
-
-   
-
-    $('.menu__product').on('mouseenter', function() {
-        $(this).siblings().removeClass('active');
-        $(this).addClass('active');
-        $('.menu__products-pic').css('background-image', `url(${$(this).attr('data-pic')})`);
-    });
-
-    $('.header__burger').on('click', function() {
-        if(isTablet() || isMobile()) {
+    $('.burger').on('click', function() {
+        if (!isDesktop) {
             showMenu('.mobile-menu');
         } else {
             showMenu('.menu');
         }
-        
     });
 
     $('.menu__close').on('click', function() {
@@ -285,33 +262,172 @@ $().ready(() => {
         hideMenu('.mobile-menu');
     });
 
-    bindModalListeners([
-        { trigger: '.shops__map', modal: '.modal--map' },
-        { trigger: '.present__item-btn', modal: '.modal--enter' }
-    ])
+    $('.menu__product').on('mouseenter', function() {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+        $('.menu__products-pic').css('background-image', `url(${$(this).attr('data-pic')})`);
+    });
+
+    $('.mobile-menu__search-input').on('focus', function() {
+        $('.mobile-menu').addClass('focus');
+    });
+
+    $('.mobile-menu__search-input').on('blur', function() {
+        $('.mobile-menu').removeClass('focus');
+    });
+
+    // Футер
+
+    $('.footer__search-input').on('focus', function() {
+        $('.footer__search').addClass('focus');
+    });
+
+    $('.footer__search-input').on('blur', function() {
+        $('.footer__search').removeClass('focus');
+    });
+
+    $('.footer__search-reset').on('click', function() {
+        $('.footer__search').removeClass('focus');
+        $('.footer__search-input').val('');
+    });
+
+    // Модалки
+
+    $('.enter__form').on('submit', function(e) {
+        e.preventDefault();
+        formValidate({
+            form: document.querySelector('.enter__form'),
+            url: 'YOUR URL',
+            onLoadStart: () => {
+                console.log('load start');
+            },
+            onSuccess: () => {
+                console.log('success');
+            },
+            onError: () => {
+                console.log('error')
+            }
+        });
+    });
+
+    // ГЛАВНАЯ
 
     $('.shops__map').on('click', function() {
         initMap($(this).attr('data-coords'));
     });
 
-    if (isTablet() || isMobile()) {
-        $('.present__table').owlCarousel({
-            items: 2.3,
-            loop: false,
-            margin: 15,
-            nav: false,
-            dots: false,
-            responsive: {
+    initSlider('.recipes__slider', {
+        items: 3,
+        navText: [createNav('recipes').prevNav, createNav('recipes').nextNav],
+        navContainer: $('.recipes__nav'),
+        margin: 40,
+        responsive: {
             0: {
-                items: 1.3,
+                items: 1,
+                margin: 8
             },
-            870: {
-                items: 2.3,
+            490: {
+                items: 2
+            },
+            1200: {
+                items: 3,
             }
         }
+    });
 
+    // ПРОИЗВОДСТВО
+
+    initSlider('.news__slider', {
+        items: 3,
+        navText: [createNav('news').prevNav, createNav('news').nextNav],
+        navContainer: $('.news__nav'),
+        margin: 40,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            870: {
+                items: 3,
+            }
+        }
+    });
+
+    // Только для десктопа
+    if (isDesktop) {
+        if (pageName === 'Главная') {
+            initModel();
+
+            let offset = 500;
+
+            $(window).on('scroll', () => {
+                if ($(window).scrollTop() > $('.eco__item:eq(1)').offset().top - offset) {
+                    $('.eco__table-container').addClass('second');
+                }
+
+                if ($(window).scrollTop() > $('.eco__item:eq(2)').offset().top - offset) {
+                    $('.eco__table-container').addClass('third');
+                }
+            });
+        }
+    }
+
+    //Для десктопа и планшета
+    if (!isMobile) {
+        initAOS();
+
+        initSlider('.production__slider', {
+            items: 3,
+            navText: [createNav('production').prevNav, createNav('production').nextNav],
+            navContainer: $('.production__nav'),
+            margin: 40,
+            responsive: {
+                0: {
+                    items: 2,
+                },
+
+                1024: {
+                    items: 3,
+                }
+            }
         });
     }
 
+    // Для планшета и мобилки
 
+    if (!isDesktop) {
+        initSlider('.present__table', {
+            items: 2.3,
+            margin: 15,
+            nav: false,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+
+                768: {
+                    items: 2
+                }
+            }
+        });
+    }
+
+    // Для мобилки
+
+    if (isMobile) {
+        truncText('.recipes__slide-text', 75);
+    }
+}
+
+$().ready(() => {
+    contentFadeInOnReady();
+    setDeviceType();
+    setPageName();
+    initListeners();
+    bindModalListeners([
+        { trigger: '.shops__map', modal: '.modal--map' },
+        { trigger: '.present__item-btn', modal: '.modal--enter' }
+    ]);
+
+    truncText('.recipes__slide-text', 200);
+    truncText('.news__slide-title', 70);
 });
