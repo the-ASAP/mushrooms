@@ -12,6 +12,43 @@ html {
     margin: 0;
 }
 
+@mixin swipeDown($height, $speed:'.6s') {
+    & {
+        transition: all $speed ease-out;
+    }
+
+    &[data-aos="swipe-down"].aos-animate {
+        height: $height;
+    }
+}
+
+@mixin fadeUp() {
+    & {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all .6s ease-out .5s;
+    }
+
+
+    &.animated {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+        & {
+            opacity: 1;
+            transform: none;
+        }
+    }
+}
+
+@mixin sliderOverflow() {
+    & .owl-stage-outer {
+        overflow: visible !important;
+    }
+}
+
 // Стилизация скролбра
 
 %scrollbar::-webkit-scrollbar {
@@ -55,7 +92,7 @@ body {
     margin: 0;
     padding: 0;
     cursor: default;
-    background-color: $bgc;
+    background-color: $lightBrown;
     color: $gen;
     @extend %scrollbar;
 }
@@ -208,6 +245,7 @@ input {
     position: relative;
     padding: 0.2rem;
     cursor: pointer;
+    z-index: 3;
 
     &::after,
     &::before,
@@ -819,7 +857,7 @@ h2 {
 .burger {
     @extend %burger;
     position: absolute;
-    top: 7.5rem;
+    top: 12.5%;
     left: 7%;
 
     &:hover {
@@ -850,13 +888,10 @@ h2 {
         color: $cream;
     }
 
-
-
     &__nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
     }
 
     &__logo {
@@ -1120,8 +1155,6 @@ h2 {
     padding-bottom: 6.875rem;
 
     &__title {
-
-
         &-wrapper {
             display: flex;
             justify-content: space-between;
@@ -1138,24 +1171,43 @@ h2 {
 
     &__slider {
         margin-top: 6.25rem;
-        height: 31.25rem;
+        height: $productionSlideHeight;
         margin-bottom: 12.5rem;
-
-        * {
-            height: 31.25rem;
-        }
-
-        .owl-stage-outer {
-            overflow: visible !important;
-        }
+        @include sliderOverflow();
     }
 
     &__slide {
-        &-pic {
+        height: $productionSlideHeight;
+        position: relative;
+
+        &-box {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 0;
+            overflow: hidden;
+            opacity: 1;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            &.animated {
+                height: $productionSlideHeight;
+            }
+        }
+
+        &-pic {
             object-position: center;
+            width: auto;
+            z-index: 1;
+            position: absolute;
+            bottom: 0;
+            height: $productionSlideHeight;
+            left: 0;
+            object-fit: cover;
+
+            &-container {
+                position: relative;
+                height: $productionSlideHeight;
+            }
         }
 
         &-title {
@@ -1164,6 +1216,7 @@ h2 {
             width: 50%;
             margin-top: 1.25rem;
             height: auto;
+            @include fadeUp;
         }
     }
 
@@ -1227,10 +1280,7 @@ h2 {
 
     &__slider {
         margin-top: 6.25rem;
-
-        .owl-stage-outer {
-            overflow: visible !important;
-        }
+        @include sliderOverflow();
     }
 
     &__slider,
@@ -1240,6 +1290,8 @@ h2 {
 
     &__slide {
         overflow: hidden;
+        @include fadeUp;
+
 
         &-pic {
             height: 50%;
@@ -1453,6 +1505,7 @@ h2 {
         flex-direction: column;
         justify-content: space-between;
         padding: 1.25rem 1.875rem 1.875rem;
+        @include fadeUp;
 
         &--present {
             background: #fff;
@@ -1534,6 +1587,7 @@ h2 {
 
     &__item {
         width: 48%;
+        @include fadeUp;
     }
 
     &__map {
@@ -1830,7 +1884,6 @@ h2 {
 .crumbs {
     display: flex;
 
-
     &__crumb {
         font-weight: 600;
         font-size: 0.875rem;
@@ -1853,6 +1906,7 @@ h2 {
 
         &.active {
             opacity: 1;
+            pointer-events: none;
         }
 
         &:after {
@@ -1892,14 +1946,32 @@ h2 {
 
     &__photo-container {
         width: 35%;
-        height: 40rem;
+        height: $makingDirectorHeight;
+        position: relative;
+        overflow: hidden;
 
         img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
+            object-position: bottom;
+            width: auto;
+            z-index: 1;
+            position: absolute;
+            bottom: 0;
+            height: $makingDirectorHeight;
+            left: 0;
+            transition: all .4s ease-out;
         }
+    }
+
+    &__photo-box {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        opacity: 1;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        @include swipeDown($makingDirectorHeight);
     }
 
     &__text {
@@ -1947,6 +2019,7 @@ h2 {
 
     &__item {
         width: 47%;
+        @include fadeUp();
 
         &-title {
             font-weight: 500;
@@ -1969,12 +2042,9 @@ h2 {
     height: auto;
     padding-bottom: 11.875rem;
     overflow: hidden;
+    background: $lightBrown;
 
     &__title {
-        font-weight: 500;
-        font-size: 2.25rem;
-        line-height: 117.8%;
-        font-family: $font;
         width: 40%;
     }
 
@@ -2017,14 +2087,12 @@ h2 {
 
     &__slider {
         height: 35rem;
-
-        .owl-stage-outer {
-            overflow: visible !important;
-        }
+        @include sliderOverflow();
     }
 
     &__slide {
         height: 35rem;
+        @include fadeUp();
 
         &-pic {
             height: 55%;
@@ -2068,6 +2136,228 @@ h2 {
             i {
                 font-style: normal;
             }
+        }
+    }
+
+    &__mobile-all {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        text-align: center;
+        width: 100%;
+        margin-top: 50px;
+        padding: 30px 0;
+        display: none;
+    }
+}
+
+/*COOPERATION*/
+
+.cooperation {
+    height: auto;
+
+    &__tasks {
+        margin-top: 5.625rem;
+
+        &-title {
+            font-weight: 500;
+            font-size: 2rem;
+            line-height: 117.8%;
+            color: $accent;
+        }
+    }
+
+    &__table {
+        margin-top: 5.625rem;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 9.375rem;
+        border-bottom: 1px solid rgba(#5C8741, .3);
+    }
+
+    &__item {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        margin-bottom: 4.6875rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:nth-child(2n) {
+            padding-left: 50%;
+
+            .cooperation__item-text {
+                width: 35%;
+            }
+        }
+
+        &-num {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 11.375rem;
+            height: 11.375rem;
+            border-radius: 100%;
+            border: 2px solid $accent;
+
+            i {
+                font-size: 6rem;
+                font-family: $accentFont;
+                font-style: normal;
+                display: inline-block;
+                margin-top: -1.875rem;
+                color: $accent;
+            }
+        }
+
+        &-text {
+            font-size: 1rem;
+            line-height: 140%;
+            width: 25%;
+            margin-left: 2.5rem;
+        }
+    }
+}
+
+.supplies {
+    height: auto;
+
+    .wrapper {
+        border-bottom: 1px solid rgba(#5C8741, .3);
+        padding-bottom: 6.25rem;
+    }
+
+    &__title {
+        margin-bottom: 5.625rem;
+    }
+
+    &__table {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+
+    &__item {
+        width: 23%;
+        margin-right: 2.6%;
+        @include fadeUp;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &-pic {
+            width: 100%;
+            height: 18.75rem;
+            overflow: hidden;
+            margin-bottom: 1.875rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-position: center;
+                object-fit: cover;
+            }
+        }
+
+        &-text {
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 110.69%;
+        }
+    }
+}
+
+.request {
+    height: auto;
+
+    .wrapper {
+        padding: 4.0625rem 0 5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(#5C8741, .3);
+    }
+
+    &__title {
+        width: 60%;
+    }
+
+    &__docs {
+        width: 30%;
+    }
+
+    &__download {
+        &-btn {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2.1875rem;
+        }
+
+        &-icon {
+            width: 24px;
+            height: 33px;
+            margin-right: 1.5625rem;
+
+            svg {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        &-link {
+            font-size: 0.875rem;
+            padding-bottom: 6px;
+            position: relative;
+            line-height: 1rem;
+
+            &:after {
+                content: '';
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background: $accent;
+                height: 1px;
+            }
+        }
+    }
+
+    &__request-btn {
+        @extend %green-btn;
+        margin: 2.5rem 0 0;
+        width: 100%;
+    }
+}
+
+.docs {
+    height: auto;
+    padding-bottom: 10.625rem;
+    overflow: hidden;
+
+    &__title-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__slider {
+        margin-top: 3.4375rem;
+        height: 32.5rem;
+        @include sliderOverflow();
+    }   
+
+    &__slide {
+        height: 32.5rem;
+
+        &-pic {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
         }
     }
 }

@@ -27,9 +27,11 @@
     "gulp-imagemin": "^5.0.3",
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^4.0.2",
+    "gulp-ssh-deploy": "^0.1.0",
     "gulp-uglyfly": "^1.4.2"
   },
   "dependencies": {
+    "gulp-cache-bust": "^1.4.1",
     "imagemin-jpeg-recompress": "^6.0.0",
     "imagemin-svgo": "^7.0.0"
   }

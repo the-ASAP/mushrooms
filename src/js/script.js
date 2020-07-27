@@ -1,4 +1,5 @@
 let isDesktop, isTablet, isMobile = false;
+let animationsArray = [];
 
 // удаляемпрелодер при загрузке страницы
 const contentFadeInOnReady = () => {
@@ -83,10 +84,10 @@ const initAOS = () => {
 
 
         // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-        offset: 120, // offset (in px) from the original trigger point
+        offset: 200, // offset (in px) from the original trigger point
         delay: 0, // values from 0 to 3000, with step 50ms
         duration: 600, // values from 0 to 3000, with step 50ms
-        easing: 'ease', // default easing for AOS animations
+        easing: 'ease-out', // default easing for AOS animations
         once: true, // whether animation should happen only once - while scrolling down
         mirror: false, // whether elements should animate out while scrolling past them
         anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
@@ -230,7 +231,7 @@ function initSlider(selector, params = {}) {
     let defaultParams = {
         loop: false,
         dots: false,
-         nav: true,
+        nav: true,
         lazyLoad: true,
         smartSpeed: 600,
     }
@@ -241,8 +242,37 @@ function initSlider(selector, params = {}) {
     });
 }
 
+function initAnimationsArray(elems) {
+    animationsArray = elems;
+}
+
+function addDataDelayAttr(elems) {
+    elems.forEach(elem => {
+        if ($(elem).length > 0) {
+            $(elem).each((i, item) => {
+                $(item).attr('data-delay', i * 100);
+            });
+        }
+    })
+}
+
+function triggerSwipeDownAnimation(elems, offset = "1000") {
+    elems.forEach(elem => {
+        if ($(elem).length > 0) {
+            if ($(window).scrollTop() > ($(elem).offset().top - offset)) {
+                $(elem).each((i, item) => {
+                    setTimeout(() => {
+                        $(item).addClass('animated');
+                    }, $(item).attr('data-delay'))
+                });
+            }
+        }
+    });
+}
+
 function initListeners() {
     // ОБЩИЕ ОБРАБОТЧИКИ
+
 
     // Меню
 
@@ -345,9 +375,37 @@ function initListeners() {
         responsive: {
             0: {
                 items: 1,
+                margin: 8
             },
-            870: {
-                items: 3,
+            768: {
+                items: 2,
+                margin: 30
+            },
+            1024: {
+                margin: 40
+            }
+        }
+    });
+
+    // СОТРУДНИЧЕСТВО
+
+     initSlider('.docs__slider', {
+        items: 3,
+        navText: [createNav('docs').prevNav, createNav('docs').nextNav],
+        navContainer: $('.docs__nav'),
+        margin: 40,
+        autoWidth:true,
+        responsive: {
+            0: {
+                items: 1,
+                margin: 8
+            },
+            768: {
+                items: 2,
+                margin: 30
+            },
+            1024: {
+                margin: 40
             }
         }
     });
@@ -369,12 +427,27 @@ function initListeners() {
                 }
             });
         }
+        //массив элементов, которым нужна последовательная анимация или где aos-анимация не работает (слайдеры)
+        initAnimationsArray([$('.production__slide-box'),
+            $('.production__slide-title'),
+            $('.recipes__slide'),
+            $('.present__item'),
+            $('.shops__item'),
+            $('.features__item'),
+            $('.news__slide'),
+            $('.supplies__table')
+        ]);
+        //добавление data-атрибута с задержкой анимации
+        addDataDelayAttr(animationsArray);
+
+        $(window).on('scroll', function() {
+            // обработчик срабатывания анимации на элементах из массива выше
+            triggerSwipeDownAnimation(animationsArray);
+        })
     }
 
     //Для десктопа и планшета
     if (!isMobile) {
-        initAOS();
-
         initSlider('.production__slider', {
             items: 3,
             navText: [createNav('production').prevNav, createNav('production').nextNav],
@@ -423,6 +496,7 @@ $().ready(() => {
     setDeviceType();
     setPageName();
     initListeners();
+    initAOS();
     bindModalListeners([
         { trigger: '.shops__map', modal: '.modal--map' },
         { trigger: '.present__item-btn', modal: '.modal--enter' }
@@ -430,4 +504,8 @@ $().ready(() => {
 
     truncText('.recipes__slide-text', 200);
     truncText('.news__slide-title', 70);
+
+
+
+
 });
