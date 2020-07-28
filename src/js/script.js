@@ -389,23 +389,24 @@ function initListeners() {
 
     // СОТРУДНИЧЕСТВО
 
-     initSlider('.docs__slider', {
+    initSlider('.docs__slider', {
         items: 3,
         navText: [createNav('docs').prevNav, createNav('docs').nextNav],
         navContainer: $('.docs__nav'),
         margin: 40,
-        autoWidth:true,
+        autoWidth: true,
         responsive: {
             0: {
                 items: 1,
-                margin: 8
+                margin: 8,
+                 autoWidth: false
             },
             768: {
-                items: 2,
-                margin: 30
+                items: 3,
+                autoWidth: true
             },
-            1024: {
-                margin: 40
+            1400: {
+                 margin: 40
             }
         }
     });
@@ -435,7 +436,8 @@ function initListeners() {
             $('.shops__item'),
             $('.features__item'),
             $('.news__slide'),
-            $('.supplies__table')
+            $('.supplies__item'),
+            $('.docs__slide')
         ]);
         //добавление data-атрибута с задержкой анимации
         addDataDelayAttr(animationsArray);
@@ -504,8 +506,4 @@ $().ready(() => {
 
     truncText('.recipes__slide-text', 200);
     truncText('.news__slide-title', 70);
-
-
-
-
 });

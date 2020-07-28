@@ -1,6 +1,7 @@
 @import 'root';
 @import 'media';
 @import 'keyframes';
+@import 'mixins';
 
 html {
     font-size: 16px;
@@ -12,42 +13,7 @@ html {
     margin: 0;
 }
 
-@mixin swipeDown($height, $speed:'.6s') {
-    & {
-        transition: all $speed ease-out;
-    }
 
-    &[data-aos="swipe-down"].aos-animate {
-        height: $height;
-    }
-}
-
-@mixin fadeUp() {
-    & {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all .6s ease-out .5s;
-    }
-
-
-    &.animated {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    @media (max-width: 768px) {
-        & {
-            opacity: 1;
-            transform: none;
-        }
-    }
-}
-
-@mixin sliderOverflow() {
-    & .owl-stage-outer {
-        overflow: visible !important;
-    }
-}
 
 // Стилизация скролбра
 
@@ -1952,13 +1918,15 @@ h2 {
 
         img {
             object-position: bottom;
-            width: auto;
+            width: 100%;
             z-index: 1;
             position: absolute;
             bottom: 0;
+            right: 0;
             height: $makingDirectorHeight;
             left: 0;
             transition: all .4s ease-out;
+            object-fit: cover;
         }
     }
 
@@ -2005,6 +1973,8 @@ h2 {
 
 .features {
     background: $accent;
+    height: auto;
+    padding-bottom: 10rem;
 
     * {
         color: $cream;
@@ -2014,12 +1984,12 @@ h2 {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        height: 80vh;
     }
 
     &__item {
         width: 47%;
-        @include fadeUp();
+        margin-bottom: 7rem;
+        @include fadeUp;
 
         &-title {
             font-weight: 500;
@@ -2157,6 +2127,14 @@ h2 {
 
 .cooperation {
     height: auto;
+
+    .wrapper {
+        padding-top: 2.5rem;
+    }
+
+    &__title {
+        margin-top: 5.625rem;
+    }
 
     &__tasks {
         margin-top: 5.625rem;
@@ -2352,6 +2330,7 @@ h2 {
 
     &__slide {
         height: 32.5rem;
+         @include fadeUp;
 
         &-pic {
             height: 100%;

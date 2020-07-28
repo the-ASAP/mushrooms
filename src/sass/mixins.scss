@@ -1,0 +1,36 @@
+@mixin swipeDown($height, $speed:'.6s') {
+    & {
+        transition: all $speed ease-out;
+    }
+
+    &[data-aos="swipe-down"].aos-animate {
+        height: $height;
+    }
+}
+
+@mixin fadeUp() {
+    & {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all .6s ease-out .5s;
+    }
+
+
+    &.animated {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+        & {
+            opacity: 1;
+            transform: none;
+        }
+    }
+}
+
+@mixin sliderOverflow() {
+    & .owl-stage-outer {
+        overflow: visible !important;
+    }
+}

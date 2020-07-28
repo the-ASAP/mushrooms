@@ -17,18 +17,21 @@
     "@babel/preset-env": "^7.5.5",
     "browser-sync": "^2.26.3",
     "del": "^3.0.0",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-concat-css": "^3.1.0",
+    "gulp-deploy-ftp": "^1.0.1",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-imagemin": "^5.0.3",
     "gulp-plumber": "^1.2.1",
+    "gulp-rsync": "0.0.9",
     "gulp-sass": "^4.0.2",
     "gulp-ssh-deploy": "^0.1.0",
-    "gulp-uglyfly": "^1.4.2"
+    "gulp-uglyfly": "^1.4.2",
+    "vinyl-ftp": "^0.6.1"
   },
   "dependencies": {
     "gulp-cache-bust": "^1.4.1",
