@@ -34,3 +34,28 @@
         overflow: visible !important;
     }
 }
+
+
+@mixin placeholder($color, $fontSize:14px) {
+    &::-webkit-input-placeholder {
+        color: $color;
+        font-size: $fontSize;
+    }
+
+    &::-moz-placeholder {
+        color: $color;
+        font-size: $fontSize;
+    }
+
+    /* Firefox 19+ */
+    &:-moz-placeholder {
+        color: $color;
+        font-size: $fontSize;
+    }
+
+    /* Firefox 18- */
+    &:-ms-input-placeholder {
+        color: $color;
+        font-size: $fontSize;
+    }
+}

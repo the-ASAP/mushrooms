@@ -852,7 +852,6 @@
 }
 
 @media (max-width: 1024px) {
-
     .second-menu__list,
     .second-menu__icons {
         display: none;
@@ -1090,8 +1089,14 @@
 
 /*COOPERATION MEDIA*/
 
-@media (max-width: 1200px) {
+@media (max-width: 1250px) {
+.cooperation-request .modal__close {
+    top: 3%;
+    right: 3%;
+}
+}
 
+@media (max-width: 1200px) {
     .docs__slider,
     .docs__slide {
         height: 470px;
@@ -1099,6 +1104,30 @@
 }
 
 @media (max-width: 1024px) {
+        .cooperation-request {
+    .modal__box {
+        width: 70%;
+        padding: 5% 3%;
+    }
+}
+
+.cooperation-request__title {
+    font-size: 24px;
+}
+
+.cooperation-request__input:not(.cooperation-request__textarea) {
+    height: 60px;
+    @include placeholder($text, 12px)
+}
+
+.cooperation-request__textarea {
+      @include placeholder($text, 12px)
+}
+
+.cooperation-request__submit-btn {
+    margin-top: 10px;
+}
+
     .supplies__item {
         width: 47%;
         margin-bottom: 30px;
@@ -1150,6 +1179,17 @@
 }
 
 @media (max-width: 620px) {
+     .cooperation-request {
+    .modal__box {
+        width: 80%;
+        padding: 8% 3%;
+    }
+}
+
+.cooperation-request__title, .cooperation-request__form {
+    width: 75%;
+}
+
     .cooperation__item-num {
         width: 120px;
         height: 120px;
@@ -1186,6 +1226,38 @@
 
 
 @media (max-width: 490px) {
+         .cooperation-request {
+    .modal__box {
+        width: 90%;
+        padding: 9% 4%;
+    }
+}
+
+.success__title {
+    font-size: 56px;
+}
+
+.cooperation-request__title, .cooperation-request__form {
+    width: 80%;
+}
+
+.cooperation-request__title {
+    font-size: 20px;
+}
+
+.cooperation-request__input:not(.cooperation-request__textarea) {
+    height: 50px;
+}
+
+.cooperation-request .modal__close {
+    height: 20px;
+    width: 20px;
+}
+
+.cooperation-request .modal__close {
+    top: 15px;
+    right: 15px;
+}
 
     .cooperation__tasks,
     .cooperation__title {
@@ -1271,5 +1343,23 @@ line-height: 120.19%;
 
     .docs {
         padding-bottom: 100px;
+    }
+}
+
+@media (max-width: 350px) {
+    .success__title {
+    font-size: 42px;
+    line-height: 45px;
+}
+    .cooperation-request__form, .cooperation-request__title {
+        width: 90%;
+    }
+
+    .cooperation-request__title {
+        font-size: 16px;
+    }
+
+    .cooperation-request__input:not(.cooperation-request__textarea) {
+        height: 45px;
     }
 }

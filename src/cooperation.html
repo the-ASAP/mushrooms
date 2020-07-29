@@ -25,6 +25,28 @@
             <div class="map__wrapper" id="map"></div>
         </div>
     </div>
+    <div class="modal cooperation-request">
+        <div class="modal__box">
+            <button class="modal__close"></button>
+            <div class="modal__content">
+                 <p class="cooperation-request__title">Заявка на партнерство</p>
+            <form method="POST" class="cooperation-request__form" name="cooperation-request">
+                <input type="text" name="name" class="cooperation-request__input" placeholder="Имя" data-role='required'>
+                <input type="text" name="phone" class="cooperation-request__input" placeholder="Телефон" data-role='phone required'>
+                <input type="text" name="email" class="cooperation-request__input" placeholder="E-mail" data-role='email required'>
+                <textarea name="message" class="cooperation-request__input cooperation-request__textarea" placeholder="Комментарий"></textarea>
+                <button type="submit" class="cooperation-request__submit-btn">
+                    Отправить
+                </button>
+            </form>
+            </div>
+            <div class="success">
+                <p class="success__title">Спасибо за заявку</p>
+                <p class="success__subtitle">Наш менеджер скоро свяжется с вами</p>
+                <button type="button" class="success__btn">Понятно</button>
+            </div>
+        </div>
+    </div>
     <div class="modal modal--enter enter">
         <div class="modal__box">
             <button class="modal__close"></button>
@@ -75,9 +97,9 @@
         </div>
         <div class="mobile-menu__content">
             <div class="mobile-menu__nav">
-                <a href="#" class="mobile-menu__link">Производство</a>
+                <a href="making.html" class="mobile-menu__link">Производство</a>
                 <a href="#" class="mobile-menu__link">Все продукты</a>
-                <a href="#" class="mobile-menu__link">Сотрудничество</a>
+                <a href="cooperation.html" class="mobile-menu__link">Сотрудничество</a>
                 <a href="#" class="mobile-menu__link">Новости</a>
                 <a href="#" class="mobile-menu__link">Рецепты</a>
                 <a href="#" class="mobile-menu__link">Вакансии</a>
@@ -153,8 +175,8 @@
         <div class="menu__content">
             <div class="menu__nav">
                 <div class="menu__nav-list">
-                    <a href="#" class="menu__nav-link">Производство</a>
-                    <a href="#" class="menu__nav-link">Сотрудничество</a>
+                    <a href="making.html" class="menu__nav-link">Производство</a>
+                    <a href="cooperation.html" class="menu__nav-link">Сотрудничество</a>
                     <a href="#" class="menu__nav-link">Новости</a>
                     <a href="#" class="menu__nav-link">Рецепты</a>
                     <a href="#" class="menu__nav-link">Вакансии</a>
@@ -195,13 +217,13 @@
             <div class="second-menu__logo" style="background-image: url(img/mobile-logo.png);"></div>
             <ul class="second-menu__list">
                 <li class="second-menu__item">
-                    <a href="#" class="second-menu__link">Производство</a>
+                    <a href="making.html" class="second-menu__link">Производство</a>
                 </li>
                 <li class="second-menu__item">
                     <a href="#" class="second-menu__link">Все продукты</a>
                 </li>
                 <li class="second-menu__item">
-                    <a href="#" class="second-menu__link">Сотрудничество</a>
+                    <a href="cooperation.html" class="second-menu__link">Сотрудничество</a>
                 </li>
                 <li class="second-menu__item">
                     <a href="#" class="second-menu__link">Контакты</a>
@@ -322,25 +344,24 @@
             </div>
         </div>
     </section>
-     <section class="docs">
+    <section class="docs">
         <div class="wrapper wrapper--docs">
             <div class="docs__title-wrapper">
                 <h2 class="docs__title" data-aos="fade-up">Сертификаты</h2>
-                 <div class="docs__nav" data-aos="fade-up">
+                <div class="docs__nav" data-aos="fade-up">
                 </div>
             </div>
-            
             <div class="docs__slider owl-carousel">
                 <div class="docs__slide">
                     <img src="img/docs/docs1.jpg" alt="" class="docs__slide-pic">
                 </div>
-                 <div class="docs__slide">
+                <div class="docs__slide">
                     <img src="img/docs/docs2.jpg" alt="" class="docs__slide-pic">
                 </div>
-                 <div class="docs__slide">
+                <div class="docs__slide">
                     <img src="img/docs/docs3.jpg" alt="" class="docs__slide-pic">
                 </div>
-                 <div class="docs__slide">
+                <div class="docs__slide">
                     <img src="img/docs/docs1.jpg" alt="" class="docs__slide-pic">
                 </div>
             </div>

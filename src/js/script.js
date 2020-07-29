@@ -1,16 +1,14 @@
 let isDesktop, isTablet, isMobile = false;
 let animationsArray = [];
 
-// удаляемпрелодер при загрузке страницы
+// удаляем прелодер при загрузке страницы
 const contentFadeInOnReady = () => {
     $('.preloader').fadeOut(150, () => {
         $('.preloader').remove();
     });
 };
 
-// Открытие модальных окон
-
-
+// Открытие и закрытие модальных окон
 const bindModalListeners = modalArr => {
     modalArr.forEach(obj => {
         let jQTrigger = $(obj.trigger);
@@ -81,7 +79,6 @@ const initAOS = () => {
         disableMutationObserver: false, // disables automatic mutations' detections (advanced)
         debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
         throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
 
         // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
         offset: 200, // offset (in px) from the original trigger point
@@ -270,9 +267,68 @@ function triggerSwipeDownAnimation(elems, offset = "1000") {
     });
 }
 
+function sendForm(e, form, url, onSuccess, onError, onStart) {
+    console.log('here')
+    e.preventDefault();
+    formValidate({
+        form: document.querySelector(form),
+        url: url,
+        onLoadStart: () => {
+            onStart();
+        },
+        onSuccess: () => {
+            onSuccess();
+        },
+        onError: () => {
+            onError();
+        }
+    });
+}
+
+function showSuccessModal(modalForm) {
+    let modal = $(modalForm).closest('.modal');
+    let modalContent = modal.find('.modal__content');
+
+    let setSuccessStyles = (width, height) => {
+        return {
+            'height': height,
+            'width': width,
+            'display': 'flex',
+            'flex-direction': 'column',
+            'justify-content': 'center',
+            'align-items': 'center'
+        };
+    }
+
+    let modalContentHeight = `${modalContent.innerHeight()}px`;
+    let modalContentWidth = `${modalContent.innerWidth()}px`;
+    let btnWidth = `${modal.find('button[type="submit"]').innerWidth()}px`;
+
+    modalContent.fadeOut(400, function() {
+        modal.find('.success').css(setSuccessStyles(modalContentWidth, modalContentHeight));
+        modal.find('.success__btn').css('width', btnWidth);
+    });
+
+    $(modal).on('click', function(e) {
+        if ($(e.target).hasClass('modal')) {
+            setTimeout(() => {
+                modal.find('.success').css('display', 'none');
+                modalContent.show();
+            }, 500);
+        }
+    });
+
+    $('.success__btn, .modal__close').on('click', function() {
+        $(this).closest('.modal').removeClass('active');
+        setTimeout(() => {
+            modal.find('.success').css('display', 'none');
+            modalContent.show();
+        }, 500);
+    });
+}
+
 function initListeners() {
     // ОБЩИЕ ОБРАБОТЧИКИ
-
 
     // Меню
 
@@ -324,20 +380,7 @@ function initListeners() {
     // Модалки
 
     $('.enter__form').on('submit', function(e) {
-        e.preventDefault();
-        formValidate({
-            form: document.querySelector('.enter__form'),
-            url: 'YOUR URL',
-            onLoadStart: () => {
-                console.log('load start');
-            },
-            onSuccess: () => {
-                console.log('success');
-            },
-            onError: () => {
-                console.log('error')
-            }
-        });
+        sendForm(e, '.enter__form', 'УРЛ ДЛЯ ВХОДА В ЛИЧНЫЙ КАБИНЕТ');
     });
 
     // ГЛАВНАЯ
@@ -399,17 +442,28 @@ function initListeners() {
             0: {
                 items: 1,
                 margin: 8,
-                 autoWidth: false
+                autoWidth: false
+            },
+            490: {
+                items: 2,
             },
             768: {
                 items: 3,
                 autoWidth: true
             },
             1400: {
-                 margin: 40
+                margin: 40
             }
         }
     });
+
+    $('.cooperation-request__form').on('submit', function(e) {
+        e.preventDefault();
+        showSuccessModal($(this));
+        sendForm(e, '.cooperation-request__form', 
+            'https://cors-anywhere.herokuapp.com/http://asgard.asap-lp.ru/categories/#doma/',
+            showSuccessModal($(this)), showSuccessModal($(this)), showSuccessModal($(this)));
+    })
 
     // Только для десктопа
     if (isDesktop) {
@@ -501,9 +555,11 @@ $().ready(() => {
     initAOS();
     bindModalListeners([
         { trigger: '.shops__map', modal: '.modal--map' },
-        { trigger: '.present__item-btn', modal: '.modal--enter' }
+        { trigger: '.present__item-btn', modal: '.modal--enter' },
+        { trigger: '.request__request-btn', modal: '.cooperation-request' }
     ]);
 
     truncText('.recipes__slide-text', 200);
     truncText('.news__slide-title', 70);
+
 });

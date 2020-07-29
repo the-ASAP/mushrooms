@@ -29,32 +29,10 @@ html {
 %scrollbar::-webkit-scrollbar-thumb {
     border-left: 1px solid #F2F2F2;
     background: $accent;
-
 }
-
-@mixin placeholder($color) {
-    &::-webkit-input-placeholder {
-        color: $color;
-    }
-
-    &::-moz-placeholder {
-        color: $color;
-    }
-
-    /* Firefox 19+ */
-    &:-moz-placeholder {
-        color: $color;
-    }
-
-    /* Firefox 18- */
-    &:-ms-input-placeholder {
-        color: $color;
-    }
-}
-
 
 body {
-    font-family: $font; // FF MAIN
+    font-family: $font;
     margin: 0;
     padding: 0;
     cursor: default;
@@ -67,7 +45,6 @@ section {
     position: relative;
     width: 100%;
     height: 100vh;
-
 }
 
 p {
@@ -279,14 +256,48 @@ input {
         padding: 2rem 3rem;
         box-sizing: border-box;
         position: relative;
-        background-color: $bgc;
+        background-color: $lightBrown;
         max-height: 100%;
         max-width: 100%;
+        overflow-x: hidden;
+        @extend %scrollbar;
     }
 
     // Кнопка закрытия
     &__close {
         @extend %close-btn;
+    }
+}
+
+.success {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: none;
+    position: relative;
+
+    &__title {
+        font-size: 5.25rem;
+        line-height: 5.0625rem;
+        font-family: $accentFont;
+        color: $accent;
+        margin-bottom: 2.8125rem;
+    }
+
+    &__subtitle {
+        font-size: 1rem;
+        line-height: 140%;
+        margin-bottom: 30%;
+    }
+
+    &__btn {
+        @extend %green-btn;
+        width: 100%;
+        margin-top: 7.5rem;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
@@ -383,6 +394,10 @@ h2 {
         margin-bottom: 1.5625rem;
         padding: 0 25px;
         font-size: 0.875rem;
+
+        &.error {
+            border: 1px solid red;
+        }
     }
 
     &__inputs-container {
@@ -2125,6 +2140,64 @@ h2 {
 
 /*COOPERATION*/
 
+.cooperation-request {
+    .modal__box {
+        width: 45rem;
+        padding: 5% 3%;
+    }
+
+    .modal__close {
+        width: 25px;
+        height: 25px;
+        top: 2rem;
+        right: 3rem;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 2rem;
+        line-height: 117.8%;
+        width: 67%;
+        margin: 0 auto 2.8125rem;
+    }
+
+    &__form {
+        display: flex;
+        flex-wrap: wrap;
+        width: 67%;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    &__input {
+        background: #FEFEFE;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        height: 4.4375rem;
+        width: 100%;
+        margin-bottom: 20px;
+        padding-left: 1.5625rem;
+        background: transparent;
+        @include placeholder($text);
+
+        &.error {
+            border: 1px solid red;
+        }
+    }
+
+    &__textarea {
+        padding-top: 1.5625rem;
+        height: 9.375rem;
+        resize: none;
+    }
+
+    &__submit-btn {
+        @extend %green-btn;
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
 .cooperation {
     height: auto;
 
@@ -2326,11 +2399,11 @@ h2 {
         margin-top: 3.4375rem;
         height: 32.5rem;
         @include sliderOverflow();
-    }   
+    }
 
     &__slide {
         height: 32.5rem;
-         @include fadeUp;
+        @include fadeUp;
 
         &-pic {
             height: 100%;
@@ -2338,5 +2411,67 @@ h2 {
             object-fit: contain;
             object-position: center;
         }
+    }
+}
+
+/*RECIPES PAGE*/
+
+.recipes-header {
+    height: auto;
+    padding-bottom: 10.625rem;
+    &__title {
+        margin-bottom: 5rem;
+        margin-top: 5.625rem;
+    }
+
+    &__table {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .recipes__slide {
+        width: 32%;
+        margin-bottom: 6.25rem;
+        margin-right: 0.9375rem;
+
+
+        &:nth-child(5n+4), &:nth-child(5n+5) {
+             width: 48.6%;
+              display: flex;
+              height: 28rem;
+            
+            .recipes__slide-pic {
+                height: 100%;
+                width: 47%;
+            }
+
+            .recipes__slide-content {
+                height: 100%;
+                width: 53%;
+                padding: 2.1875rem 2.5rem 2.8125rem;
+            }
+
+            .recipes__slide-info {
+                flex-direction: column;
+                align-items: flex-start;
+
+            }
+
+            .recipes__slide-time {
+                margin-bottom: 1.25rem;
+            }
+
+            .recipes__slide-time, .recipes__slide-portion {
+                width: 100%;
+            }
+        }
+    }
+
+    &__more-btn {
+        @extend %green-btn;
+    }
+
+    .recipes__slide-title {
+        height: 70px;
     }
 }
