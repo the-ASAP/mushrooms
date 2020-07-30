@@ -794,7 +794,7 @@
     .delivery__item-title {
         font-size: 18px;
     }
-    
+
     .delivery__item-btn {
         font-size: 14px;
     }
@@ -852,6 +852,7 @@
 }
 
 @media (max-width: 1024px) {
+
     .second-menu__list,
     .second-menu__icons {
         display: none;
@@ -1090,13 +1091,14 @@
 /*COOPERATION MEDIA*/
 
 @media (max-width: 1250px) {
-.cooperation-request .modal__close {
-    top: 3%;
-    right: 3%;
-}
+    .cooperation-request .modal__close {
+        top: 3%;
+        right: 3%;
+    }
 }
 
 @media (max-width: 1200px) {
+
     .docs__slider,
     .docs__slide {
         height: 470px;
@@ -1104,29 +1106,29 @@
 }
 
 @media (max-width: 1024px) {
-        .cooperation-request {
-    .modal__box {
-        width: 70%;
-        padding: 5% 3%;
+    .cooperation-request {
+        .modal__box {
+            width: 70%;
+            padding: 5% 3%;
+        }
     }
-}
 
-.cooperation-request__title {
-    font-size: 24px;
-}
+    .cooperation-request__title {
+        font-size: 24px;
+    }
 
-.cooperation-request__input:not(.cooperation-request__textarea) {
-    height: 60px;
-    @include placeholder($text, 12px)
-}
+    .cooperation-request__input:not(.cooperation-request__textarea) {
+        height: 60px;
+        @include placeholder($text, 12px)
+    }
 
-.cooperation-request__textarea {
-      @include placeholder($text, 12px)
-}
+    .cooperation-request__textarea {
+        @include placeholder($text, 12px)
+    }
 
-.cooperation-request__submit-btn {
-    margin-top: 10px;
-}
+    .cooperation-request__submit-btn {
+        margin-top: 10px;
+    }
 
     .supplies__item {
         width: 47%;
@@ -1179,16 +1181,17 @@
 }
 
 @media (max-width: 620px) {
-     .cooperation-request {
-    .modal__box {
-        width: 80%;
-        padding: 8% 3%;
+    .cooperation-request {
+        .modal__box {
+            width: 80%;
+            padding: 8% 3%;
+        }
     }
-}
 
-.cooperation-request__title, .cooperation-request__form {
-    width: 75%;
-}
+    .cooperation-request__title,
+    .cooperation-request__form {
+        width: 75%;
+    }
 
     .cooperation__item-num {
         width: 120px;
@@ -1226,38 +1229,39 @@
 
 
 @media (max-width: 490px) {
-         .cooperation-request {
-    .modal__box {
-        width: 90%;
-        padding: 9% 4%;
+    .cooperation-request {
+        .modal__box {
+            width: 90%;
+            padding: 9% 4%;
+        }
     }
-}
 
-.success__title {
-    font-size: 56px;
-}
+    .success__title {
+        font-size: 56px;
+    }
 
-.cooperation-request__title, .cooperation-request__form {
-    width: 80%;
-}
+    .cooperation-request__title,
+    .cooperation-request__form {
+        width: 80%;
+    }
 
-.cooperation-request__title {
-    font-size: 20px;
-}
+    .cooperation-request__title {
+        font-size: 20px;
+    }
 
-.cooperation-request__input:not(.cooperation-request__textarea) {
-    height: 50px;
-}
+    .cooperation-request__input:not(.cooperation-request__textarea) {
+        height: 50px;
+    }
 
-.cooperation-request .modal__close {
-    height: 20px;
-    width: 20px;
-}
+    .cooperation-request .modal__close {
+        height: 20px;
+        width: 20px;
+    }
 
-.cooperation-request .modal__close {
-    top: 15px;
-    right: 15px;
-}
+    .cooperation-request .modal__close {
+        top: 15px;
+        right: 15px;
+    }
 
     .cooperation__tasks,
     .cooperation__title {
@@ -1295,7 +1299,7 @@
 
     .supplies__item-text {
         font-size: 18px;
-line-height: 120.19%;
+        line-height: 120.19%;
     }
 
     .supplies .wrapper {
@@ -1326,14 +1330,15 @@ line-height: 120.19%;
     .request__download-btn {
         align-items: flex-end;
     }
-    
+
     .request__request-btn {
         margin-top: 50px;
         width: 100%;
         font-size: 14px;
     }
-    
-    .docs__slide, .docs__slider {
+
+    .docs__slide,
+    .docs__slider {
         height: 380px;
     }
 
@@ -1348,10 +1353,12 @@ line-height: 120.19%;
 
 @media (max-width: 350px) {
     .success__title {
-    font-size: 42px;
-    line-height: 45px;
-}
-    .cooperation-request__form, .cooperation-request__title {
+        font-size: 42px;
+        line-height: 45px;
+    }
+
+    .cooperation-request__form,
+    .cooperation-request__title {
         width: 90%;
     }
 
@@ -1361,5 +1368,233 @@ line-height: 120.19%;
 
     .cooperation-request__input:not(.cooperation-request__textarea) {
         height: 45px;
+    }
+}
+
+/*RECIPES MEDIA*/
+
+@media (max-width: 1200px) {
+    .recipes-header {
+        .recipes__slide {
+            width: 31%;
+            margin-right: 17px;
+        }
+
+        .recipes__slide-title {
+            height: 60px;
+        }
+
+        .recipes__slide,
+        .recipes__slider {
+            height: 450px;
+        }
+
+        .recipes__slide:nth-child(5n+4),
+        .recipes__slide:nth-child(5n+5) {
+            width: 47.6%;
+            height: 320px;
+            overflow: hidden;
+
+            .recipes__slide-content {
+                padding: 25px;
+            }
+
+            .recipes__slide-time-container {
+                padding-top: 15px;
+            }
+        }
+
+        .recipes__slide-title {
+            font-size: 18px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .recipes-header {
+        .recipes__slide {
+            width: 47%;
+            margin-right: 0;
+            margin-bottom: 3.25rem;
+            height: 470px;
+        }
+
+        &__table {
+            justify-content: space-between;
+        }
+
+        .recipes__slide-text {
+            font-size: 14px;
+        }
+
+        .recipes__slide-portion-icon,
+        .recipes__slide-time-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+        }
+
+        .recipes__slide:nth-child(5n+4),
+        .recipes__slide:nth-child(5n+5) {
+            display: block;
+            height: 470px;
+            width: 47%;
+
+            .recipes__slide-pic,
+            .recipes__slide-content {
+                width: 100%;
+                height: 50%;
+            }
+
+            .recipes__slide-content {
+                padding: 1.4375rem;
+            }
+
+            .recipes__slide-info {
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+
+            .recipes__slide-time {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .recipes-header {
+
+        .recipes__slide,
+        .recipes__slide:nth-child(5n+4),
+        .recipes__slide:nth-child(5n+5) {
+            height: 450px;
+
+            .recipes__slide-pic {
+                height: 40%;
+            }
+
+            .recipes__slide-content {
+                height: 60%;
+            }
+
+            .recipes__slide-title {
+                height: 50px;
+            }
+
+            .recipes__slide-text {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    .recipes-header {
+        padding-bottom: 100px;
+
+        .recipes__slide,
+        .recipes__slide:nth-child(5n+4),
+        .recipes__slide:nth-child(5n+5) {
+            height: 500px;
+            width: 100%;
+
+            .recipes__slide-pic {
+                height: 50%;
+            }
+
+            .recipes__slide-content {
+                height: 50%;
+            }
+
+            .recipes__slide-portion-title,
+            .recipes__slide-time-title,
+            .recipes__slide-portion-label,
+            .recipes__slide-time-label {
+                font-size: 14px;
+            }
+
+            .recipes__slide-portion-icon,
+            .recipes__slide-time-icon {
+                height: 25px;
+                width: 25px;
+
+            }
+        }
+
+        .recipes__slide:last-child {
+            margin-bottom: 0;
+        }
+
+        &__more-btn {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            text-align: center;
+            width: 100%;
+            margin-top: 50px;
+            padding: 30px 0;
+            background: transparent;
+            color: $accent;
+        }
+    }
+}
+
+@media (max-width: 490px) {
+    .recipes-header {
+        &__title {
+            margin: 40px 0;
+        }
+
+        .recipes__slide,
+        .recipes__slide:nth-child(5n+4),
+        .recipes__slide:nth-child(5n+5) {
+            height: 550px;
+
+            .recipes__slide-content {
+                padding: 25px 35px 45px 20px;
+            }
+
+            .recipes__slide-portion-label,
+            .recipes__slide-portion-title,
+            .recipes__slide-time-label,
+            .recipes__slide-time-title {
+                font-size: 12px;
+            }
+
+            .recipes__slide-portion,
+            .recipes__slide-time {
+                width: 45%;
+            }
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    .recipes-header {
+
+        .recipes__slide,
+        .recipes__slide:nth-child(5n+4),
+        .recipes__slide:nth-child(5n+5) {
+            height: 500px;
+
+            .recipes__slide-pic {
+                height: 40%;
+            }
+
+            .recipes__slide-content {
+                height: 60%;
+                padding: 20px 30px 30px 15px;
+            }
+
+            .recipes__slide-portion-icon,
+            .recipes__slide-time-icon {
+                height: 20px;
+                width: 20px;
+            }
+        }
     }
 }

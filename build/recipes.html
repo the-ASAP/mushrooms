@@ -10,35 +10,27 @@
     <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
     <title>Рецепты</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1596028054036">
-    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1596028054036">
-    <link rel="stylesheet" href="vendors/css/aos.css?t=1596028054036">
-    <link rel="stylesheet" href="css/main.css?t=1596028054036" type="text/css">
+    <link rel="stylesheet" href="vendors/css/aos.css?t=1596105737850">
+    <link rel="stylesheet" href="css/main.css?t=1596105737850" type="text/css">
 </head>
 
 <body>
     <name>Рецепты</name>
     <div class="preloader"></div>
-    <div class="modal modal--map map">
-        <div class="modal__box">
-            <button class="modal__close"></button>
-            <div class="map__wrapper" id="map"></div>
-        </div>
-    </div>
     <div class="modal cooperation-request">
         <div class="modal__box">
             <button class="modal__close"></button>
             <div class="modal__content">
-                 <p class="cooperation-request__title">Заявка на партнерство</p>
-            <form method="POST" class="cooperation-request__form" name="cooperation-request">
-                <input type="text" name="name" class="cooperation-request__input" placeholder="Имя" data-role='required'>
-                <input type="text" name="phone" class="cooperation-request__input" placeholder="Телефон" data-role='phone required'>
-                <input type="text" name="email" class="cooperation-request__input" placeholder="E-mail" data-role='email required'>
-                <textarea name="message" class="cooperation-request__input cooperation-request__textarea" placeholder="Комментарий"></textarea>
-                <button type="submit" class="cooperation-request__submit-btn">
-                    Отправить
-                </button>
-            </form>
+                <p class="cooperation-request__title">Заявка на партнерство</p>
+                <form method="POST" class="cooperation-request__form" name="cooperation-request">
+                    <input type="text" name="name" class="cooperation-request__input" placeholder="Имя" data-role='required'>
+                    <input type="text" name="phone" class="cooperation-request__input" placeholder="Телефон" data-role='phone required'>
+                    <input type="text" name="email" class="cooperation-request__input" placeholder="E-mail" data-role='email required'>
+                    <textarea name="message" class="cooperation-request__input cooperation-request__textarea" placeholder="Комментарий"></textarea>
+                    <button type="submit" class="cooperation-request__submit-btn">
+                        Отправить
+                    </button>
+                </form>
             </div>
             <div class="success">
                 <p class="success__title">Спасибо за заявку</p>
@@ -98,14 +90,14 @@
         <div class="mobile-menu__content">
             <div class="mobile-menu__nav">
                 <a href="making.html" class="mobile-menu__link">Производство</a>
-                <a href="#" class="mobile-menu__link">Все продукты</a>
+                <a href="products.html" class="mobile-menu__link">Все продукты</a>
                 <a href="cooperation.html" class="mobile-menu__link">Сотрудничество</a>
-                <a href="#" class="mobile-menu__link">Новости</a>
-                <a href="#" class="mobile-menu__link">Рецепты</a>
-                <a href="#" class="mobile-menu__link">Вакансии</a>
-                <a href="#" class="mobile-menu__link">Контакты</a>
+                <a href="news.html" class="mobile-menu__link">Новости</a>
+                <a href="recipes.html" class="mobile-menu__link">Рецепты</a>
+                <a href="vacancies.html" class="mobile-menu__link">Вакансии</a>
+                <a href="contacts.html" class="mobile-menu__link">Контакты</a>
             </div>
-            <a href="#" class="mobile-menu__cart">
+            <a href="cart.html" class="mobile-menu__cart">
                 <span class="mobile-menu__cart-icon">
                     <svg width="29" height="27" viewBox="0 0 29 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M28.1058 3.67353C28.0181 3.57098 27.8896 3.51197 27.7543 3.51197H5.89028L4.99877 0.524201C4.93977 0.327735 4.75937 0.193359 4.55456 0.193359H1.13524C0.879153 0.193359 0.671875 0.400638 0.671875 0.656724C0.671875 0.91281 0.879153 1.12009 1.13524 1.12009H4.2092L9.84185 19.9957C9.84247 19.9979 9.84433 19.9997 9.84494 20.0019L10.5446 22.3817C10.1029 22.8207 9.82919 23.4283 9.82919 24.0983C9.82919 25.4359 10.9169 26.5242 12.2535 26.5242C13.5472 26.5242 14.604 25.5023 14.6692 24.2225H20.742C20.7417 24.2395 20.7396 24.2562 20.7396 24.2735C20.7396 25.6098 21.8266 26.6972 23.1627 26.6972C24.4987 26.6972 25.586 25.6098 25.586 24.2735C25.586 22.9371 24.4987 21.8498 23.1627 21.8498C22.1744 21.8498 21.324 22.4453 20.9475 23.2958H14.537C14.4183 22.9575 14.2271 22.6465 13.9661 22.3854C13.5086 21.9279 12.9007 21.6755 12.2544 21.6755C12.2541 21.6755 12.2538 21.6755 12.2538 21.6755C11.936 21.6755 11.6329 21.7386 11.3546 21.8504L10.9067 20.3265H25.3244C25.5533 20.3265 25.7479 20.1594 25.7822 19.9333L28.2124 4.04515C28.2328 3.9117 28.1939 3.77609 28.1058 3.67353ZM23.1627 22.7768C23.9877 22.7768 24.6593 23.4484 24.6593 24.2738C24.6593 25.0992 23.9877 25.7708 23.1627 25.7708C22.3376 25.7708 21.6663 25.0992 21.6663 24.2738C21.6663 23.4484 22.3376 22.7768 23.1627 22.7768ZM12.2538 22.6026H12.2541C12.6529 22.6026 13.0279 22.7583 13.3103 23.0409C13.5929 23.3236 13.7483 23.6995 13.7483 24.0989C13.7483 24.9256 13.0777 25.5981 12.2532 25.5981C11.4275 25.5981 10.7556 24.9256 10.7556 24.0989C10.7559 23.2738 11.4278 22.6026 12.2538 22.6026ZM24.9262 19.4001H10.6339L9.75783 16.4198C9.74671 16.3821 9.73003 16.3478 9.71088 16.3153L6.16676 4.4387H27.2146L24.9262 19.4001Z" fill="#61573E" />
@@ -113,7 +105,7 @@
                 </span>
                 <i>530</i>&nbsp;руб.
             </a>
-            <a href="#" class="mobile-menu__account">
+            <a href="cabinet.html" class="mobile-menu__account">
                 <span class="mobile-menu__account-icon">
                     <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.9371 15.2432C6.27575 15.2432 0.857422 20.6615 0.857422 27.3228C0.857422 27.5778 1.08053 27.8009 1.33551 27.8009H24.5068C24.7618 27.8009 24.9849 27.5778 24.9849 27.3228C25.0168 20.6615 19.5985 15.2432 12.9371 15.2432ZM12.9371 16.1993C14.4032 16.1993 15.8375 16.4862 17.1124 17.028L13.0965 19.9922L8.79368 17.028C10.0686 16.4862 11.471 16.1993 12.9371 16.1993ZM1.84547 26.8448C2.00483 22.7969 4.39527 19.291 7.77376 17.4742L12.8415 20.9483C12.9371 21.0121 13.0327 21.044 13.0965 21.044C13.1921 21.044 13.2877 21.0121 13.3833 20.9483L18.1004 17.4742C21.5108 19.2591 23.8694 22.7651 24.0287 26.8448H1.84547Z" fill="#61573E" />
@@ -147,7 +139,7 @@
         <div class="menu__title-container">
             <h2 class="menu__title">Меню</h2>
             <div class="menu__controls">
-                <a href="#" class="menu__account">
+                <a href="cabinet.html" class="menu__account">
                     <span class="menu__account-icon">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.9371 17.2432C9.27575 17.2432 3.85742 22.6615 3.85742 29.3228C3.85742 29.5778 4.08053 29.8009 4.33551 29.8009H27.5068C27.7618 29.8009 27.9849 29.5778 27.9849 29.3228C28.0168 22.6615 22.5985 17.2432 15.9371 17.2432ZM15.9371 18.1993C17.4032 18.1993 18.8375 18.4862 20.1124 19.028L16.0965 21.9922L11.7937 19.028C13.0686 18.4862 14.471 18.1993 15.9371 18.1993ZM4.84547 28.8448C5.00483 24.7969 7.39527 21.291 10.7738 19.4742L15.8415 22.9483C15.9371 23.0121 16.0327 23.044 16.0965 23.044C16.1921 23.044 16.2877 23.0121 16.3833 22.9483L21.1005 19.4742C24.5108 21.2591 26.8694 24.7651 27.0287 28.8448H4.84547Z" fill="#FDEFCE" />
@@ -156,7 +148,7 @@
                     </span>
                     <span class="menu__account-name">Виктория</span>
                 </a>
-                <a href="#" class="menu__cart">
+                <a href="cart.html" class="menu__cart">
                     <span class="menu__cart-icon">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M30.0455 5.85611C29.9549 5.75024 29.8223 5.68934 29.6826 5.68934H7.11331L6.19304 2.60519C6.13213 2.40238 5.94591 2.26367 5.73449 2.26367H2.20487C1.94053 2.26367 1.72656 2.47764 1.72656 2.74198C1.72656 3.00633 1.94053 3.2203 2.20487 3.2203H5.37799L11.1923 22.7048C11.193 22.707 11.1949 22.7089 11.1955 22.7112L11.9178 25.1678C11.4618 25.6209 11.1793 26.2481 11.1793 26.9398C11.1793 28.3205 12.302 29.4439 13.6818 29.4439C15.0172 29.4439 16.1081 28.389 16.1754 27.0679H22.4441C22.4438 27.0855 22.4416 27.1027 22.4416 27.1206C22.4416 28.5 23.5637 29.6225 24.9428 29.6225C26.322 29.6225 27.4444 28.5 27.4444 27.1206C27.4444 25.7411 26.322 24.6187 24.9428 24.6187C23.9228 24.6187 23.0449 25.2335 22.6562 26.1113H16.0389C15.9165 25.7622 15.7191 25.4411 15.4496 25.1716C14.9774 24.6994 14.3498 24.4388 13.6828 24.4388C13.6824 24.4388 13.6821 24.4388 13.6821 24.4388C13.354 24.4388 13.0412 24.5039 12.7539 24.6193L12.2915 23.0463H27.1743C27.4106 23.0463 27.6115 22.8738 27.6469 22.6404L30.1555 6.23972C30.1765 6.10196 30.1364 5.96198 30.0455 5.85611ZM24.9428 25.5756C25.7946 25.5756 26.4878 26.2689 26.4878 27.1209C26.4878 27.9729 25.7946 28.6661 24.9428 28.6661C24.0911 28.6661 23.3982 27.9729 23.3982 27.1209C23.3982 26.2689 24.0911 25.5756 24.9428 25.5756ZM13.6821 25.3958H13.6824C14.0941 25.3958 14.4812 25.5565 14.7727 25.8483C15.0644 26.14 15.2248 26.5281 15.2248 26.9404C15.2248 27.7937 14.5326 28.4879 13.6815 28.4879C12.8291 28.4879 12.1356 27.7937 12.1356 26.9404C12.1359 26.0887 12.8294 25.3958 13.6821 25.3958ZM26.7633 22.09H12.0099L11.1056 19.0135C11.0941 18.9746 11.0769 18.9392 11.0571 18.9057L7.3987 6.64596H29.1255L26.7633 22.09Z" fill="#FDEFCE" />
@@ -177,10 +169,10 @@
                 <div class="menu__nav-list">
                     <a href="making.html" class="menu__nav-link">Производство</a>
                     <a href="cooperation.html" class="menu__nav-link">Сотрудничество</a>
-                    <a href="#" class="menu__nav-link">Новости</a>
-                    <a href="#" class="menu__nav-link">Рецепты</a>
-                    <a href="#" class="menu__nav-link">Вакансии</a>
-                    <a href="#" class="menu__nav-link">Контакты</a>
+                    <a href="news.html" class="menu__nav-link">Новости</a>
+                    <a href="recipes.html" class="menu__nav-link">Рецепты</a>
+                    <a href="vacancies.html" class="menu__nav-link">Вакансии</a>
+                    <a href="contacts.html" class="menu__nav-link">Контакты</a>
                 </div>
                 <div class="menu__nav-contacts">
                     <div class="menu__nav-soc">
@@ -214,39 +206,39 @@
             <button type="button" class="burger">
                 <span></span>
             </button>
-            <div class="second-menu__logo" style="background-image: url(img/mobile-logo.png);"></div>
+            <a href="/" class="second-menu__logo" style="background-image: url(img/mobile-logo.png);"></a>
             <ul class="second-menu__list">
                 <li class="second-menu__item">
                     <a href="making.html" class="second-menu__link">Производство</a>
                 </li>
                 <li class="second-menu__item">
-                    <a href="#" class="second-menu__link">Все продукты</a>
+                    <a href="products.html" class="second-menu__link">Все продукты</a>
                 </li>
                 <li class="second-menu__item">
                     <a href="cooperation.html" class="second-menu__link">Сотрудничество</a>
                 </li>
                 <li class="second-menu__item">
-                    <a href="#" class="second-menu__link">Контакты</a>
+                    <a href="contacts.html" class="second-menu__link">Контакты</a>
                 </li>
                 <li class="second-menu__item second-menu__item--phone">
                     <a href="tel:+79053843999" class="second-menu__link second-menu__link--phone">+7 905 38-43-999</a>
                 </li>
             </ul>
             <div class="second-menu__icons">
-                <button type="button" class="second-menu__icon second-menu__icon--man">
+                <a href="cabinet.html" type="button" class="second-menu__icon second-menu__icon--man">
                     <svg width="33" height="39" viewBox="0 0 33 39" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M16.4144 21.1709C7.46325 21.1709 0.182373 28.4518 0.182373 37.403C0.182373 37.7456 0.482174 38.0454 0.824803 38.0454H31.9613C32.3039 38.0454 32.6037 37.7456 32.6037 37.403C32.6465 28.4518 25.3656 21.1709 16.4144 21.1709ZM16.4144 22.4558C18.3846 22.4558 20.3119 22.8412 22.025 23.5693L16.6286 27.5524L10.8467 23.5693C12.5599 22.8412 14.4443 22.4558 16.4144 22.4558ZM1.51006 36.7605C1.72421 31.3213 4.93636 26.6101 9.4762 24.1689L16.286 28.8372C16.4144 28.9229 16.5429 28.9657 16.6286 28.9657C16.7571 28.9657 16.8856 28.9229 17.014 28.8372L23.3527 24.1689C27.9354 26.5673 31.1047 31.2785 31.3188 36.7605H1.51006Z" fill="#FDEFCE" />
                         <path d="M16.1575 19.4145C21.2969 19.4145 25.4941 15.2173 25.4941 10.0779C25.4941 4.93842 21.2969 0.741211 16.1575 0.741211C11.018 0.741211 6.8208 4.93842 6.8208 10.0779C6.8208 15.2601 11.018 19.4145 16.1575 19.4145ZM16.1575 2.0689C19.5838 2.0689 22.4961 4.21034 23.6525 7.20834C23.267 6.9942 22.7959 6.73723 22.3676 6.48026C20.5688 5.40954 19.3268 4.72428 18.513 4.80994C16.8855 4.93842 15.9433 5.58085 14.9154 6.22328C14.3586 6.56591 13.759 6.95137 13.031 7.25117L12.8168 7.33683C11.2322 7.97926 10.2471 8.40755 8.3198 8.62169C8.96224 4.89559 12.2172 2.0689 16.1575 2.0689ZM8.10566 9.90655C10.4184 9.69241 11.5748 9.22129 13.2451 8.49321L13.4592 8.40755C14.3158 8.06492 14.9583 7.63663 15.5579 7.25117C16.5001 6.65157 17.3138 6.13763 18.5987 6.05197C19.0698 6.00914 20.6973 6.9942 21.6824 7.55097C22.6674 8.15058 23.4812 8.62169 24.0808 8.79301C24.1664 9.22129 24.2092 9.64958 24.2092 10.0779C24.2092 14.4892 20.6116 18.1297 16.1575 18.1297C11.7033 18.1297 8.10566 14.5321 8.10566 10.0779C8.10566 10.035 8.10566 9.99221 8.10566 9.90655Z" fill="#FDEFCE" />
                     </svg>
-                </button>
-                <button type="button" class="second-menu__icon second-menu__icon--cart">
+                </a>
+                <a href="cart.html" type="button" class="second-menu__icon second-menu__icon--cart">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M35.5571 5.32063C35.4439 5.18829 35.2781 5.11216 35.1035 5.11216H6.89188L5.74154 1.25697C5.66541 1.00347 5.43263 0.830078 5.16836 0.830078H0.756337C0.425903 0.830078 0.158447 1.09753 0.158447 1.42797C0.158447 1.7584 0.425903 2.02586 0.756337 2.02586H4.72273L11.9907 26.3815C11.9915 26.3843 11.9939 26.3867 11.9947 26.3895L12.8975 29.4602C12.3275 30.0266 11.9743 30.8106 11.9743 31.6752C11.9743 33.4011 13.3778 34.8053 15.1025 34.8053C16.7718 34.8053 18.1354 33.4868 18.2195 31.8354H26.0554C26.055 31.8574 26.0522 31.8789 26.0522 31.9012C26.0522 33.6255 27.4549 35.0286 29.1788 35.0286C30.9027 35.0286 32.3058 33.6255 32.3058 31.9012C32.3058 30.1769 30.9027 28.7738 29.1788 28.7738C27.9037 28.7738 26.8064 29.5423 26.3205 30.6397H18.0489C17.8958 30.2032 17.6491 29.8018 17.3123 29.465C16.722 28.8747 15.9375 28.549 15.1037 28.549C15.1033 28.549 15.1029 28.549 15.1029 28.549C14.6927 28.549 14.3017 28.6303 13.9426 28.7746L13.3646 26.8084H31.9682C32.2635 26.8084 32.5146 26.5927 32.5589 26.301L35.6946 5.80013C35.7209 5.62794 35.6707 5.45296 35.5571 5.32063ZM29.1788 29.97C30.2434 29.97 31.11 30.8366 31.11 31.9016C31.11 32.9666 30.2434 33.8332 29.1788 33.8332C28.1142 33.8332 27.248 32.9666 27.248 31.9016C27.248 30.8366 28.1142 29.97 29.1788 29.97ZM15.1029 29.7452H15.1033C15.6179 29.7452 16.1018 29.9461 16.4661 30.3108C16.8308 30.6755 17.0313 31.1606 17.0313 31.676C17.0313 32.7426 16.1659 33.6104 15.1021 33.6104C14.0367 33.6104 13.1697 32.7426 13.1697 31.676C13.1701 30.6113 14.0371 29.7452 15.1029 29.7452ZM31.4544 25.613H13.0127L11.8823 21.7674C11.8679 21.7187 11.8464 21.6745 11.8217 21.6326L7.24862 6.30794H34.4071L31.4544 25.613Z" fill="#FDEFCE" />
                     </svg>
                     <span class="second-menu__cart-sum">
                         1
                     </span>
-                </button>
+                </a>
             </div>
             <a href="tel:+79053843999" class="second-menu__call-btn">
                 <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -256,7 +248,7 @@
             </a>
             </div>
         </menu>
-        <div class="wrapper wrapper--cooperation">
+        <div class="wrapper">
             <ul class="crumbs">
                 <li class="crumbs__crumb">
                     <a href="index.html" class="crumbs__link">Главная</a>
@@ -267,7 +259,7 @@
             </ul>
             <h1 class="recipes-header__title" data-aos="fade-up">Рецепты</h1>
             <div class="recipes-header__table">
-                <a href="#" class="recipes__slide">
+                <a href="recipe.html" class="recipes__slide">
                     <div class="recipes__slide-pic">
                         <img src="img/recipes/recipe1.jpg" alt="">
                     </div>
@@ -597,7 +589,7 @@
                         </div>
                     </div>
                 </a>
- <a href="#" class="recipes__slide">
+                <a href="#" class="recipes__slide">
                     <div class="recipes__slide-pic">
                         <img src="img/recipes/recipe1.jpg" alt="">
                     </div>
@@ -630,7 +622,7 @@
                         </div>
                     </div>
                 </a>
-                 <a href="#" class="recipes__slide">
+                <a href="#" class="recipes__slide">
                     <div class="recipes__slide-pic">
                         <img src="img/recipes/recipe1.jpg" alt="">
                     </div>
@@ -663,7 +655,7 @@
                         </div>
                     </div>
                 </a>
-                 <a href="#" class="recipes__slide">
+                <a href="#" class="recipes__slide">
                     <div class="recipes__slide-pic">
                         <img src="img/recipes/recipe1.jpg" alt="">
                     </div>
@@ -696,7 +688,7 @@
                         </div>
                     </div>
                 </a>
-                 <a href="#" class="recipes__slide">
+                <a href="#" class="recipes__slide">
                     <div class="recipes__slide-pic">
                         <img src="img/recipes/recipe1.jpg" alt="">
                     </div>
@@ -729,7 +721,7 @@
                         </div>
                     </div>
                 </a>
-                 <a href="#" class="recipes__slide">
+                <a href="#" class="recipes__slide">
                     <div class="recipes__slide-pic">
                         <img src="img/recipes/recipe1.jpg" alt="">
                     </div>
@@ -856,12 +848,12 @@
             </div>
         </div>
     </section>
-    <script src="vendors/js/jquery-3.5.1.min.js?t=1596028054036"></script>
-    <script src="vendors/js/owl.carousel.min.js?t=1596028054036"></script>
-    <script src="vendors/js/aos.js?t=1596028054036"></script>
-    <script src="vendors/js/scroll.js?t=1596028054036"></script>
-    <script src="vendors/js/formValidate.min.js?t=1596028054036"></script>
-    <script src="js/scripts.js?t=1596028054036"></script>
+    <script src="vendors/js/jquery-3.5.1.min.js?t=1596105737850"></script>
+    <script src="vendors/js/owl.carousel.min.js?t=1596105737850"></script>
+    <script src="vendors/js/aos.js?t=1596105737850"></script>
+    <script src="vendors/js/scroll.js?t=1596105737850"></script>
+    <script src="vendors/js/formValidate.min.js?t=1596105737850"></script>
+    <script src="js/scripts.js?t=1596105737850"></script>
 </body>
 
 </html>

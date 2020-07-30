@@ -240,7 +240,7 @@ input {
     overflow: hidden;
     @extend .flexbox;
     justify-content: center;
-    z-index: 5;
+    z-index: 50;
     visibility: hidden;
     opacity: 0;
     background: rgba(0, 0, 0, 0.5);
@@ -949,6 +949,7 @@ h2 {
         font-weight: 500;
         font-size: 11px;
         line-height: 18px;
+        text-align: center;
     }
 
     &__content {
@@ -1289,7 +1290,7 @@ h2 {
         &-content {
             background: #fff;
             height: 50%;
-            padding: 1.4375rem;
+            padding: 1.4375rem 1.4375rem 2.5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -1859,6 +1860,7 @@ h2 {
         font-size: 11px;
         line-height: 18px;
         color: $cream;
+        text-align: center;
     }
 }
 
@@ -2398,7 +2400,7 @@ h2 {
     &__slider {
         margin-top: 3.4375rem;
         height: 32.5rem;
-        @include sliderOverflow();
+        @include sliderOverflow;
     }
 
     &__slide {
@@ -2419,6 +2421,7 @@ h2 {
 .recipes-header {
     height: auto;
     padding-bottom: 10.625rem;
+
     &__title {
         margin-bottom: 5rem;
         margin-top: 5.625rem;
@@ -2435,11 +2438,12 @@ h2 {
         margin-right: 0.9375rem;
 
 
-        &:nth-child(5n+4), &:nth-child(5n+5) {
-             width: 48.6%;
-              display: flex;
-              height: 28rem;
-            
+        &:nth-child(5n+4),
+        &:nth-child(5n+5) {
+            width: 48.6%;
+            display: flex;
+            height: 28rem;
+
             .recipes__slide-pic {
                 height: 100%;
                 width: 47%;
@@ -2461,7 +2465,8 @@ h2 {
                 margin-bottom: 1.25rem;
             }
 
-            .recipes__slide-time, .recipes__slide-portion {
+            .recipes__slide-time,
+            .recipes__slide-portion {
                 width: 100%;
             }
         }
@@ -2473,5 +2478,216 @@ h2 {
 
     .recipes__slide-title {
         height: 70px;
+    }
+}
+
+/*RECIPE PAGE*/
+
+.recipe {
+    height: auto;
+
+    &__title {
+        width: 60%;
+        margin-top: 4.6875rem;
+        margin-bottom: 3.4375rem;
+    }
+
+    &__main-container {
+        display: flex;
+        justify-content: space-between;
+        height: $recipePicHeight;
+    }
+
+    &__pic-container {
+        height: $recipePicHeight;
+        position: relative;
+        overflow: hidden;
+        width: 63%;
+    }
+
+    &__pic-box {
+        height: 100%;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        opacity: 1;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        @include swipeDown($recipePicHeight);
+
+        img {
+            object-position: center;
+            width: 100%;
+            z-index: 1;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: $recipePicHeight;
+            left: 0;
+            transition: .4s ease-out;
+            object-fit: cover;
+        }
+    }
+
+    &__main-info {
+        width: 33%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 3%;
+    }
+
+    &__annotation {
+        font-size: 1rem;
+        line-height: 155.69%;
+    }
+
+    &__ingredients {
+        &-title {
+            font-weight: 600;
+            font-size: 1.5rem;
+            line-height: 110.69%;
+            color: $accent;
+            margin-bottom: 1.2rem;
+        }
+    }
+
+    &__ingredient {
+        font-size: 1rem;
+        line-height: 140%;
+        margin-bottom: 0.9375rem;
+         @include fadeUp;
+
+        &:last-child {
+            margin-bottom: 0;
+
+            &:after {
+                content: '.';
+            }
+        }
+
+        &:before {
+            content: '\2014';
+            display: inline-block;
+            margin-right: 0.8125rem;
+            color: inherit;
+        }
+
+        &:after {
+            content: ';';
+            display: inline-block;
+            color: inherit;
+        }
+    }
+
+    &__info {
+        width: 63%;
+        margin-top: 30px;
+        border-bottom: 2px solid rgba($accent, 0.3);
+    }
+
+    &__chars {
+        border-top: 2px solid rgba($accent, 0.3);
+        border-bottom: 2px solid rgba($accent, 0.3);
+        display: flex;
+        padding: 1.875rem 0 2.1875rem;
+    }
+
+    &__time {
+        margin-right: 4.375rem;
+    }
+
+    &__time,
+    &__portion {
+        &-title {
+            font-size: 0.875rem;
+            line-height: 1rem;
+            color: $accent;
+            margin-bottom: 1.25rem;
+        }
+
+        &-container {
+            display: flex;
+            align-items: center;
+        }
+
+        &-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 0.9375rem;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &-label {
+            font-size: 0.875rem;
+            line-height: 1rem;
+        }
+    }
+
+    &__steps {
+        width: 50%;
+        margin-top: 1.25rem;
+        margin-bottom: 2.8125rem;
+
+        &-title {
+            font-weight: 600;
+            font-size: 1.5rem;
+            line-height: 110.69%;
+        }
+
+        &-step {
+            margin-top: 2.1875rem;
+        }
+
+        &-num {
+            font-weight: 600;
+            font-size: 1.5rem;
+            line-height: 110.69%;
+            color: $accent;
+            margin-bottom: 1.0625rem;
+        }
+
+        &-text {
+            font-size: 1rem;
+            line-height: 140%;
+        }
+    }
+}
+
+.other-recipes {
+    overflow: hidden;
+
+    .wrapper {
+        padding-top: 2.1875rem;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 2rem;
+        font-family: $font;
+        line-height: 117.8%;
+        margin-bottom: 3.125rem;
+    }
+
+    .recipes__slider {
+        margin-top: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .recipes__slide {
+        width: 31%;
+
+        &-title {
+            width: 90%;
+            height: 3.75rem;
+        }
     }
 }

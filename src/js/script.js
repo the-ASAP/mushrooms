@@ -1,5 +1,6 @@
 let isDesktop, isTablet, isMobile = false;
 let animationsArray = [];
+let pageName = '';
 
 // удаляем прелодер при загрузке страницы
 const contentFadeInOnReady = () => {
@@ -14,7 +15,8 @@ const bindModalListeners = modalArr => {
         let jQTrigger = $(obj.trigger);
         let jQModal = $(obj.modal);
 
-        jQTrigger.on('click', function() {
+        jQTrigger.on('click', function(e) {
+            e.preventDefault();
             stopScroll('body');
             jQModal.addClass('active');
         });
@@ -41,19 +43,7 @@ const bindModalListeners = modalArr => {
     });
 }
 
-// Запрещаем скролл для бади 
-function stopScroll(item = 'body') {
-    let documentWidth = parseInt(document.documentElement.clientWidth),
-        windowsWidth = parseInt(window.innerWidth),
-        scrollbarWidth = windowsWidth - documentWidth;
-    $(item).attr("style", 'overflow: hidden; padding-right: ' + scrollbarWidth + 'px');
-}
-
-// возвращаем скролл для бади
-function freeScroll(item = 'body') {
-    $(item).attr("style", '');
-}
-
+// BEGIN не лезь, оно тебя сожрёт
 function setDeviceType() {
     (function setIsDesktop() {
         ($(window).width() > 1024) ? isDesktop = true: isDesktop = false;
@@ -68,79 +58,35 @@ function setDeviceType() {
     })();
 }
 
-const initAOS = () => {
-    AOS.init({
-        // Global settings:
-        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-        startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-        initClassName: 'aos-init', // class applied after initialization
-        animatedClassName: 'aos-animate', // class applied on animation
-        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-        offset: 200, // offset (in px) from the original trigger point
-        delay: 0, // values from 0 to 3000, with step 50ms
-        duration: 600, // values from 0 to 3000, with step 50ms
-        easing: 'ease-out', // default easing for AOS animations
-        once: true, // whether animation should happen only once - while scrolling down
-        mirror: false, // whether elements should animate out while scrolling past them
-        anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-    });
-}
-
-const createNav = (className) => {
-    return {
-        prevNav: `<svg class="nav-arrow nav-arrow--${className} nav-arrow--prev" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="48" cy="48" r="47" stroke="#5C8741" stroke-width="2"/>
-                    <path d="M39.2929 47.2929C38.9024 47.6834 38.9024 48.3166 39.2929 48.7071L45.6569 55.0711C46.0474 55.4616 46.6805 55.4616 47.0711 55.0711C47.4616 54.6805 47.4616 54.0474 47.0711 53.6569L41.4142 48L47.0711 42.3431C47.4616 41.9526 47.4616 41.3195 47.0711 40.9289C46.6805 40.5384 46.0474 40.5384 45.6569 40.9289L39.2929 47.2929ZM56 47H40V49H56V47Z" fill="#5C8741"/>
-                </svg>`,
-
-        nextNav: `<svg class="nav-arrow nav-arrow--${className} nav-arrow--next" width="97" height="96" viewBox="0 0 97 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="48.0195" cy="48" r="47" stroke="#5C8741" stroke-width="2"/>
-                    <path d="M56.7071 48.7071C57.0976 48.3166 57.0976 47.6834 56.7071 47.2929L50.3431 40.9289C49.9526 40.5384 49.3195 40.5384 48.9289 40.9289C48.5384 41.3195 48.5384 41.9526 48.9289 42.3431L54.5858 48L48.9289 53.6569C48.5384 54.0474 48.5384 54.6805 48.9289 55.0711C49.3195 55.4616 49.9526 55.4616 50.3431 55.0711L56.7071 48.7071ZM40 49L56 49L56 47L40 47L40 49Z" fill="#5C8741"/>
-                </svg>`
-    }
-}
-
-function showMenu(className) {
-    $(className).addClass('active');
-    stopScroll();
-}
-
-function hideMenu(className) {
-    $(className).removeClass('active');
-    freeScroll();
-}
-
-let pageName = '';
-
 function setPageName() {
     pageName = $('name').text().trim();
 }
 
-function initMap(coords) {
-    let coordsArr = coords.split(',');
+function initAnimationsArray(elems) {
+    animationsArray = elems;
+}
 
-    $('#map').html('');
-
-    ymaps.ready(function() {
-        var myMap = new ymaps.Map('map', {
-                center: coords.split(','),
-                zoom: 18,
-                controls: []
-            }, {
-                searchControlProvider: 'yandex#search'
-            }),
-
-            myPlacemark = new ymaps.Placemark(coords.split(','), {}, {
-                iconColor: '#d32f2f'
+function addDataDelayAttr(elems) {
+    elems.forEach(elem => {
+        if ($(elem).length > 0) {
+            $(elem).each((i, item) => {
+                $(item).attr('data-delay', i * 100);
             });
+        }
+    })
+}
 
-        myMap.geoObjects.add(myPlacemark);
-        myMap.container.fitToViewport();
+function triggerSwipeDownAnimation(elems, offset = 1000) {
+    elems.forEach(elem => {
+        if ($(elem).length > 0) {
+            if ($(window).scrollTop() > ($(elem).offset().top - offset)) {
+                $(elem).each((i, item) => {
+                    setTimeout(() => {
+                        $(item).addClass('animated');
+                    }, $(item).attr('data-delay'))
+                });
+            }
+        }
     });
 }
 
@@ -212,6 +158,96 @@ function initModel() {
     init()
 }
 
+// END не лезь, оно тебя сожрёт
+
+
+// отключение скролла (по умолчанию у всей страницы) 
+function stopScroll(item = 'body') {
+    let documentWidth = parseInt(document.documentElement.clientWidth),
+        windowsWidth = parseInt(window.innerWidth),
+        scrollbarWidth = windowsWidth - documentWidth;
+    $(item).attr("style", 'overflow: hidden; padding-right: ' + scrollbarWidth + 'px');
+}
+
+// включение скролла (по умолчанию у всей страницы) 
+function freeScroll(item = 'body') {
+    $(item).attr("style", '');
+}
+
+// инициализация библиотеки анимации при скролле
+function initAOS() {
+    AOS.init({
+        // Global settings:
+        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+        startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+        initClassName: 'aos-init', // class applied after initialization
+        animatedClassName: 'aos-animate', // class applied on animation
+        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+        offset: 200, // offset (in px) from the original trigger point
+        delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 600, // values from 0 to 3000, with step 50ms
+        easing: 'ease-out', // default easing for AOS animations
+        once: true, // whether animation should happen only once - while scrolling down
+        mirror: false, // whether elements should animate out while scrolling past them
+        anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+    });
+}
+
+// создание стрелочек в навигации
+function createNav(className) {
+    return {
+        prevNav: `<svg class="nav-arrow nav-arrow--${className} nav-arrow--prev" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="48" cy="48" r="47" stroke="#5C8741" stroke-width="2"/>
+                    <path d="M39.2929 47.2929C38.9024 47.6834 38.9024 48.3166 39.2929 48.7071L45.6569 55.0711C46.0474 55.4616 46.6805 55.4616 47.0711 55.0711C47.4616 54.6805 47.4616 54.0474 47.0711 53.6569L41.4142 48L47.0711 42.3431C47.4616 41.9526 47.4616 41.3195 47.0711 40.9289C46.6805 40.5384 46.0474 40.5384 45.6569 40.9289L39.2929 47.2929ZM56 47H40V49H56V47Z" fill="#5C8741"/>
+                </svg>`,
+
+        nextNav: `<svg class="nav-arrow nav-arrow--${className} nav-arrow--next" width="97" height="96" viewBox="0 0 97 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="48.0195" cy="48" r="47" stroke="#5C8741" stroke-width="2"/>
+                    <path d="M56.7071 48.7071C57.0976 48.3166 57.0976 47.6834 56.7071 47.2929L50.3431 40.9289C49.9526 40.5384 49.3195 40.5384 48.9289 40.9289C48.5384 41.3195 48.5384 41.9526 48.9289 42.3431L54.5858 48L48.9289 53.6569C48.5384 54.0474 48.5384 54.6805 48.9289 55.0711C49.3195 55.4616 49.9526 55.4616 50.3431 55.0711L56.7071 48.7071ZM40 49L56 49L56 47L40 47L40 49Z" fill="#5C8741"/>
+                </svg>`
+    }
+}
+
+function showMenu(className) {
+    $(className).addClass('active');
+    stopScroll();
+}
+
+function hideMenu(className) {
+    $(className).removeClass('active');
+    freeScroll();
+}
+
+// инициализация карты по переданным координатам
+function initMap(coords) {
+    let coordsArr = coords.split(',');
+
+    $('#map').html('');
+
+    ymaps.ready(function() {
+        var myMap = new ymaps.Map('map', {
+                center: coords.split(','),
+                zoom: 18,
+                controls: []
+            }, {
+                searchControlProvider: 'yandex#search'
+            }),
+
+            myPlacemark = new ymaps.Placemark(coords.split(','), {}, {
+                iconColor: '#d32f2f'
+            });
+
+        myMap.geoObjects.add(myPlacemark);
+        myMap.container.fitToViewport();
+    });
+}
+
+// обрезка текста
 function truncText(selector, len) {
     if ($(selector).length > 0) {
         $(selector).each(function(i, item) {
@@ -224,6 +260,7 @@ function truncText(selector, len) {
     }
 }
 
+// инициализация слайдера
 function initSlider(selector, params = {}) {
     let defaultParams = {
         loop: false,
@@ -239,52 +276,13 @@ function initSlider(selector, params = {}) {
     });
 }
 
-function initAnimationsArray(elems) {
-    animationsArray = elems;
+// отправка формы
+function sendForm(e, formSelector, url, onSuccess, onError, onStart) {
+    console.log(123)
+
 }
 
-function addDataDelayAttr(elems) {
-    elems.forEach(elem => {
-        if ($(elem).length > 0) {
-            $(elem).each((i, item) => {
-                $(item).attr('data-delay', i * 100);
-            });
-        }
-    })
-}
-
-function triggerSwipeDownAnimation(elems, offset = "1000") {
-    elems.forEach(elem => {
-        if ($(elem).length > 0) {
-            if ($(window).scrollTop() > ($(elem).offset().top - offset)) {
-                $(elem).each((i, item) => {
-                    setTimeout(() => {
-                        $(item).addClass('animated');
-                    }, $(item).attr('data-delay'))
-                });
-            }
-        }
-    });
-}
-
-function sendForm(e, form, url, onSuccess, onError, onStart) {
-    console.log('here')
-    e.preventDefault();
-    formValidate({
-        form: document.querySelector(form),
-        url: url,
-        onLoadStart: () => {
-            onStart();
-        },
-        onSuccess: () => {
-            onSuccess();
-        },
-        onError: () => {
-            onError();
-        }
-    });
-}
-
+// замена контента формы при успешной отправке формы в модалке на блок .success
 function showSuccessModal(modalForm) {
     let modal = $(modalForm).closest('.modal');
     let modalContent = modal.find('.modal__content');
@@ -327,6 +325,7 @@ function showSuccessModal(modalForm) {
     });
 }
 
+// инициализация всех обработчиков
 function initListeners() {
     // ОБЩИЕ ОБРАБОТЧИКИ
 
@@ -389,7 +388,7 @@ function initListeners() {
         initMap($(this).attr('data-coords'));
     });
 
-    initSlider('.recipes__slider', {
+    initSlider('.recipes .recipes__slider', {
         items: 3,
         navText: [createNav('recipes').prevNav, createNav('recipes').nextNav],
         navContainer: $('.recipes__nav'),
@@ -459,11 +458,21 @@ function initListeners() {
 
     $('.cooperation-request__form').on('submit', function(e) {
         e.preventDefault();
-        showSuccessModal($(this));
-        sendForm(e, '.cooperation-request__form', 
-            'https://cors-anywhere.herokuapp.com/http://asgard.asap-lp.ru/categories/#doma/',
-            showSuccessModal($(this)), showSuccessModal($(this)), showSuccessModal($(this)));
-    })
+        formValidate({
+            form: '.cooperation-request__form',
+            url: 'https://cors-anywhere.herokuapp.com/http://mushrooms.asap-lp.ru/form.php',
+            onLoadStart: () => {
+                console.log('start')
+            },
+            onSuccess: () => {
+                console.log(this.data);
+                console.log('success')
+            },
+            onError: () => {
+                console.log('errroo')
+            }
+        });
+    });
 
     // Только для десктопа
     if (isDesktop) {
@@ -491,13 +500,14 @@ function initListeners() {
             $('.features__item'),
             $('.news__slide'),
             $('.supplies__item'),
-            $('.docs__slide')
+            $('.docs__slide'),
+            $('.recipe__ingredient')
         ]);
-        //добавление data-атрибута с задержкой анимации
+        //добавление data-атрибута с задержкой анимации (не трож)
         addDataDelayAttr(animationsArray);
 
         $(window).on('scroll', function() {
-            // обработчик срабатывания анимации на элементах из массива выше
+            // обработчик срабатывания анимации на элементах из массива выше (не трож)
             triggerSwipeDownAnimation(animationsArray);
         })
     }
@@ -540,7 +550,7 @@ function initListeners() {
         });
     }
 
-    // Для мобилки
+    // Только для мобилки
 
     if (isMobile) {
         truncText('.recipes__slide-text', 75);
@@ -556,7 +566,8 @@ $().ready(() => {
     bindModalListeners([
         { trigger: '.shops__map', modal: '.modal--map' },
         { trigger: '.present__item-btn', modal: '.modal--enter' },
-        { trigger: '.request__request-btn', modal: '.cooperation-request' }
+        { trigger: '.request__request-btn', modal: '.cooperation-request' },
+        { trigger: '.mobile-menu__account', modal: '.modal--enter' }
     ]);
 
     truncText('.recipes__slide-text', 200);
