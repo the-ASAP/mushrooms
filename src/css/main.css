@@ -27,6 +27,60 @@
 
 /*RECIPES MEDIA*/
 
+/*RECIPE MEDIA*/
+
+/*NEWS PAGE MEDIA*/
+
+/*FEEDBACK PAGE MEDIA*/
+
+.feedback__title {
+  width: 100%;
+}
+
+.feedback__quote {
+  width: 55%;
+}
+
+.feedback__item-pic {
+  position: relative;
+  height: 230px;
+}
+
+.feedback__item-pic .feedback__item-box {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: height 0.7s ease-out;
+}
+
+.feedback__item-pic .feedback__item-box.animated {
+  height: 31.25rem;
+}
+
+.feedback__item-pic .feedback__item-box[data-aos="swipe-down"].aos-animate {
+  height: 230px;
+  transition: height 0.7s ease-out;
+}
+
+.feedback__item-pic .feedback__item-box img {
+  object-position: center;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  height: 230px;
+  left: 0;
+  object-fit: cover;
+}
+
+.feedback {
+  padding-bottom: 11.875rem;
+}
+
 @keyframes fadeUpTeam {
   from {
     opacity: 0;
@@ -79,6 +133,10 @@ section {
   position: relative;
   width: 100%;
   height: 100vh;
+}
+
+span {
+  display: inline-block;
 }
 
 p {
@@ -146,7 +204,7 @@ button {
   cursor: pointer;
 }
 
-name {
+template {
   display: none;
 }
 
@@ -268,7 +326,9 @@ input:-webkit-autofill:focus {
 .present__item-btn--present,
 .cooperation-request__submit-btn,
 .request__request-btn,
-.recipes-header__more-btn {
+.recipes-header__more-btn,
+.news-header__more-btn,
+.feedback__more-btn {
   width: 20.6875rem;
   background: #5C8741;
   text-align: center;
@@ -1200,12 +1260,12 @@ h2 {
   overflow: visible !important;
 }
 
-.production__slide {
-  height: 31.25rem;
+.production__slide-pic-container {
   position: relative;
+  height: 31.25rem;
 }
 
-.production__slide-box {
+.production__slide-pic-container .production__slide-box {
   width: 100%;
   height: 0;
   overflow: hidden;
@@ -1213,26 +1273,27 @@ h2 {
   position: absolute;
   bottom: 0;
   left: 0;
+  transition: height 0.7s ease-out;
 }
 
-.production__slide-box.animated {
+.production__slide-pic-container .production__slide-box.animated {
   height: 31.25rem;
 }
 
-.production__slide-pic {
+.production__slide-pic-container .production__slide-box[data-aos="swipe-down"].aos-animate {
+  height: 31.25rem;
+  transition: height 0.7s ease-out;
+}
+
+.production__slide-pic-container .production__slide-box img {
   object-position: center;
-  width: auto;
+  width: 100%;
   z-index: 1;
   position: absolute;
   bottom: 0;
   height: 31.25rem;
   left: 0;
   object-fit: cover;
-}
-
-.production__slide-pic-container {
-  position: relative;
-  height: 31.25rem;
 }
 
 .production__slide-title {
@@ -1929,6 +1990,7 @@ h2 {
 
 .crumbs {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .crumbs__crumb {
@@ -1939,6 +2001,8 @@ h2 {
   color: #5C8741;
   opacity: 0.4;
   margin-right: 0.8rem;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 .crumbs__crumb:not(.active):hover {
@@ -1986,25 +2050,11 @@ h2 {
 
 .about__photo-container {
   width: 35%;
-  height: 40rem;
   position: relative;
-  overflow: hidden;
-}
-
-.about__photo-container img {
-  object-position: bottom;
-  width: 100%;
-  z-index: 1;
-  position: absolute;
-  bottom: 0;
-  right: 0;
   height: 40rem;
-  left: 0;
-  transition: all .4s ease-out;
-  object-fit: cover;
 }
 
-.about__photo-box {
+.about__photo-container .about__photo-box {
   width: 100%;
   height: 0;
   overflow: hidden;
@@ -2012,14 +2062,27 @@ h2 {
   position: absolute;
   bottom: 0;
   left: 0;
+  transition: height 0.7s ease-out;
 }
 
-.about__photo-box {
-  transition: all ".6s" ease-out;
+.about__photo-container .about__photo-box.animated {
+  height: 31.25rem;
 }
 
-.about__photo-box[data-aos="swipe-down"].aos-animate {
+.about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
   height: 40rem;
+  transition: height 0.7s ease-out;
+}
+
+.about__photo-container .about__photo-box img {
+  object-position: center;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  height: 40rem;
+  left: 0;
+  object-fit: cover;
 }
 
 .about__text {
@@ -2399,32 +2462,46 @@ h2 {
   margin-right: 2.6%;
 }
 
-.supplies__item {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all .6s ease-out .5s;
-}
-
-.supplies__item.animated {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .supplies__item:last-child {
   margin-right: 0;
 }
 
 .supplies__item-pic {
   width: 100%;
-  height: 18.75rem;
   overflow: hidden;
   margin-bottom: 1.875rem;
+  position: relative;
+  height: 18.75rem;
 }
 
-.supplies__item-pic img {
+.supplies__item-pic .supplies__item-box {
   width: 100%;
-  height: 100%;
+  height: 0;
+  overflow: hidden;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: height 0.7s ease-out;
+}
+
+.supplies__item-pic .supplies__item-box.animated {
+  height: 31.25rem;
+}
+
+.supplies__item-pic .supplies__item-box[data-aos="swipe-down"].aos-animate {
+  height: 18.75rem;
+  transition: height 0.7s ease-out;
+}
+
+.supplies__item-pic .supplies__item-box img {
   object-position: center;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  height: 18.75rem;
+  left: 0;
   object-fit: cover;
 }
 
@@ -2604,6 +2681,10 @@ h2 {
 
 .recipe {
   height: auto;
+}
+
+.recipe .wrapper {
+  padding-top: 2.5rem;
 }
 
 .recipe__title {
@@ -2798,6 +2879,8 @@ h2 {
 
 .other-recipes {
   overflow: hidden;
+  height: auto;
+  padding-bottom: 10.625rem;
 }
 
 .other-recipes .wrapper {
@@ -2824,7 +2907,247 @@ h2 {
 
 .other-recipes .recipes__slide-title {
   width: 90%;
-  height: 3.75rem;
+  height: 5.75rem;
+}
+
+/*NEWS PAGE*/
+
+.news-header {
+  height: auto;
+  padding-bottom: 11.875rem;
+}
+
+.news-header .wrapper {
+  padding-top: 2.5rem;
+}
+
+.news-header__table {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 15.25rem;
+  border-bottom: 2px solid rgba(92, 135, 65, 0.5);
+}
+
+.news-header__news {
+  width: 43%;
+  margin-bottom: 6.25rem;
+}
+
+.news-header__news-pub {
+  font-size: 1rem;
+  line-height: 140%;
+  opacity: 0.8;
+  margin-bottom: 2.4375rem;
+  display: inline-block;
+}
+
+.news-header__news-pub i {
+  font-style: normal;
+}
+
+.news-header__news-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 110.69%;
+  color: #5C8741;
+  margin-top: 2.0625rem;
+  width: 90%;
+}
+
+.news-header__news:nth-child(2n) {
+  transform: translateY(30%);
+}
+
+.news-header__pic-container {
+  position: relative;
+  height: 27.5rem;
+}
+
+.news-header__pic-container .news-header__pic-box {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: height 0.7s ease-out;
+}
+
+.news-header__pic-container .news-header__pic-box.animated {
+  height: 31.25rem;
+}
+
+.news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+  height: 27.5rem;
+  transition: height 0.7s ease-out;
+}
+
+.news-header__pic-container .news-header__pic-box img {
+  object-position: center;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  height: 27.5rem;
+  left: 0;
+  object-fit: cover;
+}
+
+.news-header__title {
+  margin: 5.625rem 0;
+}
+
+.news-header__more-btn {
+  margin-top: 3.125rem;
+}
+
+/*FEEDBACK PAGE*/
+
+.feedback {
+  height: auto;
+  padding-bottom: 18.75rem;
+}
+
+.feedback .wrapper {
+  padding-top: 2.5rem;
+}
+
+.feedback__title {
+  margin: 5.625rem 0;
+  width: 60%;
+}
+
+.feedback__header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(92, 135, 65, 0.5);
+  padding-bottom: 4.625rem;
+}
+
+.feedback__quote {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 115.69%;
+  color: #5C8741;
+  width: 40%;
+}
+
+.feedback__quote-author {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback__quote-name {
+  font-size: 1rem;
+  line-height: 140%;
+}
+
+.feedback__quote-position {
+  font-size: 1rem;
+  line-height: 140%;
+  color: #5C8741;
+}
+
+.feedback__feedback {
+  padding: 2.8125rem 0 5rem;
+}
+
+.feedback__table {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(92, 135, 65, 0.5);
+  padding-bottom: 3.75rem;
+}
+
+.feedback__table-title {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 117.8%;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 3.125rem;
+}
+
+.feedback__item {
+  width: 31%;
+}
+
+.feedback__item-pic {
+  position: relative;
+  height: 20rem;
+}
+
+.feedback__item-pic .feedback__item-box {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: height 0.7s ease-out;
+}
+
+.feedback__item-pic .feedback__item-box.animated {
+  height: 31.25rem;
+}
+
+.feedback__item-pic .feedback__item-box[data-aos="swipe-down"].aos-animate {
+  height: 20rem;
+  transition: height 0.7s ease-out;
+}
+
+.feedback__item-pic .feedback__item-box img {
+  object-position: center;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  height: 20rem;
+  left: 0;
+  object-fit: cover;
+}
+
+.feedback__item-content {
+  padding-top: 2.1875rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 270px;
+  position: relative;
+}
+
+.feedback__item-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 110.69%;
+  color: #5C8741;
+  margin-bottom: 0.8125rem;
+}
+
+.feedback__item-text {
+  font-size: 1rem;
+  line-height: 140%;
+  height: 180px;
+}
+
+.feedback__item-original {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+  opacity: 0.5;
+  text-align: left;
+  padding: 15px 0 0;
+  transition: opacity ease .4s;
+}
+
+.feedback__item-original:hover {
+  opacity: 0.8;
 }
 
 @media (max-width: 1600px) {
@@ -2848,6 +3171,12 @@ h2 {
 @media (max-width: 1450px) {
   html {
     font-size: 14.5px;
+  }
+}
+
+@media (max-width: 1400px) and (max-width: 768px) {
+  .about__photo-container .about__photo-box {
+    height: 500px;
   }
 }
 
@@ -2888,6 +3217,39 @@ h2 {
 
   .about__photo-container {
     height: 500px;
+    position: relative;
+    height: 500px;
+  }
+
+  .about__photo-container .about__photo-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box.animated {
+    height: 31.25rem;
+  }
+
+  .about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
+    height: 500px;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 500px;
+    left: 0;
+    object-fit: cover;
   }
 }
 
@@ -2941,6 +3303,39 @@ h2 {
 
   .about__photo-container {
     height: 400px;
+    position: relative;
+    height: 400px;
+  }
+
+  .about__photo-container .about__photo-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box.animated {
+    height: 31.25rem;
+  }
+
+  .about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
+    height: 400px;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 400px;
+    left: 0;
+    object-fit: cover;
   }
 
   .about__photo-container img {
@@ -2998,6 +3393,56 @@ h2 {
 
   .recipes-header .recipes__slide-title {
     font-size: 18px;
+  }
+
+  .news-header__news {
+    width: 47%;
+  }
+
+  .news-header__pic-container {
+    position: relative;
+    height: 280px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box.animated {
+    height: 31.25rem;
+  }
+
+  .news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 280px;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 280px;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 1200px) and (max-width: 768px) {
+  .about__photo-container .about__photo-box {
+    height: 400px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    height: 280px;
   }
 }
 
@@ -3118,6 +3563,10 @@ h2 {
 
   .recipes {
     padding-bottom: 70px;
+  }
+
+  .recipes__slide-title {
+    height: 95px;
   }
 
   .delivery .wrapper {
@@ -3313,18 +3762,42 @@ h2 {
 
   .about__photo-container {
     height: 350px;
-  }
-
-  .about__photo-box {
-    transition: all ".6s" ease-out;
-  }
-
-  .about__photo-box[data-aos="swipe-down"].aos-animate {
+    position: relative;
     height: 350px;
+  }
+
+  .about__photo-container .about__photo-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box.animated {
+    height: 31.25rem;
+  }
+
+  .about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
+    height: 350px;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 350px;
+    left: 0;
+    object-fit: cover;
   }
 
   .about__photo-container img {
-    height: 350px;
     object-fit: cover;
   }
 
@@ -3493,6 +3966,562 @@ h2 {
   .recipes-header .recipes__slide:nth-child(5n+4) .recipes__slide-time,
   .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-time {
     margin-bottom: 0;
+  }
+
+  .recipe__main-container {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .recipe__pic-container {
+    width: 100%;
+    height: 430px;
+  }
+
+  .recipe__pic-box {
+    transition: all ".6s" ease-out;
+  }
+
+  .recipe__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 430px;
+  }
+
+  .recipe__pic-box img {
+    height: 430px;
+  }
+
+  .recipe__main-info {
+    width: 80%;
+    height: auto;
+    margin-top: 30px;
+  }
+
+  .recipe__ingredients {
+    margin-top: 30px;
+  }
+
+  .recipe__info {
+    width: 100%;
+  }
+
+  .other-recipes .recipes__slide {
+    width: 100%;
+  }
+
+  .other-recipes .recipes__slide-title {
+    width: 100%;
+  }
+
+  .other-recipes .recipes__slide-content {
+    padding: 15px 20px 25px;
+  }
+
+  .other-recipes .recipes__slide-text {
+    width: 100%;
+  }
+
+  .recipe__title {
+    width: 100%;
+  }
+
+  .news-header__news {
+    width: 48%;
+  }
+
+  .news-header__pic-container {
+    position: relative;
+    height: 240px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box.animated {
+    height: 31.25rem;
+  }
+
+  .news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 240px;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 240px;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .news-header__news-pub {
+    margin-bottom: 15px;
+  }
+
+  .news-header__news-title {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  .news-header__news {
+    margin-bottom: 70px;
+  }
+
+  .news-header__table {
+    padding-bottom: 120px;
+  }
+
+  .news-header {
+    padding-bottom: 10.625rem;
+  }
+}
+
+@media (max-width: 1024px) and (max-width: 768px) {
+  .about__photo-container .about__photo-box {
+    height: 350px;
+  }
+
+  .recipe__pic-box {
+    height: 430px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    height: 240px;
+  }
+}
+
+@media (max-width: 768px) and (max-width: 768px) {
+  .production__slide-pic-container .production__slide-box {
+    height: 100%;
+  }
+
+  .about__photo-container .about__photo-box {
+    height: 600px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+
+  *[data-aos^=fade][data-aos^=fade] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .header__products {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .wrapper--header {
+    padding-top: 3vh;
+  }
+
+  .header__logo {
+    width: 175px;
+    height: 140px;
+  }
+
+  .header__subtitle {
+    font-size: 16px;
+    line-height: 140%;
+    width: 50%;
+  }
+
+  .production__nav,
+  .recipes__nav {
+    display: none;
+  }
+
+  .present {
+    overflow: hidden;
+  }
+
+  .production__slider {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .production__slider * {
+    height: auto;
+  }
+
+  .production__slide-box {
+    height: 100%;
+  }
+
+  .production__slide-pic {
+    width: 100%;
+  }
+
+  .mobile-menu__call {
+    width: 50px;
+    height: 50px;
+  }
+
+  .production__slide-title {
+    opacity: 1;
+    transform: none;
+  }
+
+  .production__slide {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 90px;
+  }
+
+  .production__slide-pic-container {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+  }
+
+  .production__slide-pic-container .production__slide-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .production__slide-pic-container .production__slide-box.animated {
+    height: 31.25rem;
+  }
+
+  .production__slide-pic-container .production__slide-box[data-aos="swipe-down"].aos-animate {
+    height: 100%;
+    transition: height 0.7s ease-out;
+  }
+
+  .production__slide-pic-container .production__slide-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .production__slider {
+    margin-bottom: 30px;
+  }
+
+  .production__catalog-btn {
+    width: 100%;
+  }
+
+  .delivery__pic {
+    position: static;
+    width: 100%;
+    height: 600px;
+  }
+
+  .wrapper--delivery {
+    width: 100%;
+  }
+
+  .delivery {
+    padding-bottom: 0;
+  }
+
+  .delivery__content {
+    width: calc(93% - 30px);
+    margin: 0 auto;
+  }
+
+  .delivery__table {
+    flex-wrap: wrap;
+  }
+
+  .delivery__item {
+    width: 100%;
+    margin-bottom: 70px;
+    padding-right: 30%;
+  }
+
+  .delivery__item-text {
+    height: auto;
+  }
+
+  .delivery__item-title {
+    margin-bottom: 15px;
+  }
+
+  .delivery__item-text {
+    margin-bottom: 30px;
+  }
+
+  .eco__item-text,
+  .present__item--present .present__item-text,
+  .present__subtitle,
+  .production__subtitle,
+  .recipes__subtitle {
+    font-size: 16px;
+  }
+
+  h2,
+  h1 {
+    font-size: 36px;
+    line-height: 105.8%;
+  }
+
+  .header__title {
+    font-size: 40px;
+    line-height: 97.3%;
+  }
+
+  .wrapper {
+    padding-top: 45px;
+  }
+
+  .eco__table {
+    margin-top: 50px;
+  }
+
+  .eco__num {
+    height: 65px;
+    width: 65px;
+  }
+
+  .eco__num i {
+    font-size: 36px;
+    margin-top: -10px;
+  }
+
+  .eco__item {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+
+  .eco__item-content {
+    margin-top: 30px;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 20%;
+  }
+
+  .eco__model {
+    display: none;
+  }
+
+  .eco__more-btn {
+    margin-top: 20px;
+    width: 277px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .eco__table-container {
+    padding-bottom: 70px;
+  }
+
+  .enter__submit,
+  .present__item-btn--present,
+  .production__catalog-btn {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .present__item-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .shops {
+    height: auto;
+  }
+
+  .shops__map {
+    background-size: contain;
+  }
+
+  .about__content {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .about__text {
+    width: 90%;
+  }
+
+  .about__photo-container {
+    width: 90%;
+    height: 600px;
+    margin-bottom: 40px;
+    position: relative;
+    height: 600px;
+  }
+
+  .about__photo-container .about__photo-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box.animated {
+    height: 31.25rem;
+  }
+
+  .about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
+    height: 600px;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 600px;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .about__text-text,
+  .crumbs__crumb,
+  .features__item-text,
+  .about__text-link {
+    font-size: 14px;
+  }
+
+  .news__slide-labels * {
+    font-size: 16px;
+  }
+
+  .news__slide,
+  .news__slider {
+    height: 500px;
+  }
+
+  .news__slide-title {
+    font-size: 24px;
+  }
+
+  .about__photo-container img {
+    object-fit: contain;
+    object-position: bottom;
+  }
+
+  .recipes-header .recipes__slide,
+  .recipes-header .recipes__slide:nth-child(5n+4),
+  .recipes-header .recipes__slide:nth-child(5n+5) {
+    height: 450px;
+  }
+
+  .recipes-header .recipes__slide .recipes__slide-pic,
+  .recipes-header .recipes__slide:nth-child(5n+4) .recipes__slide-pic,
+  .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-pic {
+    height: 40%;
+  }
+
+  .recipes-header .recipes__slide .recipes__slide-content,
+  .recipes-header .recipes__slide:nth-child(5n+4) .recipes__slide-content,
+  .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-content {
+    height: 60%;
+  }
+
+  .recipes-header .recipes__slide .recipes__slide-title,
+  .recipes-header .recipes__slide:nth-child(5n+4) .recipes__slide-title,
+  .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-title {
+    height: 50px;
+  }
+
+  .recipes-header .recipes__slide .recipes__slide-text,
+  .recipes-header .recipes__slide:nth-child(5n+4) .recipes__slide-text,
+  .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-text {
+    margin-top: 0;
+  }
+
+  .news-header__pic-container {
+    position: relative;
+    height: 200px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box.animated {
+    height: 31.25rem;
+  }
+
+  .news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 200px;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 200px;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .news-header__more-btn {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    background: transparent;
+    color: #5C8741;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    padding: 30px 0;
+  }
+
+  .feedback__item-pic .feedback__item-box {
+    height: 230px;
+  }
+
+  .production__slide-pic-container .production__slide-box {
+    height: 31.25rem;
   }
 
   .production__slide-title {
@@ -3515,6 +4544,10 @@ h2 {
     transform: none;
   }
 
+  .about__photo-container .about__photo-box {
+    height: 40rem;
+  }
+
   .features__item {
     opacity: 1;
     transform: none;
@@ -3525,9 +4558,8 @@ h2 {
     transform: none;
   }
 
-  .supplies__item {
-    opacity: 1;
-    transform: none;
+  .supplies__item-pic .supplies__item-box {
+    height: 18.75rem;
   }
 
   .docs__slide {
@@ -3535,304 +4567,21 @@ h2 {
     transform: none;
   }
 
+  .recipe__pic-box {
+    height: 33.75rem;
+  }
+
   .recipe__ingredient {
     opacity: 1;
     transform: none;
   }
-}
 
-@media (max-width: 768px) {
-  html {
-    font-size: 12px;
+  .news-header__pic-container .news-header__pic-box {
+    height: 27.5rem;
   }
 
-  *[data-aos^=fade][data-aos^=fade] {
-    opacity: 1;
-    transform: none;
-  }
-
-  .menu {
-    display: none;
-  }
-
-  .header__products {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  .wrapper--header {
-    padding-top: 3vh;
-  }
-
-  .header__logo {
-    width: 175px;
-    height: 140px;
-  }
-
-  .header__subtitle {
-    font-size: 16px;
-    line-height: 140%;
-    width: 50%;
-  }
-
-  .production__nav,
-  .recipes__nav {
-    display: none;
-  }
-
-  .present {
-    overflow: hidden;
-  }
-
-  .production__slider {
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-  }
-
-  .production__slider * {
-    height: auto;
-  }
-
-  .production__slide-box {
-    height: 100%;
-  }
-
-  .production__slide-pic {
-    width: 100%;
-  }
-
-  .production__slide-title {
-    opacity: 1;
-    transform: none;
-  }
-
-  .production__slide {
-    width: 100%;
-    height: 500px;
-    margin-bottom: 90px;
-  }
-
-  .production__slide-pic-container {
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .production__slider {
-    margin-bottom: 30px;
-  }
-
-  .production__catalog-btn {
-    width: 100%;
-  }
-
-  .delivery__pic {
-    position: static;
-    width: 100%;
-    height: 600px;
-  }
-
-  .wrapper--delivery {
-    width: 100%;
-  }
-
-  .delivery {
-    padding-bottom: 0;
-  }
-
-  .delivery__content {
-    width: calc(93% - 30px);
-    margin: 0 auto;
-  }
-
-  .delivery__table {
-    flex-wrap: wrap;
-  }
-
-  .delivery__item {
-    width: 100%;
-    margin-bottom: 70px;
-    padding-right: 30%;
-  }
-
-  .delivery__item-text {
-    height: auto;
-  }
-
-  .delivery__item-title {
-    margin-bottom: 15px;
-  }
-
-  .delivery__item-text {
-    margin-bottom: 30px;
-  }
-
-  .eco__item-text,
-  .present__item--present .present__item-text,
-  .present__subtitle,
-  .production__subtitle,
-  .recipes__subtitle {
-    font-size: 16px;
-  }
-
-  h2,
-  h1 {
-    font-size: 36px;
-    line-height: 105.8%;
-  }
-
-  .header__title {
-    font-size: 40px;
-    line-height: 97.3%;
-  }
-
-  .wrapper {
-    padding-top: 45px;
-  }
-
-  .eco__table {
-    margin-top: 50px;
-  }
-
-  .eco__num {
-    height: 65px;
-    width: 65px;
-  }
-
-  .eco__num i {
-    font-size: 36px;
-    margin-top: -10px;
-  }
-
-  .eco__item {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 50px;
-  }
-
-  .eco__item-content {
-    margin-top: 30px;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 20%;
-  }
-
-  .eco__model {
-    display: none;
-  }
-
-  .eco__more-btn {
-    margin-top: 20px;
-    width: 277px;
-    font-size: 14px;
-    line-height: 16px;
-  }
-
-  .eco__table-container {
-    padding-bottom: 70px;
-  }
-
-  .enter__submit,
-  .present__item-btn--present,
-  .production__catalog-btn {
-    font-size: 14px;
-    line-height: 16px;
-  }
-
-  .present__item-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .shops {
-    height: auto;
-  }
-
-  .shops__map {
-    background-size: contain;
-  }
-
-  .about__content {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .about__text {
-    width: 90%;
-  }
-
-  .about__photo-container {
-    width: 90%;
-    height: 600px;
-    margin-bottom: 40px;
-  }
-
-  .about__text-text,
-  .crumbs__crumb,
-  .features__item-text,
-  .about__text-link {
-    font-size: 16px;
-  }
-
-  .news__slide-labels * {
-    font-size: 16px;
-  }
-
-  .news__slide,
-  .news__slider {
-    height: 500px;
-  }
-
-  .news__slide-title {
-    font-size: 24px;
-  }
-
-  .about__photo-container {
-    height: 600px;
-  }
-
-  .about__photo-box {
-    transition: all ".6s" ease-out;
-  }
-
-  .about__photo-box[data-aos="swipe-down"].aos-animate {
-    height: 600px;
-  }
-
-  .about__photo-container img {
-    height: 600px;
-    object-fit: contain;
-    object-position: bottom;
-  }
-
-  .recipes-header .recipes__slide,
-  .recipes-header .recipes__slide:nth-child(5n+4),
-  .recipes-header .recipes__slide:nth-child(5n+5) {
-    height: 450px;
-  }
-
-  .recipes-header .recipes__slide .recipes__slide-pic,
-  .recipes-header .recipes__slide:nth-child(5n+4) .recipes__slide-pic,
-  .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-pic {
-    height: 40%;
-  }
-
-  .recipes-header .recipes__slide .recipes__slide-content,
-  .recipes-header .recipes__slide:nth-child(5n+4) .recipes__slide-content,
-  .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-content {
-    height: 60%;
-  }
-
-  .recipes-header .recipes__slide .recipes__slide-title,
-  .recipes-header .recipes__slide:nth-child(5n+4) .recipes__slide-title,
-  .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-title {
-    height: 50px;
-  }
-
-  .recipes-header .recipes__slide .recipes__slide-text,
-  .recipes-header .recipes__slide:nth-child(5n+4) .recipes__slide-text,
-  .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-text {
-    margin-top: 0;
+  .feedback__item-pic .feedback__item-box {
+    height: 20rem;
   }
 }
 
@@ -3842,8 +4591,40 @@ h2 {
   }
 
   .about__photo-container {
-    height: 500px;
     width: 100%;
+    position: relative;
+    height: 500px;
+  }
+
+  .about__photo-container .about__photo-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box.animated {
+    height: 31.25rem;
+  }
+
+  .about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
+    height: 500px;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 500px;
+    left: 0;
+    object-fit: cover;
   }
 
   .cooperation-request .modal__box {
@@ -3954,6 +4735,96 @@ h2 {
     background: transparent;
     color: #5C8741;
   }
+
+  .recipe__pic-container {
+    width: 100%;
+    height: 350px;
+  }
+
+  .recipe__pic-box img {
+    height: 350px;
+  }
+
+  .recipe__steps {
+    width: 70%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+
+  .recipe__annotation,
+  .recipe__ingredient {
+    font-size: 14px;
+  }
+
+  .recipe__ingredients-title {
+    font-size: 18px;
+  }
+
+  .recipe__ingredients {
+    margin-top: 40px;
+  }
+
+  .recipe__steps-title {
+    font-size: 18px;
+  }
+
+  .recipe__steps-text {
+    font-size: 14px;
+  }
+
+  .other-recipes {
+    padding-bottom: 85px;
+  }
+
+  .other-recipes .wrapper {
+    padding-top: 50px;
+  }
+
+  .news-header__pic-container {
+    position: relative;
+    height: 170px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box.animated {
+    height: 31.25rem;
+  }
+
+  .news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 170px;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 170px;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 620px) and (max-width: 768px) {
+  .about__photo-container .about__photo-box {
+    height: 500px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    height: 170px;
+  }
 }
 
 @media (max-width: 490px) {
@@ -3984,10 +4855,15 @@ h2 {
 
   .footer__link {
     font-size: 16px;
+    padding: 10px 0;
   }
 
   .footer__search-input {
     height: 40px;
+  }
+
+  .footer__row:last-child {
+    margin-top: 40px;
   }
 
   .header__title {
@@ -4027,17 +4903,21 @@ h2 {
     line-height: 140%;
   }
 
+  .present__title {
+    width: 100%;
+  }
+
   .recipes__slide,
   .recipes__slider {
     height: 470px;
   }
 
   .recipes__slide-pic {
-    height: 40%;
+    height: 47%;
   }
 
   .recipes__slide-content {
-    height: 60%;
+    height: 53%;
   }
 
   .recipes__slider {
@@ -4191,6 +5071,10 @@ h2 {
     opacity: 1;
   }
 
+  .crumbs__crumb {
+    font-size: 12px;
+  }
+
   .about__title {
     margin-top: 40px;
   }
@@ -4205,23 +5089,39 @@ h2 {
   }
 
   .about__photo-container {
+    position: relative;
     height: 415px;
   }
 
-  .about__photo-container {
-    height: 415px;
+  .about__photo-container .about__photo-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
   }
 
-  .about__photo-box {
-    transition: all ".6s" ease-out;
+  .about__photo-container .about__photo-box.animated {
+    height: 31.25rem;
   }
 
-  .about__photo-box[data-aos="swipe-down"].aos-animate {
+  .about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
     height: 415px;
+    transition: height 0.7s ease-out;
   }
 
-  .about__photo-container img {
+  .about__photo-container .about__photo-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
     height: 415px;
+    left: 0;
+    object-fit: cover;
   }
 
   .about__text {
@@ -4235,7 +5135,6 @@ h2 {
 
   .about__text-link,
   .about__text-text,
-  .crumbs__crumb,
   .features__item-text,
   .news__slide-labels * {
     font-size: 14px;
@@ -4330,8 +5229,40 @@ h2 {
   }
 
   .supplies__item-pic {
-    height: 300px;
     margin-bottom: 30px;
+    position: relative;
+    height: 300px;
+  }
+
+  .supplies__item-pic .supplies__item-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .supplies__item-pic .supplies__item-box.animated {
+    height: 31.25rem;
+  }
+
+  .supplies__item-pic .supplies__item-box[data-aos="swipe-down"].aos-animate {
+    height: 300px;
+    transition: height 0.7s ease-out;
+  }
+
+  .supplies__item-pic .supplies__item-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 300px;
+    left: 0;
+    object-fit: cover;
   }
 
   .supplies__item {
@@ -4431,6 +5362,142 @@ h2 {
   .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-time {
     width: 45%;
   }
+
+  .recipe__title {
+    margin-top: 40px;
+    margin-bottom: 35px;
+  }
+
+  .recipe__info {
+    margin-top: 40px;
+  }
+
+  .recipe__chars {
+    padding: 20px 0 23px;
+  }
+
+  .recipe__portion-title,
+  .recipe__time-title,
+  .recipe__portion-label,
+  .recipe__time-label {
+    font-size: 12px;
+  }
+
+  .recipe__portion-icon,
+  .recipe__time-icon {
+    width: 23px;
+    height: 23px;
+  }
+
+  .recipe__steps-step {
+    margin-top: 30px;
+  }
+
+  .recipe__steps-num {
+    font-size: 18px;
+  }
+
+  .recipe__steps {
+    width: 100%;
+  }
+
+  .other-recipes__title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 25px;
+  }
+
+  .recipe__main-info {
+    width: 100%;
+  }
+
+  .news-header__news {
+    width: 100%;
+  }
+
+  .news-header__pic-container {
+    position: relative;
+    height: 285px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box.animated {
+    height: 31.25rem;
+  }
+
+  .news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 285px;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 285px;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .news-header__news {
+    margin-bottom: 45px;
+  }
+
+  .news-header__news:last-child {
+    margin-bottom: 0;
+  }
+
+  .news-header__news:nth-child(2n) {
+    transform: translateY(0);
+  }
+
+  .news-header__news-title {
+    margin-top: 25px;
+  }
+
+  .news-header__title {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .news-header__news-pub {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .news-header__table {
+    padding-bottom: 55px;
+  }
+
+  .news-header {
+    padding-bottom: 70px;
+  }
+}
+
+@media (max-width: 490px) and (max-width: 768px) {
+  .about__photo-container .about__photo-box {
+    height: 415px;
+  }
+
+  .supplies__item-pic .supplies__item-box {
+    height: 300px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    height: 285px;
+  }
 }
 
 @media (max-width: 350px) {
@@ -4441,6 +5508,10 @@ h2 {
 
   .header__logo {
     padding-right: 5px;
+  }
+
+  h1 {
+    font-size: 28px;
   }
 
   .success__title {
@@ -4489,6 +5560,48 @@ h2 {
     height: 20px;
     width: 20px;
   }
+
+  .news-header__pic-container {
+    position: relative;
+    height: 230px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box.animated {
+    height: 31.25rem;
+  }
+
+  .news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 230px;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 230px;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 350px) and (max-width: 768px) {
+  .news-header__pic-container .news-header__pic-box {
+    height: 230px;
+  }
 }
 @keyframes fadeUpTeam {
   from {
@@ -4507,6 +5620,60 @@ h2 {
 /*COOPERATION MEDIA*/
 
 /*RECIPES MEDIA*/
+
+/*RECIPE MEDIA*/
+
+/*NEWS PAGE MEDIA*/
+
+/*FEEDBACK PAGE MEDIA*/
+
+.feedback__title {
+  width: 100%;
+}
+
+.feedback__quote {
+  width: 55%;
+}
+
+.feedback__item-pic {
+  position: relative;
+  height: 230px;
+}
+
+.feedback__item-pic .feedback__item-box {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: height 0.7s ease-out;
+}
+
+.feedback__item-pic .feedback__item-box.animated {
+  height: 31.25rem;
+}
+
+.feedback__item-pic .feedback__item-box[data-aos="swipe-down"].aos-animate {
+  height: 230px;
+  transition: height 0.7s ease-out;
+}
+
+.feedback__item-pic .feedback__item-box img {
+  object-position: center;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  height: 230px;
+  left: 0;
+  object-fit: cover;
+}
+
+.feedback {
+  padding-bottom: 11.875rem;
+}
 
 @media (max-width: 1600px) {
   html {
@@ -4529,6 +5696,12 @@ h2 {
 @media (max-width: 1450px) {
   html {
     font-size: 14.5px;
+  }
+}
+
+@media (max-width: 1400px) and (max-width: 768px) {
+  .about__photo-container .about__photo-box {
+    height: 500px;
   }
 }
 
@@ -4569,6 +5742,39 @@ h2 {
 
   .about__photo-container {
     height: 500px;
+    position: relative;
+    height: 500px;
+  }
+
+  .about__photo-container .about__photo-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box.animated {
+    height: 31.25rem;
+  }
+
+  .about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
+    height: 500px;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 500px;
+    left: 0;
+    object-fit: cover;
   }
 }
 
@@ -4622,6 +5828,39 @@ h2 {
 
   .about__photo-container {
     height: 400px;
+    position: relative;
+    height: 400px;
+  }
+
+  .about__photo-container .about__photo-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box.animated {
+    height: 31.25rem;
+  }
+
+  .about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
+    height: 400px;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 400px;
+    left: 0;
+    object-fit: cover;
   }
 
   .about__photo-container img {
@@ -4679,6 +5918,56 @@ h2 {
 
   .recipes-header .recipes__slide-title {
     font-size: 18px;
+  }
+
+  .news-header__news {
+    width: 47%;
+  }
+
+  .news-header__pic-container {
+    position: relative;
+    height: 280px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box.animated {
+    height: 31.25rem;
+  }
+
+  .news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 280px;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 280px;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 1200px) and (max-width: 768px) {
+  .about__photo-container .about__photo-box {
+    height: 400px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    height: 280px;
   }
 }
 
@@ -4799,6 +6088,10 @@ h2 {
 
   .recipes {
     padding-bottom: 70px;
+  }
+
+  .recipes__slide-title {
+    height: 95px;
   }
 
   .delivery .wrapper {
@@ -4994,18 +6287,42 @@ h2 {
 
   .about__photo-container {
     height: 350px;
-  }
-
-  .about__photo-box {
-    transition: all ".6s" ease-out;
-  }
-
-  .about__photo-box[data-aos="swipe-down"].aos-animate {
+    position: relative;
     height: 350px;
+  }
+
+  .about__photo-container .about__photo-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box.animated {
+    height: 31.25rem;
+  }
+
+  .about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
+    height: 350px;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 350px;
+    left: 0;
+    object-fit: cover;
   }
 
   .about__photo-container img {
-    height: 350px;
     object-fit: cover;
   }
 
@@ -5175,6 +6492,151 @@ h2 {
   .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-time {
     margin-bottom: 0;
   }
+
+  .recipe__main-container {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .recipe__pic-container {
+    width: 100%;
+    height: 430px;
+  }
+
+  .recipe__pic-box {
+    transition: all ".6s" ease-out;
+  }
+
+  .recipe__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 430px;
+  }
+
+  .recipe__pic-box img {
+    height: 430px;
+  }
+
+  .recipe__main-info {
+    width: 80%;
+    height: auto;
+    margin-top: 30px;
+  }
+
+  .recipe__ingredients {
+    margin-top: 30px;
+  }
+
+  .recipe__info {
+    width: 100%;
+  }
+
+  .other-recipes .recipes__slide {
+    width: 100%;
+  }
+
+  .other-recipes .recipes__slide-title {
+    width: 100%;
+  }
+
+  .other-recipes .recipes__slide-content {
+    padding: 15px 20px 25px;
+  }
+
+  .other-recipes .recipes__slide-text {
+    width: 100%;
+  }
+
+  .recipe__title {
+    width: 100%;
+  }
+
+  .news-header__news {
+    width: 48%;
+  }
+
+  .news-header__pic-container {
+    position: relative;
+    height: 240px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box.animated {
+    height: 31.25rem;
+  }
+
+  .news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 240px;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 240px;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .news-header__news-pub {
+    margin-bottom: 15px;
+  }
+
+  .news-header__news-title {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  .news-header__news {
+    margin-bottom: 70px;
+  }
+
+  .news-header__table {
+    padding-bottom: 120px;
+  }
+
+  .news-header {
+    padding-bottom: 10.625rem;
+  }
+}
+
+@media (max-width: 1024px) and (max-width: 768px) {
+  .about__photo-container .about__photo-box {
+    height: 350px;
+  }
+
+  .recipe__pic-box {
+    height: 430px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    height: 240px;
+  }
+}
+
+@media (max-width: 768px) and (max-width: 768px) {
+  .production__slide-pic-container .production__slide-box {
+    height: 100%;
+  }
+
+  .about__photo-container .about__photo-box {
+    height: 600px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    height: 200px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -5238,6 +6700,11 @@ h2 {
     width: 100%;
   }
 
+  .mobile-menu__call {
+    width: 50px;
+    height: 50px;
+  }
+
   .production__slide-title {
     opacity: 1;
     transform: none;
@@ -5252,6 +6719,39 @@ h2 {
   .production__slide-pic-container {
     height: 100%;
     overflow: hidden;
+    position: relative;
+    height: 100%;
+  }
+
+  .production__slide-pic-container .production__slide-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .production__slide-pic-container .production__slide-box.animated {
+    height: 31.25rem;
+  }
+
+  .production__slide-pic-container .production__slide-box[data-aos="swipe-down"].aos-animate {
+    height: 100%;
+    transition: height 0.7s ease-out;
+  }
+
+  .production__slide-pic-container .production__slide-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    object-fit: cover;
   }
 
   .production__slider {
@@ -5401,13 +6901,46 @@ h2 {
     width: 90%;
     height: 600px;
     margin-bottom: 40px;
+    position: relative;
+    height: 600px;
+  }
+
+  .about__photo-container .about__photo-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box.animated {
+    height: 31.25rem;
+  }
+
+  .about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
+    height: 600px;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 600px;
+    left: 0;
+    object-fit: cover;
   }
 
   .about__text-text,
   .crumbs__crumb,
   .features__item-text,
   .about__text-link {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .news__slide-labels * {
@@ -5423,20 +6956,7 @@ h2 {
     font-size: 24px;
   }
 
-  .about__photo-container {
-    height: 600px;
-  }
-
-  .about__photo-box {
-    transition: all ".6s" ease-out;
-  }
-
-  .about__photo-box[data-aos="swipe-down"].aos-animate {
-    height: 600px;
-  }
-
   .about__photo-container img {
-    height: 600px;
     object-fit: contain;
     object-position: bottom;
   }
@@ -5470,6 +6990,60 @@ h2 {
   .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-text {
     margin-top: 0;
   }
+
+  .news-header__pic-container {
+    position: relative;
+    height: 200px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box.animated {
+    height: 31.25rem;
+  }
+
+  .news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 200px;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 200px;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .news-header__more-btn {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    background: transparent;
+    color: #5C8741;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    padding: 30px 0;
+  }
+
+  .feedback__item-pic .feedback__item-box {
+    height: 230px;
+  }
 }
 
 @media (max-width: 620px) {
@@ -5478,8 +7052,40 @@ h2 {
   }
 
   .about__photo-container {
-    height: 500px;
     width: 100%;
+    position: relative;
+    height: 500px;
+  }
+
+  .about__photo-container .about__photo-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box.animated {
+    height: 31.25rem;
+  }
+
+  .about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
+    height: 500px;
+    transition: height 0.7s ease-out;
+  }
+
+  .about__photo-container .about__photo-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 500px;
+    left: 0;
+    object-fit: cover;
   }
 
   .cooperation-request .modal__box {
@@ -5590,6 +7196,96 @@ h2 {
     background: transparent;
     color: #5C8741;
   }
+
+  .recipe__pic-container {
+    width: 100%;
+    height: 350px;
+  }
+
+  .recipe__pic-box img {
+    height: 350px;
+  }
+
+  .recipe__steps {
+    width: 70%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+
+  .recipe__annotation,
+  .recipe__ingredient {
+    font-size: 14px;
+  }
+
+  .recipe__ingredients-title {
+    font-size: 18px;
+  }
+
+  .recipe__ingredients {
+    margin-top: 40px;
+  }
+
+  .recipe__steps-title {
+    font-size: 18px;
+  }
+
+  .recipe__steps-text {
+    font-size: 14px;
+  }
+
+  .other-recipes {
+    padding-bottom: 85px;
+  }
+
+  .other-recipes .wrapper {
+    padding-top: 50px;
+  }
+
+  .news-header__pic-container {
+    position: relative;
+    height: 170px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box.animated {
+    height: 31.25rem;
+  }
+
+  .news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 170px;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 170px;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 620px) and (max-width: 768px) {
+  .about__photo-container .about__photo-box {
+    height: 500px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    height: 170px;
+  }
 }
 
 @media (max-width: 490px) {
@@ -5620,10 +7316,15 @@ h2 {
 
   .footer__link {
     font-size: 16px;
+    padding: 10px 0;
   }
 
   .footer__search-input {
     height: 40px;
+  }
+
+  .footer__row:last-child {
+    margin-top: 40px;
   }
 
   .header__title {
@@ -5663,17 +7364,21 @@ h2 {
     line-height: 140%;
   }
 
+  .present__title {
+    width: 100%;
+  }
+
   .recipes__slide,
   .recipes__slider {
     height: 470px;
   }
 
   .recipes__slide-pic {
-    height: 40%;
+    height: 47%;
   }
 
   .recipes__slide-content {
-    height: 60%;
+    height: 53%;
   }
 
   .recipes__slider {
@@ -5827,6 +7532,10 @@ h2 {
     opacity: 1;
   }
 
+  .crumbs__crumb {
+    font-size: 12px;
+  }
+
   .about__title {
     margin-top: 40px;
   }
@@ -5841,23 +7550,39 @@ h2 {
   }
 
   .about__photo-container {
+    position: relative;
     height: 415px;
   }
 
-  .about__photo-container {
-    height: 415px;
+  .about__photo-container .about__photo-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
   }
 
-  .about__photo-box {
-    transition: all ".6s" ease-out;
+  .about__photo-container .about__photo-box.animated {
+    height: 31.25rem;
   }
 
-  .about__photo-box[data-aos="swipe-down"].aos-animate {
+  .about__photo-container .about__photo-box[data-aos="swipe-down"].aos-animate {
     height: 415px;
+    transition: height 0.7s ease-out;
   }
 
-  .about__photo-container img {
+  .about__photo-container .about__photo-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
     height: 415px;
+    left: 0;
+    object-fit: cover;
   }
 
   .about__text {
@@ -5871,7 +7596,6 @@ h2 {
 
   .about__text-link,
   .about__text-text,
-  .crumbs__crumb,
   .features__item-text,
   .news__slide-labels * {
     font-size: 14px;
@@ -5966,8 +7690,40 @@ h2 {
   }
 
   .supplies__item-pic {
-    height: 300px;
     margin-bottom: 30px;
+    position: relative;
+    height: 300px;
+  }
+
+  .supplies__item-pic .supplies__item-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .supplies__item-pic .supplies__item-box.animated {
+    height: 31.25rem;
+  }
+
+  .supplies__item-pic .supplies__item-box[data-aos="swipe-down"].aos-animate {
+    height: 300px;
+    transition: height 0.7s ease-out;
+  }
+
+  .supplies__item-pic .supplies__item-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 300px;
+    left: 0;
+    object-fit: cover;
   }
 
   .supplies__item {
@@ -6067,6 +7823,142 @@ h2 {
   .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-time {
     width: 45%;
   }
+
+  .recipe__title {
+    margin-top: 40px;
+    margin-bottom: 35px;
+  }
+
+  .recipe__info {
+    margin-top: 40px;
+  }
+
+  .recipe__chars {
+    padding: 20px 0 23px;
+  }
+
+  .recipe__portion-title,
+  .recipe__time-title,
+  .recipe__portion-label,
+  .recipe__time-label {
+    font-size: 12px;
+  }
+
+  .recipe__portion-icon,
+  .recipe__time-icon {
+    width: 23px;
+    height: 23px;
+  }
+
+  .recipe__steps-step {
+    margin-top: 30px;
+  }
+
+  .recipe__steps-num {
+    font-size: 18px;
+  }
+
+  .recipe__steps {
+    width: 100%;
+  }
+
+  .other-recipes__title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 25px;
+  }
+
+  .recipe__main-info {
+    width: 100%;
+  }
+
+  .news-header__news {
+    width: 100%;
+  }
+
+  .news-header__pic-container {
+    position: relative;
+    height: 285px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box.animated {
+    height: 31.25rem;
+  }
+
+  .news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 285px;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 285px;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .news-header__news {
+    margin-bottom: 45px;
+  }
+
+  .news-header__news:last-child {
+    margin-bottom: 0;
+  }
+
+  .news-header__news:nth-child(2n) {
+    transform: translateY(0);
+  }
+
+  .news-header__news-title {
+    margin-top: 25px;
+  }
+
+  .news-header__title {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .news-header__news-pub {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .news-header__table {
+    padding-bottom: 55px;
+  }
+
+  .news-header {
+    padding-bottom: 70px;
+  }
+}
+
+@media (max-width: 490px) and (max-width: 768px) {
+  .about__photo-container .about__photo-box {
+    height: 415px;
+  }
+
+  .supplies__item-pic .supplies__item-box {
+    height: 300px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    height: 285px;
+  }
 }
 
 @media (max-width: 350px) {
@@ -6077,6 +7969,10 @@ h2 {
 
   .header__logo {
     padding-right: 5px;
+  }
+
+  h1 {
+    font-size: 28px;
   }
 
   .success__title {
@@ -6124,6 +8020,48 @@ h2 {
   .recipes-header .recipes__slide:nth-child(5n+5) .recipes__slide-time-icon {
     height: 20px;
     width: 20px;
+  }
+
+  .news-header__pic-container {
+    position: relative;
+    height: 230px;
+  }
+
+  .news-header__pic-container .news-header__pic-box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box.animated {
+    height: 31.25rem;
+  }
+
+  .news-header__pic-container .news-header__pic-box[data-aos="swipe-down"].aos-animate {
+    height: 230px;
+    transition: height 0.7s ease-out;
+  }
+
+  .news-header__pic-container .news-header__pic-box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 230px;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 350px) and (max-width: 768px) {
+  .news-header__pic-container .news-header__pic-box {
+    height: 230px;
   }
 }
 

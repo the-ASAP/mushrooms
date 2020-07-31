@@ -59,11 +59,17 @@ function setDeviceType() {
 }
 
 function setPageName() {
-    pageName = $('name').text().trim();
+    pageName = $('template').html().toString().trim();
 }
 
 function initAnimationsArray(elems) {
-    animationsArray = elems;
+    //добавление data-атрибута с задержкой анимации (не трож)
+    addDataDelayAttr(elems);
+
+    $(window).on('scroll', function() {
+        // обработчик срабатывания анимации на элементах из массива elems (не трож)
+        triggerSwipeDownAnimation(elems);
+    });
 }
 
 function addDataDelayAttr(elems) {
@@ -88,6 +94,22 @@ function triggerSwipeDownAnimation(elems, offset = 1000) {
             }
         }
     });
+}
+
+function isIE() {
+    var rv = -1;
+    if (navigator.appName == 'Microsoft Internet Explorer') {
+        var ua = navigator.userAgent;
+        var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+        if (re.exec(ua) != null)
+            rv = parseFloat(RegExp.$1);
+    } else if (navigator.appName == 'Netscape') {
+        var ua = navigator.userAgent;
+        var re = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");
+        if (re.exec(ua) != null)
+            rv = parseFloat(RegExp.$1);
+    }
+    return rv === -1 ? false : true;
 }
 
 function initModel() {
@@ -276,12 +298,6 @@ function initSlider(selector, params = {}) {
     });
 }
 
-// отправка формы
-function sendForm(e, formSelector, url, onSuccess, onError, onStart) {
-    console.log(123)
-
-}
-
 // замена контента формы при успешной отправке формы в модалке на блок .success
 function showSuccessModal(modalForm) {
     let modal = $(modalForm).closest('.modal');
@@ -464,12 +480,12 @@ function initListeners() {
             onLoadStart: () => {
                 console.log('start')
             },
-            onSuccess: () => {
-                console.log(this.data);
-                console.log('success')
+            onSuccess: (data) => {
+                showSuccessModal($(this));
+                console.log(data);
             },
-            onError: () => {
-                console.log('errroo')
+            onError: (error) => {
+                console.log(error)
             }
         });
     });
@@ -477,7 +493,9 @@ function initListeners() {
     // Только для десктопа
     if (isDesktop) {
         if (pageName === 'Главная') {
-            initModel();
+            if (!isIE()) {
+                initModel();
+            }
 
             let offset = 500;
 
@@ -491,6 +509,10 @@ function initListeners() {
                 }
             });
         }
+    }
+
+    //Для десктопа и планшета
+    if (!isMobile) {
         //массив элементов, которым нужна последовательная анимация или где aos-анимация не работает (слайдеры)
         initAnimationsArray([$('.production__slide-box'),
             $('.production__slide-title'),
@@ -499,21 +521,12 @@ function initListeners() {
             $('.shops__item'),
             $('.features__item'),
             $('.news__slide'),
-            $('.supplies__item'),
+            $('.supplies__item-box'),
             $('.docs__slide'),
-            $('.recipe__ingredient')
+            $('.recipe__ingredient'),
+            $('.feedback__item-box')
         ]);
-        //добавление data-атрибута с задержкой анимации (не трож)
-        addDataDelayAttr(animationsArray);
 
-        $(window).on('scroll', function() {
-            // обработчик срабатывания анимации на элементах из массива выше (не трож)
-            triggerSwipeDownAnimation(animationsArray);
-        })
-    }
-
-    //Для десктопа и планшета
-    if (!isMobile) {
         initSlider('.production__slider', {
             items: 3,
             navText: [createNav('production').prevNav, createNav('production').nextNav],
@@ -548,6 +561,26 @@ function initListeners() {
                 }
             }
         });
+
+        initSlider('.other-recipes .recipes__slider', {
+            items: 2,
+            nav: false,
+            margin: 15,
+            responsive: {
+                0: {
+                    items: 1,
+                    margin: 8
+                },
+                490: {
+                    items: 2,
+                    margin: 15,
+                }
+            }
+        });
+    }
+
+    if(isTablet) {
+        truncText('.feedback__item-text', 170);
     }
 
     // Только для мобилки
@@ -572,5 +605,5 @@ $().ready(() => {
 
     truncText('.recipes__slide-text', 200);
     truncText('.news__slide-title', 70);
-
+    truncText('.feedback__item-text', 300);
 });
