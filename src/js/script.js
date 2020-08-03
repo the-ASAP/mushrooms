@@ -46,16 +46,20 @@ const bindModalListeners = modalArr => {
 // BEGIN не лезь, оно тебя сожрёт
 function setDeviceType() {
     (function setIsDesktop() {
-        ($(window).width() > 1024) ? isDesktop = true: isDesktop = false;
+        isDesktop = $(window).width() > 1024;
     })();
 
     (function setIsTablet() {
-        ($(window).width() <= 1024 && $(window).width() > 768) ? isTablet = true: isTablet = false;
+        isTablet = $(window).width() <= 1024 && $(window).width() >= 768;
     })();
 
     (function setIsMobile() {
-        ($(window).width() <= 768) ? isMobile = true: isMobile = false;
+        isMobile = $(window).width() < 768;
     })();
+}
+
+function isCustomWidth(width) {
+    return $(window).width() < width;
 }
 
 function setPageName() {
@@ -395,7 +399,21 @@ function initListeners() {
     // Модалки
 
     $('.enter__form').on('submit', function(e) {
-        sendForm(e, '.enter__form', 'УРЛ ДЛЯ ВХОДА В ЛИЧНЫЙ КАБИНЕТ');
+        e.preventDefault();
+        formValidate({
+            form: '.enter__form',
+            url: 'https://cors-anywhere.herokuapp.com/http://mushrooms.asap-lp.ru/form.php',
+            onLoadStart: () => {
+                console.log('start')
+            },
+            onSuccess: (data) => {
+                showSuccessModal($(this));
+                console.log(data);
+            },
+            onError: (error) => {
+                console.log(error)
+            }
+        });
     });
 
     // ГЛАВНАЯ
@@ -403,6 +421,22 @@ function initListeners() {
     $('.shops__map').on('click', function() {
         initMap($(this).attr('data-coords'));
     });
+
+    $('.header__icon--search').on('click', function(e) {
+        e.stopPropagation();
+        if (e.target.tagName.includes('svg') ||
+            e.target.tagName.includes('line') ||
+            e.target.tagName.includes('path')) {
+            e.preventDefault();
+            $('.header__nav').addClass('opened-search');
+        }
+
+    });
+
+    $('.header__search-form').on('submit', function(e) {
+        e.preventDefault();
+        console.log(23123)
+    })
 
     initSlider('.recipes .recipes__slider', {
         items: 3,
@@ -472,6 +506,8 @@ function initListeners() {
         }
     });
 
+
+
     $('.cooperation-request__form').on('submit', function(e) {
         e.preventDefault();
         formValidate({
@@ -489,6 +525,8 @@ function initListeners() {
             }
         });
     });
+
+
 
     // Только для десктопа
     if (isDesktop) {
@@ -579,7 +617,7 @@ function initListeners() {
         });
     }
 
-    if(isTablet) {
+    if (isTablet) {
         truncText('.feedback__item-text', 170);
     }
 
@@ -587,6 +625,7 @@ function initListeners() {
 
     if (isMobile) {
         truncText('.recipes__slide-text', 75);
+        truncText('.feedback__item-text', 150);
     }
 }
 

@@ -13,22 +13,6 @@ html {
     margin: 0;
 }
 
-// Стилизация скроллбра
-
-%scrollbar::-webkit-scrollbar {
-    width: .5%;
-    min-width: 8px;
-}
-
-%scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-%scrollbar::-webkit-scrollbar-thumb {
-    border-left: 1px solid #F2F2F2;
-    background: $accent;
-}
-
 body {
     font-family: $font;
     margin: 0;
@@ -147,91 +131,6 @@ input {
     }
 }
 
-// Крестик для кнопки закрытия
-%close-btn {
-    position: absolute;
-    right: 5%;
-    top: 3%;
-    height: 20px;
-    width: 20px;
-    background: transparent;
-
-    &::after,
-    &::before {
-        transition: background-color .3s;
-        content: '';
-        width: 100%;
-        height: 2px;
-        background-color: $gen;
-        position: absolute;
-        top: 50%;
-        right: calc(50% - 10px);
-    }
-
-    &::after {
-        transform: rotate(45deg);
-    }
-
-    &::before {
-        transform: rotate(135deg);
-    }
-
-    &:hover::after,
-    &:hover::before {
-        background-color: $accent;
-    }
-}
-
-%burger {
-    width: 36px;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    padding: 0.2rem;
-    cursor: pointer;
-    z-index: 3;
-
-    &::after,
-    &::before,
-    &>span {
-        content: '';
-        width: 100%;
-        height: 2px;
-        background-color: $cream;
-        margin-bottom: 13px;
-        transition: all .3s ease;
-    }
-
-    &::after {
-        margin-bottom: 0;
-        width: 50%;
-    }
-}
-
-%arrow {
-    width: 6rem;
-    height: 6rem;
-
-    svg {
-        width: 100%;
-        height: 100%;
-    }
-}
-
-%green-btn {
-    width: 20.6875rem;
-    background: $accent;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 0.875rem;
-    line-height: 1.0625rem;
-    letter-spacing: 0.06em;
-    color: $cream;
-    padding: 1.875rem 0;
-    margin: 0 auto;
-    display: block;
-}
-
 .modal {
     position: fixed;
     top: 0;
@@ -260,7 +159,6 @@ input {
         background-color: $lightBrown;
         max-height: 100%;
         max-width: 100%;
-        overflow-x: hidden;
         @extend %scrollbar;
     }
 
@@ -337,7 +235,6 @@ h2 {
 /*MODALS*/
 
 .map {
-
     .modal__box {
         width: 80%;
         height: 80%;
@@ -389,15 +286,22 @@ h2 {
     }
 
     &__input {
-        background: #FEFEFE;
+        background: transparent;
         border: 1px solid rgba(0, 0, 0, 0.2);
         height: 52px;
         margin-bottom: 1.5625rem;
         padding: 0 25px;
         font-size: 0.875rem;
+        transition: border-color .3s ease;
+
+        &:focus {
+            background: #fff;
+            border-color: $accent;
+        }
 
         &.error {
-            border: 1px solid red;
+            border-color: $error;
+            background: url(../img/icons/error.png) 95%/25px 25px no-repeat;
         }
     }
 
@@ -423,6 +327,7 @@ h2 {
 
     &__remember-label {
         font-size: 0.875rem;
+        cursor: pointer;
 
         &:before {
             content: '';
@@ -436,12 +341,12 @@ h2 {
 
         &:after {
             content: '';
-            width: 13px;
-            height: 13px;
+            width: 19.5px;
+            height: 20px;
             position: absolute;
-            top: 4px;
-            left: 4px;
-            background: $accent;
+            top: 0px;
+            left: 0px;
+            background: url(../img/icons/checked.png) center/contain no-repeat;
             visibility: hidden;
             opacity: 0;
             transition: all .3s ease;
@@ -452,6 +357,11 @@ h2 {
         font-size: 0.875rem;
         line-height: 1rem;
         opacity: 0.4;
+        transition: all .3s ease;
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 
     &__submit {
@@ -600,11 +510,13 @@ h2 {
 
         &-link {
             font-weight: 600;
+            width: auto;
             font-size: 0.875rem;
             line-height: 1.0625rem;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             padding: 0.6875rem 0;
+            @include hover;
         }
 
         &-contacts {
@@ -874,6 +786,23 @@ h2 {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        &.opened-search {
+
+            .header__icon--search>svg {
+                visibility: hidden;
+            }
+
+            .header__search-form {
+                transform: translate(0, -50%);
+                visibility: visible;
+                width: 400px;
+            }
+
+            .header__menu-link--phone {
+                visibility: hidden;
+            }
+        }
     }
 
     &__logo {
@@ -883,6 +812,48 @@ h2 {
         &-pic {
             width: 100%;
             height: auto;
+        }
+    }
+
+    &__search {
+        &-form {
+            visibility: hidden;
+            position: absolute;
+            top: 50%;
+            transform: translate(50%, -50%);
+            right: 0;
+            background-color: rgba(#FDEFCE, .4);
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            transition: visibility .3s, width .3s, transform .3s;
+            overflow: hidden;
+        }
+
+        &-input {
+            background: transparent;
+            width: 100%;
+            height: 100%;
+            padding: 0 40px 0 25px;
+            @include placeholder(rgba($text, .8))
+        }
+
+        &-btn {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15px;
+            z-index: 22;
+
+            &:hover {
+                svg {
+                    path,
+                    line {
+                        stroke: $cream;
+                    }
+                }
+            }
         }
     }
 
@@ -907,10 +878,21 @@ h2 {
             text-transform: uppercase;
             font-weight: 500;
             text-align: center;
+            padding-bottom: 5px;
+
+            &:not(.header__menu-link--phone) {
+
+                @include hover;
+            }
 
             &--phone {
                 font-size: 1.5rem;
                 opacity: 0.8;
+                transition: opacity .4s;
+
+                &:hover {
+                    opacity: 1;
+                }
             }
         }
     }
@@ -933,7 +915,7 @@ h2 {
         }
 
         &:hover {
-            svg path {
+            &>svg path {
                 fill: $accent;
             }
         }
@@ -958,7 +940,6 @@ h2 {
         position: relative;
         z-index: 2;
         padding-top: 10vh;
-
     }
 
     &__title {
@@ -976,16 +957,9 @@ h2 {
     }
 
     &__products {
-        border: 1px solid $cream;
-        box-sizing: border-box;
-        font-size: 0.875rem;
-        font-weight: 500;
-        line-height: 1.0625rem;
-        text-align: center;
-        text-transform: uppercase;
+        @extend %transparent-btn;
         width: 300px;
         padding: 25px 0;
-        display: inline-block;
         margin: 7vh 0 8vh;
     }
 
@@ -1478,7 +1452,7 @@ h2 {
         }
 
         &-icon {
-            background: $cream;
+            background-color: $cream;
             height: 50px;
             width: 50px;
             border-radius: 100%;
@@ -1491,13 +1465,18 @@ h2 {
         &-btn {
             width: 100%;
             border: 1px solid $cream;
+            background-color: transparent;
             height: 5rem;
+            color: $cream;
+            transition: all .3s;
 
-            * {
-                color: $cream;
+            &:hover {
+                background-color: $cream;
+                color: $text;
             }
 
             &--present {
+                background-color: $accent;
                 @extend %green-btn;
             }
         }
@@ -1554,9 +1533,11 @@ h2 {
             font-size: 1.5rem;
             line-height: 110.69%;
             margin-bottom: 0.9375rem;
+            width: 100%;
         }
 
         &-address {
+            width: 100%;
             font-size: 1rem;
         }
     }
@@ -1725,8 +1706,9 @@ h2 {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 1440px;
     background: $lightBrown;
-    padding: 0 calc(15% - 15px) 0 5.3%;
+    margin: 0 auto;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
     * {
@@ -2816,3 +2798,5 @@ h2 {
         @extend %green-btn;
     }
 }
+
+.contacts {}
