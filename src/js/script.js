@@ -12,13 +12,17 @@ const contentFadeInOnReady = () => {
 // Открытие и закрытие модальных окон
 const bindModalListeners = modalArr => {
     modalArr.forEach(obj => {
+
         let jQTrigger = $(obj.trigger);
         let jQModal = $(obj.modal);
 
         jQTrigger.on('click', function(e) {
             e.preventDefault();
+            $('.modal').removeClass('active');
+
             stopScroll('body');
             jQModal.addClass('active');
+
         });
 
         jQModal.on('click', function(e) {
@@ -341,6 +345,7 @@ function showSuccessModal(modalForm) {
         setTimeout(() => {
             modal.find('.success').css('display', 'none');
             modalContent.show();
+            freeScroll();
         }, 500);
     });
 }
@@ -373,29 +378,6 @@ function initListeners() {
         $('.menu__products-pic').css('background-image', `url(${$(this).attr('data-pic')})`);
     });
 
-    $('.mobile-menu__search-input').on('focus', function() {
-        $('.mobile-menu').addClass('focus');
-    });
-
-    $('.mobile-menu__search-input').on('blur', function() {
-        $('.mobile-menu').removeClass('focus');
-    });
-
-    // Футер
-
-    $('.footer__search-input').on('focus', function() {
-        $('.footer__search').addClass('focus');
-    });
-
-    $('.footer__search-input').on('blur', function() {
-        $('.footer__search').removeClass('focus');
-    });
-
-    $('.footer__search-reset').on('click', function() {
-        $('.footer__search').removeClass('focus');
-        $('.footer__search-input').val('');
-    });
-
     // Модалки
 
     $('.enter__form').on('submit', function(e) {
@@ -416,27 +398,29 @@ function initListeners() {
         });
     });
 
+    $('.register__form').on('submit', function(e) {
+        e.preventDefault();
+        formValidate({
+            form: '.register__form',
+            url: 'https://cors-anywhere.herokuapp.com/http://mushrooms.asap-lp.ru/form.php',
+            onLoadStart: () => {
+                console.log('start')
+            },
+            onSuccess: (data) => {
+                showSuccessModal($(this));
+                console.log(data);
+            },
+            onError: (error) => {
+                console.log(error)
+            }
+        });
+    });
+
     // ГЛАВНАЯ
 
     $('.shops__map').on('click', function() {
         initMap($(this).attr('data-coords'));
     });
-
-    $('.header__icon--search').on('click', function(e) {
-        e.stopPropagation();
-        if (e.target.tagName.includes('svg') ||
-            e.target.tagName.includes('line') ||
-            e.target.tagName.includes('path')) {
-            e.preventDefault();
-            $('.header__nav').addClass('opened-search');
-        }
-
-    });
-
-    $('.header__search-form').on('submit', function(e) {
-        e.preventDefault();
-        console.log(23123)
-    })
 
     initSlider('.recipes .recipes__slider', {
         items: 3,
@@ -639,7 +623,9 @@ $().ready(() => {
         { trigger: '.shops__map', modal: '.modal--map' },
         { trigger: '.present__item-btn', modal: '.modal--enter' },
         { trigger: '.request__request-btn', modal: '.cooperation-request' },
-        { trigger: '.mobile-menu__account', modal: '.modal--enter' }
+        { trigger: '.mobile-menu__account', modal: '.modal--enter' },
+        {trigger: '.enter__register', modal: '.register'},
+        {trigger: '.register__enter', modal: '.enter'}
     ]);
 
     truncText('.recipes__slide-text', 200);

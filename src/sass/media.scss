@@ -106,7 +106,7 @@
     }
 
     .header__icons {
-        width: 13%;
+        width: 10%;
     }
 
     .header__burger {
@@ -119,6 +119,10 @@
 
     .shops__map {
         height: 40vh;
+    }
+
+    .header__menu-item--phone {
+        width: 14.25rem;
     }
 }
 
@@ -568,7 +572,7 @@
         padding-bottom: 70px;
     }
 
-    .enter__submit,
+    .enter__submit, .register__submit
     .present__item-btn--present,
     .production__catalog-btn {
         font-size: 14px;
@@ -772,37 +776,34 @@
         height: 25px;
     }
 
-    .enter .modal__box {
+    .enter .modal__box, .register .modal__box {
         padding: 4vh 3vh;
+         width: 90%;
     }
 
-    .enter .modal__close {
+    .enter .modal__close, .register .modal__close {
         top: 10px;
         right: 10px;
         width: 20px;
         height: 20px;
     }
 
-    .enter__input {
+    .enter__input, .register__input {
         height: 50px;
     }
 
-    .enter__submit {
+    .enter__submit, .register__submit {
         padding: 0;
         height: 50px;
         width: 100%;
     }
 
-    .enter__alternative {
+    .enter__alternative, .register__alternative {
         margin-top: 7vh;
     }
 
     .eco__item-content {
         padding-right: 15%;
-    }
-
-    .enter .modal__box {
-        width: 90%;
     }
 
     .footer .wrapper {

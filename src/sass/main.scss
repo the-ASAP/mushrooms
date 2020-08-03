@@ -156,8 +156,9 @@ input {
         padding: 2rem 3rem;
         box-sizing: border-box;
         position: relative;
-        background-color: $lightBrown;
-        max-height: 100%;
+        background-color: #fff;
+        max-height: 95%;
+        overflow: auto;
         max-width: 100%;
         @extend %scrollbar;
     }
@@ -176,8 +177,8 @@ input {
     position: relative;
 
     &__title {
-        font-size: 5.25rem;
-        line-height: 5.0625rem;
+        font-size: 4rem;
+        line-height: 96.8%;
         font-family: $accentFont;
         color: $accent;
         margin-bottom: 2.8125rem;
@@ -212,6 +213,7 @@ input {
 .owl-next.disabled {
     transition: opacity .3s ease;
     opacity: 0.4;
+    pointer-events: none;
 }
 
 h2,
@@ -239,6 +241,7 @@ h2 {
         width: 80%;
         height: 80%;
         padding: 0;
+        overflow: visible;
     }
 
     #map {
@@ -260,11 +263,12 @@ h2 {
     }
 }
 
-.enter {
+.enter, .register {
     .modal__box {
-        padding: 3% 2% 2%;
+        padding: 3% 7% 2%;
         background: #fff;
-        width: 400px;
+        width: 39.375rem;
+        max-width: 95%;
     }
 
     .modal__close {
@@ -316,16 +320,25 @@ h2 {
     &__checkbox-container {
         position: relative;
         padding-left: 30px;
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
-    &__remember {
+    &__remember, &__policy {
         &:checked+label:after {
             visibility: visible;
             opacity: 1;
         }
+
+        &.error+label:before {
+            border-color: $error;
+        }
     }
 
-    &__remember-label {
+    &__remember-label, &__policy-label {
         font-size: 0.875rem;
         cursor: pointer;
 
@@ -367,6 +380,7 @@ h2 {
     &__submit {
         margin-top: 3.125rem;
         @extend %green-btn;
+        width: 100%;
     }
 
     &__alternative {
@@ -391,7 +405,6 @@ h2 {
                 margin-right: 0;
             }
 
-
             svg {
                 width: 100%;
                 height: 100%;
@@ -399,7 +412,7 @@ h2 {
         }
     }
 
-    &__register {
+    &__register, &__enter {
         font-size: 14px;
         line-height: 16px;
         color: $text;
@@ -745,7 +758,6 @@ h2 {
     }
 }
 
-
 /*HEADER*/
 
 .burger {
@@ -753,6 +765,7 @@ h2 {
     position: absolute;
     top: 12.5%;
     left: 7%;
+    z-index: 3;
 
     &:hover {
         &:after {
@@ -786,23 +799,6 @@ h2 {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
-        &.opened-search {
-
-            .header__icon--search>svg {
-                visibility: hidden;
-            }
-
-            .header__search-form {
-                transform: translate(0, -50%);
-                visibility: visible;
-                width: 400px;
-            }
-
-            .header__menu-link--phone {
-                visibility: hidden;
-            }
-        }
     }
 
     &__logo {
@@ -815,53 +811,11 @@ h2 {
         }
     }
 
-    &__search {
-        &-form {
-            visibility: hidden;
-            position: absolute;
-            top: 50%;
-            transform: translate(50%, -50%);
-            right: 0;
-            background-color: rgba(#FDEFCE, .4);
-            border-radius: 50px;
-            width: 50px;
-            height: 50px;
-            transition: visibility .3s, width .3s, transform .3s;
-            overflow: hidden;
-        }
-
-        &-input {
-            background: transparent;
-            width: 100%;
-            height: 100%;
-            padding: 0 40px 0 25px;
-            @include placeholder(rgba($text, .8))
-        }
-
-        &-btn {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 15px;
-            z-index: 22;
-
-            &:hover {
-                svg {
-                    path,
-                    line {
-                        stroke: $cream;
-                    }
-                }
-            }
-        }
-    }
-
     &__menu {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 63%;
+        width: 70%;
         text-align: center;
 
         &-item {
@@ -869,7 +823,7 @@ h2 {
 
             &--phone {
                 padding-left: 5%;
-                width: 16.25rem;
+                width: 18.25rem;
             }
         }
 
@@ -898,7 +852,7 @@ h2 {
     }
 
     &__icons {
-        width: 11%;
+        width: 7%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -1091,16 +1045,14 @@ h2 {
 
 
     &__more-btn {
-        width: 16.875rem;
-        opacity: 0.6;
-        border-bottom: 1px solid $cream;
-        text-transform: uppercase;
-        display: block;
-        font-weight: 500;
-        margin: 12.5rem auto 0;
-        padding-bottom: 10px;
-        font-size: 0.875rem;
-        line-height: 1.0625rem;
+        @extend %green-btn;
+         margin: 12.5rem auto 0;
+         border: 1px solid $cream;
+
+         &:hover {
+            background-color: $cream !important;
+            color: $accent !important;
+         }
     }
 }
 
@@ -1186,8 +1138,10 @@ h2 {
         text-transform: uppercase;
         padding-bottom: 9px;
         align-self: center;
+        transition: color .3s;
 
         &:hover {
+            color: $text;
             &:after {
                 width: 100%;
             }
@@ -1525,8 +1479,11 @@ h2 {
     &__map {
         width: 100%;
         height: 45vh;
-        background: red;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
         margin-bottom: 4vh;
+        filter: grayscale(100%);
 
         &-title {
             font-weight: 500;
@@ -2799,4 +2756,27 @@ h2 {
     }
 }
 
-.contacts {}
+/*CONTACTS-PAGE*/
+
+.contacts {
+    &__contacts {
+        padding-top: 8.125rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__title {
+        margin: 0;
+        margin-bottom: 6.25rem;
+    }
+
+    &__phones {
+        width: 40%;
+    }
+
+    &__links {
+        width: 40%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
