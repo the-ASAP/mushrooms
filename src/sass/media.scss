@@ -572,8 +572,8 @@
         padding-bottom: 70px;
     }
 
-    .enter__submit, .register__submit
-    .present__item-btn--present,
+    .enter__submit,
+    .register__submit .present__item-btn--present,
     .production__catalog-btn {
         font-size: 14px;
         line-height: 16px;
@@ -588,10 +588,6 @@
 
     .shops {
         height: auto;
-    }
-
-    .shops__map {
-        background-size: contain;
     }
 }
 
@@ -776,29 +772,34 @@
         height: 25px;
     }
 
-    .enter .modal__box, .register .modal__box {
+    .enter .modal__box,
+    .register .modal__box {
         padding: 4vh 3vh;
-         width: 90%;
+        width: 90%;
     }
 
-    .enter .modal__close, .register .modal__close {
+    .enter .modal__close,
+    .register .modal__close {
         top: 10px;
         right: 10px;
         width: 20px;
         height: 20px;
     }
 
-    .enter__input, .register__input {
+    .enter__input,
+    .register__input {
         height: 50px;
     }
 
-    .enter__submit, .register__submit {
+    .enter__submit,
+    .register__submit {
         padding: 0;
         height: 50px;
         width: 100%;
     }
 
-    .enter__alternative, .register__alternative {
+    .enter__alternative,
+    .register__alternative {
         margin-top: 7vh;
     }
 
@@ -1177,7 +1178,23 @@
     }
 }
 
+@media (max-width: 768px) {
+    .full-feedback .modal__box {
+        width: 50%;
+        height: 600px;
+    }
+
+    .full-feedback img {
+        object-position: top;
+    }
+}
+
 @media (max-width: 620px) {
+    .full-feedback .modal__box {
+        width: 60%;
+        height: 70vh;
+    }
+
     .cooperation-request {
         .modal__box {
             width: 80%;
@@ -1226,6 +1243,17 @@
 
 
 @media (max-width: 490px) {
+
+    .full-feedback .modal__close {
+        width: 20px;
+        height: 20px;
+        top: -20px;
+        right: -20px;
+    }
+    .full-feedback .modal__box {
+        width: 78%;
+    }
+
     .cooperation-request {
         .modal__box {
             width: 90%;
@@ -2012,5 +2040,182 @@
 @media(max-width: 350px) {
     .feedback__item-pic {
         @include swipeDownAnimation(250px, '.feedback__item-box');
+    }
+}
+
+/*CONTACTS PAGE MEDIA*/
+
+@media(max-width: 1200px) {
+    .contacts__links {
+        width: 37%;
+    }
+
+    .shops--contacts {
+        .shops__map {
+            height: 250px;
+        }
+    }
+}
+
+@media(max-width: 1024px) {
+    .shops--contacts {
+        .shops__map {
+            height: 400px;
+        }
+    }
+
+    .contacts__phones {
+        width: 45%;
+    }
+
+    .contacts__links {
+        width: 45%;
+    }
+}
+
+@media(max-width: 768px) {
+    .contacts__phones {
+        width: 48%;
+    }
+
+    .contacts__links {
+        width: 48%;
+    }
+
+    .shops--contacts .shops__table {
+        margin-top: 30px;
+    }
+
+    .shops--contacts {
+        .shops__map {
+            height: 320px;
+        }
+    }
+
+    .contacts__title {
+        line-height: 1;
+    }
+}
+
+@media(max-width: 768px) {
+    .contacts__contacts {
+        flex-wrap: wrap;
+        margin-top: 50px;
+    }
+
+    .contacts__title {
+        margin-bottom: 40px;
+    }
+
+    .contacts__phones {
+        width: 100%;
+        order: 2;
+    }
+
+    .contacts__links {
+        width: 100%;
+        order: 1;
+    }
+
+    .contacts__links-instagram {
+        position: static;
+        margin-top: 45px;
+        padding: 0 30px 0 20px;
+        height: 90px;
+        width: 80%;
+        margin-bottom: 50px;
+
+        span {
+            font-size: 14px;
+            line-height: 17px;
+        }
+
+        svg {
+            height: 25px;
+            width: 25px;
+        }
+    }
+
+    .contacts__links-link {
+        font-weight: 400;
+    }
+
+    .contacts__links-link--phone {
+        margin-bottom: 15px;
+        font-weight: 500;
+    }
+
+    .contacts__item-title {
+        font-weight: 400;
+    }
+
+    .contacts__item-phone {
+        font-size: 14px;
+    }
+
+    .contacts__item {
+        margin-bottom: 30px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .shops--contacts .shops__map-title {
+        font-weight: 500;
+    }
+
+    .shops--contacts .shops__map {
+        margin-bottom: 23px;
+    }
+}
+
+@media(max-width: 490px) {
+    .shops--contacts .shops__map {
+        height: 270px;
+    }
+
+    .contacts__links-link {
+        font-size: 14px;
+    }
+
+    .contacts__links-link--phone {
+        font-size: 18px;
+    }
+
+    .contacts__links-instagram {
+        margin: 42px 0 50px;
+    }
+
+    .contacts__item-title {
+        font-size: 14px;
+    }
+
+    .contacts__contacts {
+        padding-bottom: 45px;
+    }
+
+    .contacts__links-instagram {
+        width: 100%;
+    }
+
+    .shops--contacts .shops__title {
+        width: 100%;
+    }
+
+    .shops--contacts .shops__table {
+        margin-top: 45px;
+    }
+
+    .shops--contacts .shops__map {
+        height: 210px;
+    }
+
+    .shops--contacts .shops__map-title {
+        font-size: 18px;
+    }
+
+    .shops--contacts .shops__map-address {
+        font-size: 14px;
     }
 }

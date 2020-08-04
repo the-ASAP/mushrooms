@@ -16,17 +16,17 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     cachebust = require('gulp-cache-bust'),
     gutil = require('gulp-util'),
-	ftp = require('vinyl-ftp'),
-	deployJSON = require('./deploy.json'),
+    ftp = require('vinyl-ftp'),
+    deployJSON = require('./deploy.json'),
     reload = browserSync.reload;
 
-    let connConfig = {
-		host:      deployJSON.host,
-		user:      deployJSON.user,
-		password:  deployJSON.password,
-		parallel:  10,
-		log: gutil.log
-	}
+let connConfig = {
+    host: deployJSON.host,
+    user: deployJSON.user,
+    password: deployJSON.password,
+    parallel: 10,
+    log: gutil.log
+}
 
 gulp.task('clean', function(done) {
     done();
@@ -121,24 +121,15 @@ gulp.task('buildFonts', function() {
         .pipe(gulp.dest('build/fonts'))
         .pipe(reload({ stream: true }));
 });
-
-
-
 //fonts
-// gulp.task( 'removeRemoteDirs', function ( cb ) {
-//   var conn = ftp.create( connConfig );
-//   conn.clean( `${connConfig.host}/public_html`, './build/');
-// });
 gulp.task('deploy', function() {
-		var conn = ftp.create(connConfig)
-
-
-	var globs = [
-		'build/**'
-		];
-		return gulp.src(globs, {buffer: false})
-		.pipe(conn.dest('mushrooms.asap-lp.ru/public_html'));
-	});
+    let conn = ftp.create(connConfig)
+    let globs = [
+        'build/**'
+    ];
+    return gulp.src(globs, { buffer: false })
+        .pipe(conn.dest(`${deployJSON.host}/public_html`));
+});
 //dev build
 gulp.task('devbuild', gulp.series(
     'buildHtml',

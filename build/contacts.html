@@ -10,15 +10,23 @@
     <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
     <title>Контакты</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1596460015690">
-    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1596460015690">
-    <link rel="stylesheet" href="vendors/css/aos.css?t=1596460015690">
-    <link rel="stylesheet" href="css/main.css?t=1596460015690" type="text/css">
+    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1596546786402">
+    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1596546786402">
+    <link rel="stylesheet" href="vendors/css/aos.css?t=1596546786402">
+    <link rel="stylesheet" href="css/main.css?t=1596546786402" type="text/css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=59d7bd1e-0c50-476d-869e-e4fa06bfdc0c&lang=ru_RU">
+    </script>
 </head>
 
 <body>
     <template>Контакты</template>
     <div class="preloader"></div>
+    <div class="modal modal--map map">
+        <div class="modal__box">
+            <button class="modal__close"></button>
+            <div class="map__wrapper" id="map"></div>
+        </div>
+    </div>
     <div class="modal modal--enter enter">
         <div class="modal__box">
             <button class="modal__close"></button>
@@ -240,21 +248,21 @@
                 <div class="contacts__phones">
                     <h1 class="contacts__title" data-aos="fade-up">Контакты</h1>
                     <div class="contacts__list">
-                        <div class="contacts__item">
+                        <div class="contacts__item" data-aos="fade-up" data-aos-delay="100">
                             <span class="contacts__item-title">Отдел продаж</span>
                             <a href="tel:89379785960" class="contacts__item-phone">+7 937 978-59-60</a>
                         </div>
-                        <div class="contacts__item">
+                        <div class="contacts__item" data-aos="fade-up" data-aos-delay="200">
                             <span class="contacts__item-title">По вопросам сотрудничества</span>
                             <a href="tel:89379785960" class="contacts__item-phone">+7 937 978-59-60</a>
                         </div>
                     </div>
                 </div>
                 <div class="contacts__links">
-                    <a href="tel:89053843999" class="contacts__links-link contacts__link-link--phone">+7 905 38-43-999</a>
-                    <a href="" class="contacts__links-link contacts__link-link--address">город Петровск, ул. Зеленая 44</a>
-                    <a href="mailto:info@gkp64.ru" class="contacts__links-link contacts__link-link--email">info@gkp64.ru</a>
-                    <a href="#" class="contacts__links-instagram"><span>Подписаться на инстаграм</span><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <a href="tel:89053843999" class="contacts__links-link contacts__links-link--phone" data-aos="fade-up" data-aos-delay="100">+7 905 38-43-999</a>
+                    <span class="contacts__links-link contacts__links-link--address" data-aos="fade-up" data-aos-delay="200">город Петровск, ул. Зеленая 44</span>
+                    <a href="mailto:info@gkp64.ru" class="contacts__links-link contacts__links-link--email" data-aos="fade-up" data-aos-delay="300">info@gkp64.ru</a>
+                    <a href="#" class="contacts__links-instagram" data-aos="fade-up" data-aos-delay="400"><span>Подписаться на&nbsp;инстаграм</span><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16.0262 7.70898C11.4209 7.70898 7.67334 11.4018 7.67334 15.9414C7.67334 20.4804 11.4203 24.1733 16.0262 24.1733C20.6316 24.1733 24.3791 20.4804 24.3791 15.9414C24.3791 11.4018 20.6316 7.70898 16.0262 7.70898ZM16.0262 21.1425C13.0978 21.1425 10.7159 18.8089 10.7159 15.9414C10.7159 13.0733 13.0978 10.7402 16.0262 10.7402C18.9541 10.7402 21.3366 13.0733 21.3366 15.9414C21.3366 18.8094 18.9547 21.1425 16.0262 21.1425Z" fill="#5C8741" />
                             <path d="M22.7893 0H9.21075C4.13222 0 0 4.11568 0 9.17503V22.825C0 27.8838 4.1317 32 9.21075 32H22.7893C27.8683 32 32 27.8838 32 22.825V9.17503C32 4.1162 27.8683 0 22.7893 0ZM28.9517 22.825C28.9517 26.2097 26.1871 28.9636 22.7893 28.9636H9.21075C5.81285 28.9636 3.04827 26.2097 3.04827 22.825V9.17503C3.04827 5.79031 5.81285 3.03645 9.21075 3.03645H22.7893C26.1871 3.03645 28.9517 5.79031 28.9517 9.17503V22.825Z" fill="#5C8741" />
                             <path d="M24.5279 9.33051C25.6133 9.33051 26.4932 8.454 26.4932 7.37278C26.4932 6.29155 25.6133 5.41504 24.5279 5.41504C23.4424 5.41504 22.5625 6.29155 22.5625 7.37278C22.5625 8.454 23.4424 9.33051 24.5279 9.33051Z" fill="#5C8741" />
@@ -262,7 +270,25 @@
                     </a>
                 </div>
             </div>
-            <button class="feedback__more-btn" data-aos="fade-up">Больше отзывов</button>
+        </div>
+    </section>
+     <section class="shops shops--contacts">
+        <div class="wrapper wrapper--shops">
+            <h2 class="shops__title" data-aos="fade-up" data-aos-offset="0">Продуктовые точки в&nbsp;Саратове</h2>
+            <div class="shops__table">
+                <div class="shops__item">
+                    <button type="button" class="shops__map shop__map--volzhski" style="background-image: url(img/map1.jpg);" data-coords="51.565698572361654,46.06488899999995">
+                    </button>
+                    <span class="shops__map-title">Рынок Юбилейный</span>
+                    <span class="shops__map-address">Усть-Курдюмская улица, 8</span>
+                </div>
+                <div class="shops__item">
+                    <button type="button" class="shops__map shop__map--leninski" style="background-image: url(img/map2.jpg);" data-coords="51.60778739150105,45.905211593254045">
+                    </button>
+                    <span class="shops__map-title">Рынок в пос. Елшанка</span>
+                    <span class="shops__map-address">Московское шоссе, 61 ст. 2</span>
+                </div>
+            </div>
         </div>
     </section>
     <section class="footer">
@@ -355,12 +381,12 @@
             </div>
         </div>
     </section>
-    <script src="vendors/js/jquery-3.5.1.min.js?t=1596460015690"></script>
-    <script src="vendors/js/owl.carousel.min.js?t=1596460015690"></script>
-    <script src="vendors/js/aos.js?t=1596460015690"></script>
-    <script src="vendors/js/scroll.js?t=1596460015690"></script>
-    <script src="vendors/js/formValidate.min.js?t=1596460015690"></script>
-    <script src="js/scripts.js?t=1596460015690"></script>
+    <script src="vendors/js/jquery-3.5.1.min.js?t=1596546786402"></script>
+    <script src="vendors/js/owl.carousel.min.js?t=1596546786402"></script>
+    <script src="vendors/js/aos.js?t=1596546786402"></script>
+    <script src="vendors/js/scroll.js?t=1596546786402"></script>
+    <script src="vendors/js/formValidate.min.js?t=1596546786402"></script>
+    <script src="js/scripts.js?t=1596546786402"></script>
 </body>
 
 </html>

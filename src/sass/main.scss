@@ -143,7 +143,7 @@ input {
     z-index: 50;
     visibility: hidden;
     opacity: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(#525252, 0.3);
     transition: all .4s ease;
 
     &.active {
@@ -263,7 +263,9 @@ h2 {
     }
 }
 
-.enter, .register {
+.enter,
+.register,
+.write {
     .modal__box {
         padding: 3% 7% 2%;
         background: #fff;
@@ -281,7 +283,7 @@ h2 {
         font-size: 1.5rem;
         text-align: center;
         color: $accent;
-        margin-bottom: 1.5625rem;
+        margin-bottom: 2rem;
     }
 
     &__form {
@@ -327,7 +329,14 @@ h2 {
         }
     }
 
-    &__remember, &__policy {
+    &__textarea {
+        padding-top: 1.5625rem;
+        height: 9.375rem;
+        resize: none;
+    }
+
+    &__remember,
+    &__policy {
         &:checked+label:after {
             visibility: visible;
             opacity: 1;
@@ -338,7 +347,8 @@ h2 {
         }
     }
 
-    &__remember-label, &__policy-label {
+    &__remember-label,
+    &__policy-label {
         font-size: 0.875rem;
         cursor: pointer;
 
@@ -412,7 +422,8 @@ h2 {
         }
     }
 
-    &__register, &__enter {
+    &__register,
+    &__enter {
         font-size: 14px;
         line-height: 16px;
         color: $text;
@@ -1046,13 +1057,13 @@ h2 {
 
     &__more-btn {
         @extend %green-btn;
-         margin: 12.5rem auto 0;
-         border: 1px solid $cream;
+        margin: 12.5rem auto 0;
+        border: 1px solid $cream;
 
-         &:hover {
+        &:hover {
             background-color: $cream !important;
             color: $accent !important;
-         }
+        }
     }
 }
 
@@ -1142,6 +1153,7 @@ h2 {
 
         &:hover {
             color: $text;
+
             &:after {
                 width: 100%;
             }
@@ -1525,10 +1537,17 @@ h2 {
         width: 25%;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
 
         &:last-child {
-            width: 20%;
+            width: 23%;
         }
+    }
+
+    &__address {
+        font-size: 1.125rem;
+line-height: 1.3125rem;
+text-align: right;
     }
 
     &__link {
@@ -1594,9 +1613,11 @@ h2 {
     }
 
     &__contacts {
+        margin-left: auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 70%;
 
         &-phone {
             font-size: 1.125rem;
@@ -1611,6 +1632,13 @@ h2 {
                 width: 100%;
             }
         }
+    }
+
+    &__write {
+        @extend %green-btn;
+        border: 1px solid $cream; 
+        font-weight: 500;
+        width: 100%;
     }
 
     &__footer {
@@ -1706,6 +1734,11 @@ h2 {
         letter-spacing: 0.06em;
         text-transform: uppercase;
         transition: all .3s ease;
+        padding-bottom: 5px;
+
+        &:not(.second-menu__item--phone) {
+            @include hover($text);
+        }
 
         &--phone {
             font-size: 1.125rem;
@@ -2025,6 +2058,36 @@ h2 {
 }
 
 /*COOPERATION*/
+
+.full-feedback {
+    .modal__box {
+        padding: 0;
+        overflow: visible;
+        width: 20.625rem;
+        height: 35.625rem;
+    }
+
+    .modal__close {
+        top: -20px;
+        right: -20px;
+
+        &:before, &:after {
+            background: $cream;
+        }
+    }
+
+    .modal__content {
+        width: 100%;
+        height: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-position: center;
+        object-fit: cover;
+    }
+}
 
 .cooperation-request {
     .modal__box {
@@ -2759,10 +2822,18 @@ h2 {
 /*CONTACTS-PAGE*/
 
 .contacts {
+    height: auto;
+
+    .wrapper {
+        padding-top: 2.5rem;
+    }
+
     &__contacts {
-        padding-top: 8.125rem;
+        margin-top: 5.625rem;
         display: flex;
         justify-content: space-between;
+        padding-bottom: 4.6875rem;
+        border-bottom: 1px solid rgba($accent, .3);
     }
 
     &__title {
@@ -2775,8 +2846,134 @@ h2 {
     }
 
     &__links {
-        width: 40%;
+        width: 33%;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        position: relative;
+
+        &-link {
+            width: 100%;
+            font-weight: 600;
+            font-size: 1.5rem;
+            line-height: 110.69%;
+            color: $text;
+
+            &--phone {
+                font-size: 2rem;
+                line-height: 117.8%;
+                margin-bottom: 3.125rem;
+            }
+
+            &--address {
+                margin-bottom: 1.5625rem;
+            }
+        }
+
+        &-instagram {
+            width: 100%;
+            border: 1px solid $accent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 6.25rem;
+            padding: 0 45px 0 45px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transition: background-color .3s;
+
+            &:hover {
+                background-color: #fff;
+            }
+
+            span {
+                width: 45%;
+                font-weight: 600;
+                font-size: 0.875rem;
+                line-height: 1.0625rem;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+            }
+
+            svg {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 35px;
+
+        &:lact-child {
+            margin-bottom: 0;
+        }
+
+        &-title {
+            font-weight: 600;
+            font-size: 1.5rem;
+            line-height: 110.69%;
+            margin-bottom: 1.0625rem;
+        }
+
+        &-phone {
+            font-size: 1rem;
+            line-height: 140%;
+            color: $text;
+        }
+    }
+}
+
+.shops--contacts {
+    background: $lightBrown;
+
+    .wrapper {
+        padding-top: 3.4375rem;
+    }
+
+    .shops__title {
+        width: 60%;
+        color: $text;
+    }
+
+    .shops__table {
+        margin-top: 3.75rem;
+    }
+
+    .shops__map-title {
+        font-weight: 600;
+        color: $accent;
+
+    }
+
+    .shops__map-address {
+        color: $text;
+    }
+
+    .shops__map {
+        height: 25rem;
+    }
+}
+
+/*404 PAGE*/
+
+.notfound {
+    &__title {
+        display: none;
+    }
+    
+    &__label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 50%;
+        margin: 0 auto;
     }
 }

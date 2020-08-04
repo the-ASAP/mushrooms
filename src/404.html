@@ -8,29 +8,121 @@
     <meta name="description" content="Описание страницы для SEO и соцсетей">
     <meta name="keywords" content="ключевые, слова, через, запятую">
     <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
-    <title>Сотрудничество</title>
+    <title>404</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="vendors/css/aos.css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
 </head>
 
 <body>
-    <template>Сотрудничество</template>
+    <template>404</template>
     <div class="preloader"></div>
-    
-    <div class="modal cooperation-request">
+    <div class="modal full-feedback">
         <div class="modal__box">
             <button class="modal__close"></button>
             <div class="modal__content">
-                <p class="cooperation-request__title">Заявка на партнерство</p>
-                <form method="POST" class="cooperation-request__form" name="cooperation-request">
-                    <input type="text" name="name" class="cooperation-request__input" placeholder="Имя" data-role='required'>
-                    <input type="text" name="phone" class="cooperation-request__input" placeholder="Телефон" data-role='phone required'>
-                    <input type="text" name="email" class="cooperation-request__input" placeholder="E-mail" data-role='email required'>
-                    <textarea name="message" class="cooperation-request__input cooperation-request__textarea" placeholder="Комментарий"></textarea>
-                    <button type="submit" class="cooperation-request__submit-btn">
+                <img src="" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="modal register">
+        <div class="modal__box">
+            <button class="modal__close"></button>
+            <div class="modal__content">
+                <p class="register__title">Регистрация</p>
+                <form method="POST" class="register__form" name="register">
+                    <input type="text" name="name" data-role="required" class="register__input register__input--name" placeholder="Имя">
+                    <input type="text" name="email" data-role="email" class="register__input register__input--email" placeholder="Почта">
+                    <input type="text" name="phone" data-role="phone" class="register__input register__input--phone" placeholder="Телефон">
+                    <input type="password" name="password" data-role="password" class="register__input register__input--password" placeholder="Пароль">
+                    <div class="register__inputs-container">
+                        <div class="register__checkbox-container register__checkbox-container--remember">
+                            <input type="checkbox" id="register-remember" name="register-remember" data-role='checkbox' class="register__remember">
+                            <label for="register-remember" class="register__remember-label">Запомнить меня</label>
+                        </div>
+                        <div class="register__checkbox-container register__checkbox-container--policy">
+                            <input type="checkbox" id="policy" name="policy" data-role='checkbox required' class="register__policy">
+                            <label for="policy" class="register__policy-label">Я ознакомлен(-а) с <a href="#" class="register__policy-link">Политикой конфиденциальности</a></label>
+                        </div>
+                    </div>
+                    <button type="submit" class="register__submit">
+                        Зарегистрироваться
+                    </button>
+                </form>
+                <a href="#" class="register__enter">Войти</a>
+                <div class="register__alternative">
+                    <p class="register__alternative-label">Зарегистрироваться с помощью</p>
+                    <a href="#" class="register__alternative-icon register__alternative-icon--inst">
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.5218 10.0234C13.9238 10.0234 10.9961 12.9085 10.9961 16.455C10.9961 20.0011 13.9234 22.8862 17.5218 22.8862C21.1197 22.8862 24.0475 20.0011 24.0475 16.455C24.0475 12.9085 21.1197 10.0234 17.5218 10.0234ZM17.5218 20.5184C15.234 20.5184 13.3731 18.6953 13.3731 16.455C13.3731 14.2143 15.234 12.3916 17.5218 12.3916C19.8092 12.3916 21.6705 14.2143 21.6705 16.455C21.6705 18.6957 19.8096 20.5184 17.5218 20.5184Z" fill="#5C8741" />
+                            <path d="M22.8041 4H12.1959C8.2283 4 5 7.21537 5 11.168V21.832C5 25.7842 8.22789 29 12.1959 29H22.8041C26.7721 29 30 25.7842 30 21.832V11.168C30 7.21578 26.7721 4 22.8041 4ZM27.6185 21.832C27.6185 24.4763 25.4587 26.6278 22.8041 26.6278H12.1959C9.54129 26.6278 7.38146 24.4763 7.38146 21.832V11.168C7.38146 8.52368 9.54129 6.37222 12.1959 6.37222H22.8041C25.4587 6.37222 27.6185 8.52368 27.6185 11.168V21.832Z" fill="#5C8741" />
+                            <path d="M24.1643 11.2894C25.0123 11.2894 25.6998 10.6047 25.6998 9.75995C25.6998 8.91524 25.0123 8.23047 24.1643 8.23047C23.3163 8.23047 22.6289 8.91524 22.6289 9.75995C22.6289 10.6047 23.3163 11.2894 24.1643 11.2894Z" fill="#5C8741" />
+                        </svg>
+                    </a>
+                    <a href="#" class="register__alternative-icon register__alternative-icon--google">
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.687 15.9154C13.4158 16.7044 13.4278 17.5631 13.7208 18.3442C13.9046 18.8342 14.1933 19.2782 14.5666 19.645C14.9399 20.0118 15.3888 20.2926 15.882 20.4678C16.3752 20.643 16.9007 20.7083 17.4217 20.6591C17.9428 20.61 18.4468 20.4476 18.8985 20.1833C19.6108 19.7661 20.1581 19.1168 20.4488 18.3442H17.2177V15.9541H23.0214C23.2253 17.0314 23.1326 18.1438 22.7531 19.1725C22.3736 20.2012 21.7216 21.1073 20.8669 21.794C20.1138 22.3986 19.2268 22.8138 18.2801 23.0049C17.3335 23.196 16.3548 23.1574 15.4262 22.8923C14.4976 22.6272 13.646 22.1433 12.9429 21.4813C12.2398 20.8193 11.7057 19.9983 11.3852 19.0873C11.0648 18.1763 10.9674 17.2017 11.1013 16.2453C11.2351 15.2889 11.5963 14.3785 12.1545 13.5904C12.7127 12.8024 13.4517 12.1596 14.3096 11.7161C15.1674 11.2725 16.1191 11.041 17.0848 11.041C18.4933 11.0396 19.8578 11.5322 20.9406 12.433L18.9831 14.0353C18.5245 13.7498 18.0075 13.5713 17.4704 13.5132C16.9334 13.4551 16.3902 13.5188 15.8811 13.6996C15.3721 13.8804 14.9104 14.1736 14.5303 14.5574C14.1502 14.9413 13.8615 15.4059 13.6858 15.9166H13.687V15.9154Z" fill="#5C8741" />
+                            <path d="M9.83333 7.41667C9.19239 7.41667 8.5777 7.67128 8.12449 8.12449C7.67128 8.5777 7.41667 9.19239 7.41667 9.83333V24.3333C7.41667 24.9743 7.67128 25.589 8.12449 26.0422C8.5777 26.4954 9.19239 26.75 9.83333 26.75H24.3333C24.9743 26.75 25.589 26.4954 26.0422 26.0422C26.4954 25.589 26.75 24.9743 26.75 24.3333V9.83333C26.75 9.19239 26.4954 8.5777 26.0422 8.12449C25.589 7.67128 24.9743 7.41667 24.3333 7.41667H9.83333ZM9.83333 5H24.3333C25.6152 5 26.8446 5.50922 27.751 6.41565C28.6574 7.32208 29.1667 8.55145 29.1667 9.83333V24.3333C29.1667 25.6152 28.6574 26.8446 27.751 27.751C26.8446 28.6574 25.6152 29.1667 24.3333 29.1667H9.83333C8.55145 29.1667 7.32208 28.6574 6.41565 27.751C5.50922 26.8446 5 25.6152 5 24.3333V9.83333C5 8.55145 5.50922 7.32208 6.41565 6.41565C7.32208 5.50922 8.55145 5 9.83333 5Z" fill="#5C8741" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="success">
+                <p class="success__title">Регистрация прошла успешно</p>
+                <button type="button" class="success__btn">Перейти к покупкам</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal modal--enter enter">
+        <div class="modal__box">
+            <button class="modal__close"></button>
+            <div class="modal__content">
+                <p class="enter__title">Вход</p>
+                <form method="POST" class="enter__form" name="enter">
+                    <input type="text" name="name" data-role="required" class="enter__input enter__input--name" placeholder="Имя">
+                    <input type="text" name="phone" data-role="phone required" class="enter__input enter__input--phone" placeholder="Телефон">
+                    <div class="enter__inputs-container">
+                        <div class="enter__checkbox-container">
+                            <input type="checkbox" id="remember" name="remember" data-role='checkbox' class="enter__remember">
+                            <label for="remember" class="enter__remember-label">Запомнить меня</label>
+                        </div>
+                        <button type="button" class="enter__forget">Забыли пароль?</button>
+                    </div>
+                    <button type="submit" class="enter__submit">
+                        Войти
+                    </button>
+                </form>
+                <a href="#" class="enter__register">Зарегистрироваться</a>
+                <div class="enter__alternative">
+                    <p class="enter__alternative-label">Войти с помощью</p>
+                    <a href="#" class="enter__alternative-icon enter__alternative-icon--inst">
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.5218 10.0234C13.9238 10.0234 10.9961 12.9085 10.9961 16.455C10.9961 20.0011 13.9234 22.8862 17.5218 22.8862C21.1197 22.8862 24.0475 20.0011 24.0475 16.455C24.0475 12.9085 21.1197 10.0234 17.5218 10.0234ZM17.5218 20.5184C15.234 20.5184 13.3731 18.6953 13.3731 16.455C13.3731 14.2143 15.234 12.3916 17.5218 12.3916C19.8092 12.3916 21.6705 14.2143 21.6705 16.455C21.6705 18.6957 19.8096 20.5184 17.5218 20.5184Z" fill="#5C8741" />
+                            <path d="M22.8041 4H12.1959C8.2283 4 5 7.21537 5 11.168V21.832C5 25.7842 8.22789 29 12.1959 29H22.8041C26.7721 29 30 25.7842 30 21.832V11.168C30 7.21578 26.7721 4 22.8041 4ZM27.6185 21.832C27.6185 24.4763 25.4587 26.6278 22.8041 26.6278H12.1959C9.54129 26.6278 7.38146 24.4763 7.38146 21.832V11.168C7.38146 8.52368 9.54129 6.37222 12.1959 6.37222H22.8041C25.4587 6.37222 27.6185 8.52368 27.6185 11.168V21.832Z" fill="#5C8741" />
+                            <path d="M24.1643 11.2894C25.0123 11.2894 25.6998 10.6047 25.6998 9.75995C25.6998 8.91524 25.0123 8.23047 24.1643 8.23047C23.3163 8.23047 22.6289 8.91524 22.6289 9.75995C22.6289 10.6047 23.3163 11.2894 24.1643 11.2894Z" fill="#5C8741" />
+                        </svg>
+                    </a>
+                    <a href="#" class="enter__alternative-icon enter__alternative-icon--google">
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.687 15.9154C13.4158 16.7044 13.4278 17.5631 13.7208 18.3442C13.9046 18.8342 14.1933 19.2782 14.5666 19.645C14.9399 20.0118 15.3888 20.2926 15.882 20.4678C16.3752 20.643 16.9007 20.7083 17.4217 20.6591C17.9428 20.61 18.4468 20.4476 18.8985 20.1833C19.6108 19.7661 20.1581 19.1168 20.4488 18.3442H17.2177V15.9541H23.0214C23.2253 17.0314 23.1326 18.1438 22.7531 19.1725C22.3736 20.2012 21.7216 21.1073 20.8669 21.794C20.1138 22.3986 19.2268 22.8138 18.2801 23.0049C17.3335 23.196 16.3548 23.1574 15.4262 22.8923C14.4976 22.6272 13.646 22.1433 12.9429 21.4813C12.2398 20.8193 11.7057 19.9983 11.3852 19.0873C11.0648 18.1763 10.9674 17.2017 11.1013 16.2453C11.2351 15.2889 11.5963 14.3785 12.1545 13.5904C12.7127 12.8024 13.4517 12.1596 14.3096 11.7161C15.1674 11.2725 16.1191 11.041 17.0848 11.041C18.4933 11.0396 19.8578 11.5322 20.9406 12.433L18.9831 14.0353C18.5245 13.7498 18.0075 13.5713 17.4704 13.5132C16.9334 13.4551 16.3902 13.5188 15.8811 13.6996C15.3721 13.8804 14.9104 14.1736 14.5303 14.5574C14.1502 14.9413 13.8615 15.4059 13.6858 15.9166H13.687V15.9154Z" fill="#5C8741" />
+                            <path d="M9.83333 7.41667C9.19239 7.41667 8.5777 7.67128 8.12449 8.12449C7.67128 8.5777 7.41667 9.19239 7.41667 9.83333V24.3333C7.41667 24.9743 7.67128 25.589 8.12449 26.0422C8.5777 26.4954 9.19239 26.75 9.83333 26.75H24.3333C24.9743 26.75 25.589 26.4954 26.0422 26.0422C26.4954 25.589 26.75 24.9743 26.75 24.3333V9.83333C26.75 9.19239 26.4954 8.5777 26.0422 8.12449C25.589 7.67128 24.9743 7.41667 24.3333 7.41667H9.83333ZM9.83333 5H24.3333C25.6152 5 26.8446 5.50922 27.751 6.41565C28.6574 7.32208 29.1667 8.55145 29.1667 9.83333V24.3333C29.1667 25.6152 28.6574 26.8446 27.751 27.751C26.8446 28.6574 25.6152 29.1667 24.3333 29.1667H9.83333C8.55145 29.1667 7.32208 28.6574 6.41565 27.751C5.50922 26.8446 5 25.6152 5 24.3333V9.83333C5 8.55145 5.50922 7.32208 6.41565 6.41565C7.32208 5.50922 8.55145 5 9.83333 5Z" fill="#5C8741" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal modal--write write">
+        <div class="modal__box">
+            <button class="modal__close"></button>
+            <div class="modal__content">
+                <p class="write__title">Напишите нам</p>
+                <form method="POST" class="write__form" name="write">
+                    <input type="text" name="name" data-role="required" class="write__input write__input--name" placeholder="Имя">
+                    <input type="text" name="phone" data-role="phone required" class="write__input enter__input--phone" placeholder="Телефон">
+                    <input type="text" name="email" data-role="email required" class="write__input enter__input--email" placeholder="E-mail">
+                    <textarea name="message" class="write__input write__textarea" placeholder="Комментарий"></textarea>
+                    <button type="submit" class="write__submit">
                         Отправить
                     </button>
                 </form>
@@ -39,43 +131,6 @@
                 <p class="success__title">Спасибо за заявку</p>
                 <p class="success__subtitle">Наш менеджер скоро свяжется с вами</p>
                 <button type="button" class="success__btn">Понятно</button>
-            </div>
-        </div>
-    </div>
-    <div class="modal modal--enter enter">
-        <div class="modal__box">
-            <button class="modal__close"></button>
-            <p class="enter__title">Вход</p>
-            <form method="POST" class="enter__form" name="enter">
-                <input type="text" name="name" data-role="required" class="enter__input enter__input--name" placeholder="Имя">
-                <input type="text" name="phone" data-role="phone required" class="enter__input enter__input--phone" placeholder="Телефон">
-                <div class="enter__inputs-container">
-                    <div class="enter__checkbox-container">
-                        <input type="checkbox" id="remember" name="remember" data-role='checkbox' class="enter__remember">
-                        <label for="remember" class="enter__remember-label">Запомнить меня</label>
-                    </div>
-                    <button type="button" class="enter__forget">Забыли пароль?</button>
-                </div>
-                <button type="submit" class="enter__submit">
-                    Войти
-                </button>
-            </form>
-            <a href="#" class="enter__register">Зарегистрироваться</a>
-            <div class="enter__alternative">
-                <p class="enter__alternative-label">Войти с помощью</p>
-                <a href="#" class="enter__alternative-icon enter__alternative-icon--inst">
-                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.5218 10.0234C13.9238 10.0234 10.9961 12.9085 10.9961 16.455C10.9961 20.0011 13.9234 22.8862 17.5218 22.8862C21.1197 22.8862 24.0475 20.0011 24.0475 16.455C24.0475 12.9085 21.1197 10.0234 17.5218 10.0234ZM17.5218 20.5184C15.234 20.5184 13.3731 18.6953 13.3731 16.455C13.3731 14.2143 15.234 12.3916 17.5218 12.3916C19.8092 12.3916 21.6705 14.2143 21.6705 16.455C21.6705 18.6957 19.8096 20.5184 17.5218 20.5184Z" fill="#5C8741" />
-                        <path d="M22.8041 4H12.1959C8.2283 4 5 7.21537 5 11.168V21.832C5 25.7842 8.22789 29 12.1959 29H22.8041C26.7721 29 30 25.7842 30 21.832V11.168C30 7.21578 26.7721 4 22.8041 4ZM27.6185 21.832C27.6185 24.4763 25.4587 26.6278 22.8041 26.6278H12.1959C9.54129 26.6278 7.38146 24.4763 7.38146 21.832V11.168C7.38146 8.52368 9.54129 6.37222 12.1959 6.37222H22.8041C25.4587 6.37222 27.6185 8.52368 27.6185 11.168V21.832Z" fill="#5C8741" />
-                        <path d="M24.1643 11.2894C25.0123 11.2894 25.6998 10.6047 25.6998 9.75995C25.6998 8.91524 25.0123 8.23047 24.1643 8.23047C23.3163 8.23047 22.6289 8.91524 22.6289 9.75995C22.6289 10.6047 23.3163 11.2894 24.1643 11.2894Z" fill="#5C8741" />
-                    </svg>
-                </a>
-                <a href="#" class="enter__alternative-icon enter__alternative-icon--google">
-                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.687 15.9154C13.4158 16.7044 13.4278 17.5631 13.7208 18.3442C13.9046 18.8342 14.1933 19.2782 14.5666 19.645C14.9399 20.0118 15.3888 20.2926 15.882 20.4678C16.3752 20.643 16.9007 20.7083 17.4217 20.6591C17.9428 20.61 18.4468 20.4476 18.8985 20.1833C19.6108 19.7661 20.1581 19.1168 20.4488 18.3442H17.2177V15.9541H23.0214C23.2253 17.0314 23.1326 18.1438 22.7531 19.1725C22.3736 20.2012 21.7216 21.1073 20.8669 21.794C20.1138 22.3986 19.2268 22.8138 18.2801 23.0049C17.3335 23.196 16.3548 23.1574 15.4262 22.8923C14.4976 22.6272 13.646 22.1433 12.9429 21.4813C12.2398 20.8193 11.7057 19.9983 11.3852 19.0873C11.0648 18.1763 10.9674 17.2017 11.1013 16.2453C11.2351 15.2889 11.5963 14.3785 12.1545 13.5904C12.7127 12.8024 13.4517 12.1596 14.3096 11.7161C15.1674 11.2725 16.1191 11.041 17.0848 11.041C18.4933 11.0396 19.8578 11.5322 20.9406 12.433L18.9831 14.0353C18.5245 13.7498 18.0075 13.5713 17.4704 13.5132C16.9334 13.4551 16.3902 13.5188 15.8811 13.6996C15.3721 13.8804 14.9104 14.1736 14.5303 14.5574C14.1502 14.9413 13.8615 15.4059 13.6858 15.9166H13.687V15.9154Z" fill="#5C8741" />
-                        <path d="M9.83333 7.41667C9.19239 7.41667 8.5777 7.67128 8.12449 8.12449C7.67128 8.5777 7.41667 9.19239 7.41667 9.83333V24.3333C7.41667 24.9743 7.67128 25.589 8.12449 26.0422C8.5777 26.4954 9.19239 26.75 9.83333 26.75H24.3333C24.9743 26.75 25.589 26.4954 26.0422 26.0422C26.4954 25.589 26.75 24.9743 26.75 24.3333V9.83333C26.75 9.19239 26.4954 8.5777 26.0422 8.12449C25.589 7.67128 24.9743 7.41667 24.3333 7.41667H9.83333ZM9.83333 5H24.3333C25.6152 5 26.8446 5.50922 27.751 6.41565C28.6574 7.32208 29.1667 8.55145 29.1667 9.83333V24.3333C29.1667 25.6152 28.6574 26.8446 27.751 27.751C26.8446 28.6574 25.6152 29.1667 24.3333 29.1667H9.83333C8.55145 29.1667 7.32208 28.6574 6.41565 27.751C5.50922 26.8446 5 25.6152 5 24.3333V9.83333C5 8.55145 5.50922 7.32208 6.41565 6.41565C7.32208 5.50922 8.55145 5 9.83333 5Z" fill="#5C8741" />
-                    </svg>
-                </a>
             </div>
         </div>
     </div>
@@ -127,15 +182,6 @@
                     </svg>
                 </a>
             </div>
-            <form method="POST" name="search" class="mobile-menu__search">
-                <input type="text" name="search-query" placeholder="Начните вводить" class="mobile-menu__search-input">
-                <button type="submit" class="mobile-menu__search-btn">
-                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line y1="-0.5" x2="13.0542" y2="-0.5" transform="matrix(-0.707119 0.707094 -0.707119 -0.707094 9.23047 14.769)" stroke="#FDEFCE" />
-                        <path d="M23.4996 8.76903C23.4996 13.3359 19.7973 17.0381 15.2303 17.0381C10.6632 17.0381 6.96094 13.3359 6.96094 8.76903C6.96094 4.20219 10.6632 0.5 15.2303 0.5C19.7973 0.5 23.4996 4.20219 23.4996 8.76903Z" stroke="#FDEFCE" />
-                    </svg>
-                </button>
-            </form>
         </div>
     </div>
     <div class="menu">
@@ -169,14 +215,26 @@
         </div>
         <div class="menu__content">
             <div class="menu__nav">
-                <div class="menu__nav-list">
-                    <a href="making.html" class="menu__nav-link">Производство</a>
-                    <a href="cooperation.html" class="menu__nav-link">Сотрудничество</a>
-                    <a href="news.html" class="menu__nav-link">Новости</a>
-                    <a href="recipes.html" class="menu__nav-link">Рецепты</a>
-                    <a href="vacancies.html" class="menu__nav-link">Вакансии</a>
-                    <a href="contacts.html" class="menu__nav-link">Контакты</a>
-                </div>
+                <ul class="menu__nav-list">
+                    <li class="menu__nav-item">
+                        <a href="making.html" class="menu__nav-link">Производство</a>
+                    </li>
+                    <li class="menu__nav-item">
+                        <a href="cooperation.html" class="menu__nav-link">Сотрудничество</a>
+                    </li>
+                    <li class="menu__nav-item">
+                        <a href="news.html" class="menu__nav-link">Новости</a>
+                    </li>
+                    <li class="menu__nav-item">
+                        <a href="recipes.html" class="menu__nav-link">Рецепты</a>
+                    </li>
+                    <li class="menu__nav-item">
+                        <a href="vacancies.html" class="menu__nav-link">Вакансии</a>
+                    </li>
+                    <li class="menu__nav-item">
+                        <a href="contacts.html" class="menu__nav-link">Контакты</a>
+                    </li>
+                </ul>
                 <div class="menu__nav-contacts">
                     <div class="menu__nav-soc">
                         <a href="#" class="menu__nav-soc-link" target="_blank">
@@ -204,7 +262,7 @@
             </div>
         </div>
     </div>
-    <section class="cooperation">
+    <section class="notfound">
         <nav class="second-menu">
             <button type="button" class="burger">
                 <span></span>
@@ -242,131 +300,25 @@
                         1
                     </span>
                 </a>
-                <a href="tel:+79053843999" class="second-menu__call-btn">
-                    <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.9372 35.6875C16.243 35.3617 17.3229 34.3984 19.3081 33.124C21.3079 31.8385 22.7827 31.0369 23.2057 30.85C23.243 30.8335 23.2841 30.8274 23.3245 30.8325C23.365 30.8375 23.4033 30.8535 23.4354 30.8787C24.1168 31.4102 25.2641 32.3863 25.3256 32.4391C25.7229 32.7795 25.7229 32.7795 26.0481 32.6734C26.62 32.4859 28.3965 31.5426 29.9446 29.991C31.4926 28.4395 32.4846 26.619 32.6721 26.0477C32.7793 25.7219 32.7793 25.7219 32.4377 25.3246C32.385 25.2631 31.4082 24.1158 30.8768 23.435C30.8516 23.4029 30.8356 23.3646 30.8305 23.3241C30.8255 23.2836 30.8316 23.2426 30.8481 23.2053C31.035 22.7817 31.8366 21.3074 33.1221 19.3076C34.3983 17.3231 35.3604 16.2432 35.6862 15.9373C35.7161 15.9091 35.753 15.8895 35.7931 15.8805C35.8333 15.8715 35.875 15.8736 35.9141 15.8863C37.0529 16.2777 38.1516 16.777 39.1954 17.3776C40.2029 17.9633 41.1568 18.6368 42.0459 19.3902C42.077 19.4166 42.1002 19.451 42.1133 19.4896C42.1263 19.5282 42.1285 19.5696 42.1198 19.6094C41.9973 20.1801 41.412 22.5625 39.5956 25.8625C37.7422 29.2305 36.4579 30.9561 33.7362 33.6684C31.0145 36.3807 29.2344 37.7424 25.8629 39.5957C22.5629 41.4121 20.1793 41.9981 19.6098 42.1193C19.5699 42.128 19.5285 42.1257 19.4898 42.1127C19.4511 42.0997 19.4166 42.0765 19.3901 42.0455C18.6368 41.1564 17.9634 40.2025 17.378 39.1949C16.7776 38.1512 16.2782 37.0524 15.8868 35.9137C15.8742 35.8749 15.8723 35.8335 15.8812 35.7937C15.89 35.754 15.9094 35.7173 15.9372 35.6875Z" fill="#FDEFCE" />
-                        <rect x="0.5" y="0.5" width="58" height="58" rx="29" stroke="#FDEFCE" />
-                    </svg>
-                </a>
             </div>
+            <a href="tel:+79053843999" class="second-menu__call-btn">
+                <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.9372 35.6875C16.243 35.3617 17.3229 34.3984 19.3081 33.124C21.3079 31.8385 22.7827 31.0369 23.2057 30.85C23.243 30.8335 23.2841 30.8274 23.3245 30.8325C23.365 30.8375 23.4033 30.8535 23.4354 30.8787C24.1168 31.4102 25.2641 32.3863 25.3256 32.4391C25.7229 32.7795 25.7229 32.7795 26.0481 32.6734C26.62 32.4859 28.3965 31.5426 29.9446 29.991C31.4926 28.4395 32.4846 26.619 32.6721 26.0477C32.7793 25.7219 32.7793 25.7219 32.4377 25.3246C32.385 25.2631 31.4082 24.1158 30.8768 23.435C30.8516 23.4029 30.8356 23.3646 30.8305 23.3241C30.8255 23.2836 30.8316 23.2426 30.8481 23.2053C31.035 22.7817 31.8366 21.3074 33.1221 19.3076C34.3983 17.3231 35.3604 16.2432 35.6862 15.9373C35.7161 15.9091 35.753 15.8895 35.7931 15.8805C35.8333 15.8715 35.875 15.8736 35.9141 15.8863C37.0529 16.2777 38.1516 16.777 39.1954 17.3776C40.2029 17.9633 41.1568 18.6368 42.0459 19.3902C42.077 19.4166 42.1002 19.451 42.1133 19.4896C42.1263 19.5282 42.1285 19.5696 42.1198 19.6094C41.9973 20.1801 41.412 22.5625 39.5956 25.8625C37.7422 29.2305 36.4579 30.9561 33.7362 33.6684C31.0145 36.3807 29.2344 37.7424 25.8629 39.5957C22.5629 41.4121 20.1793 41.9981 19.6098 42.1193C19.5699 42.128 19.5285 42.1257 19.4898 42.1127C19.4511 42.0997 19.4166 42.0765 19.3901 42.0455C18.6368 41.1564 17.9634 40.2025 17.378 39.1949C16.7776 38.1512 16.2782 37.0524 15.8868 35.9137C15.8742 35.8749 15.8723 35.8335 15.8812 35.7937C15.89 35.754 15.9094 35.7173 15.9372 35.6875Z" fill="#FDEFCE" />
+                    <rect x="0.5" y="0.5" width="58" height="58" rx="29" stroke="#FDEFCE" />
+                </svg>
+            </a>
         </nav>
-        <div class="wrapper wrapper--cooperation">
-            <ul class="crumbs">
-                <li class="crumbs__crumb">
-                    <a href="index.html" class="crumbs__link">Главная</a>
-                </li>
-                <li class="crumbs__crumb active">
-                    <a href="#" class="crumbs__link">Сотрудничество</a>
-                </li>
-            </ul>
-            <h1 class="cooperation__title" data-aos="fade-up">Сотрудничество с Петровским грибным комбинатом</h1>
-            <div class="cooperation__tasks">
-                <p class="cooperation__tasks-title" data-aos="fade-up" data-aos-delay="100">Решаем задачи</p>
-                <div class="cooperation__table">
-                    <div class="cooperation__item" data-aos="fade-up">
-                        <span class="cooperation__item-num"><i>1</i></span>
-                        <p class="cooperation__item-text">Расширение торговых полок свежими и&nbsp;натуральными экопродуктами</p>
-                    </div>
-                    <div class="cooperation__item" data-aos="fade-up">
-                        <span class="cooperation__item-num"><i>2</i></span>
-                        <p class="cooperation__item-text">Сотрудничества с&nbsp;новыми упакованными брендами от&nbsp;производителей Саратовской области</p>
-                    </div>
-                    <div class="cooperation__item" data-aos="fade-up">
-                        <span class="cooperation__item-num"><i>3</i></span>
-                        <p class="cooperation__item-text">Сохранение свежести и&nbsp;товарного вида продукции</p>
-                    </div>
-                    <div class="cooperation__item" data-aos="fade-up">
-                        <span class="cooperation__item-num"><i>4</i></span>
-                        <p class="cooperation__item-text">Доставки товара в&nbsp;течение 24&nbsp;часов из&nbsp;цеха переработки</p>
-                    </div>
+        <div class="wrapper">
+            <h1 class="notfound__title">Страница не найдена</h1>
+            <div class="notfound__label">
+                <span class="notfound__num">4</span>
+                <div class="notfound__model">
+                    <canvas></canvas>
                 </div>
+                <span class="notfound__num">4</span>
             </div>
-        </div>
-    </section>
-    <section class="supplies">
-        <div class="wrapper wrapper--supplies">
-            <h2 class="supplies__title" data-aos="fade-up">Свежие поставки грибов</h2>
-            <div class="supplies__table">
-                <div class="supplies__item">
-                    <div class="supplies__item-pic">
-                        <div class="supplies__item-box" data-aos="swipe-down">
-                            <img src="img/supplies1.jpg" alt="">
-                        </div>
-                    </div>
-                    <p class="supplies__item-text">В кафе и рестораны</p>
-                </div>
-                <div class="supplies__item">
-                    <div class="supplies__item-pic">
-                        <div class="supplies__item-box" data-aos="swipe-down">
-                            <img src="img/supplies2.jpg" alt="">
-                        </div>
-                    </div>
-                    <p class="supplies__item-text">Места общественного питания</p>
-                </div>
-                <div class="supplies__item">
-                    <div class="supplies__item-pic">
-                        <div class="supplies__item-box" data-aos="swipe-down">
-                            <img src="img/supplies3.jpg" alt="">
-                        </div>
-                    </div>
-                    <p class="supplies__item-text">В отели и гостиницы</p>
-                </div>
-                <div class="supplies__item">
-                    <div class="supplies__item-pic">
-                        <div class="supplies__item-box" data-aos="swipe-down">
-                            <img src="img/supplies3.jpg" alt="">
-                        </div>
-                    </div>
-                    <p class="supplies__item-text">В розничные магазины</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="request">
-        <div class="wrapper wrapper--request">
-            <h2 class="request__title" data-aos="fade-up">Оставь заявку на партнерство</h2>
-            <div class="request__docs">
-                <div class="request__download-btn" data-aos="fade-up">
-                    <div class="request__download-icon">
-                        <svg width="24" height="34" viewBox="0 0 24 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M23.5188 9.04417L15.2063 0.731668C15.1018 0.61564 14.9733 0.523692 14.8298 0.462182C14.6863 0.400672 14.5311 0.371069 14.375 0.375418H2.5C1.87069 0.377298 1.26769 0.628124 0.822698 1.07312C0.377706 1.51811 0.126879 2.12111 0.125 2.75042V31.2504C0.126879 31.8797 0.377706 32.4827 0.822698 32.9277C1.26769 33.3727 1.87069 33.6235 2.5 33.6254H21.5C22.1293 33.6235 22.7323 33.3727 23.1773 32.9277C23.6223 32.4827 23.8731 31.8797 23.875 31.2504V9.87542C23.8794 9.71933 23.8497 9.56416 23.7882 9.42064C23.7267 9.27712 23.6348 9.14867 23.5188 9.04417ZM14.375 3.22542L21.025 9.87542H14.375V3.22542ZM21.5 31.2504H2.5V2.75042H12V9.87542C12.0019 10.5047 12.2527 11.1077 12.6977 11.5527C13.1427 11.9977 13.7457 12.2485 14.375 12.2504H21.5V31.2504Z" fill="#61573E" />
-                        </svg>
-                    </div>
-                    <a href="#" download class="request__download-link">Скачать партнерский прайс</a>
-                </div>
-                <div class="request__download-btn" data-aos="fade-up">
-                    <div class="request__download-icon">
-                        <svg width="24" height="34" viewBox="0 0 24 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M23.5188 9.04417L15.2063 0.731668C15.1018 0.61564 14.9733 0.523692 14.8298 0.462182C14.6863 0.400672 14.5311 0.371069 14.375 0.375418H2.5C1.87069 0.377298 1.26769 0.628124 0.822698 1.07312C0.377706 1.51811 0.126879 2.12111 0.125 2.75042V31.2504C0.126879 31.8797 0.377706 32.4827 0.822698 32.9277C1.26769 33.3727 1.87069 33.6235 2.5 33.6254H21.5C22.1293 33.6235 22.7323 33.3727 23.1773 32.9277C23.6223 32.4827 23.8731 31.8797 23.875 31.2504V9.87542C23.8794 9.71933 23.8497 9.56416 23.7882 9.42064C23.7267 9.27712 23.6348 9.14867 23.5188 9.04417ZM14.375 3.22542L21.025 9.87542H14.375V3.22542ZM21.5 31.2504H2.5V2.75042H12V9.87542C12.0019 10.5047 12.2527 11.1077 12.6977 11.5527C13.1427 11.9977 13.7457 12.2485 14.375 12.2504H21.5V31.2504Z" fill="#61573E" />
-                        </svg>
-                    </div>
-                    <a href="#" download class="request__download-link">Скачать условия доставки</a>
-                </div>
-                <button type="button" class="request__request-btn" data-aos="fade-up">Заявка</button>
-            </div>
-        </div>
-    </section>
-    <section class="docs">
-        <div class="wrapper wrapper--docs">
-            <div class="docs__title-wrapper">
-                <h2 class="docs__title" data-aos="fade-up">Сертификаты</h2>
-                <div class="docs__nav" data-aos="fade-up">
-                </div>
-            </div>
-            <div class="docs__slider owl-carousel">
-                <div class="docs__slide">
-                    <img src="img/docs/docs1.jpg" alt="" class="docs__slide-pic">
-                </div>
-                <div class="docs__slide">
-                    <img src="img/docs/docs2.jpg" alt="" class="docs__slide-pic">
-                </div>
-                <div class="docs__slide">
-                    <img src="img/docs/docs3.jpg" alt="" class="docs__slide-pic">
-                </div>
-                <div class="docs__slide">
-                    <img src="img/docs/docs1.jpg" alt="" class="docs__slide-pic">
-                </div>
-            </div>
+            <span class="notfound__subtitle">Страница не найдена</span>
+            <button class="feedback__more-btn" data-aos="fade-up">Вернуться на главную</button>
         </div>
     </section>
     <section class="footer">
@@ -385,18 +337,8 @@
                     <a href="#" class="footer__link" data-aos="fade-up">Вакансии</a>
                 </div>
                 <div class="footer__row">
-                    <form method="POST" name="search" class="footer__search" data-aos="fade-up">
-                        <span class="footer__search-icon">
-                            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <line x1="4.94159" y1="7.71109" x2="0.326207" y2="12.3265" stroke="#FDEFCE" stroke-width="0.923077" />
-                                <circle cx="7.61508" cy="4.38474" r="3.92308" stroke="#FDEFCE" stroke-width="0.923077" />
-                            </svg>
-                        </span>
-                        <button type="button" class="footer__search-reset"></button>
-                        <input type="text" name="search-query" class="footer__search-input">
-                    </form>
                     <div class="footer__contacts" data-aos="fade-up">
-                        <a href="tel:+79053843999" class="footer__contacts-phone">+ 7 905 38-43-999</a>
+                        <a href="tel:+79053843999" class="footer__contacts-phone">+7 905 38-43-999</a>
                         <a href="#" class="footer__contacts-soc" target="_blank">
                             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12.5198 6.02254C8.9219 6.02254 5.99414 8.90758 5.99414 12.4541C5.99414 16.0002 8.92149 18.8853 12.5198 18.8853C16.1178 18.8853 19.0455 16.0002 19.0455 12.4541C19.0455 8.90758 16.1178 6.02254 12.5198 6.02254ZM12.5198 16.5175C10.232 16.5175 8.3711 14.6944 8.3711 12.4541C8.3711 10.2134 10.232 8.39069 12.5198 8.39069C14.8073 8.39069 16.6686 10.2134 16.6686 12.4541C16.6686 14.6948 14.8077 16.5175 12.5198 16.5175Z" fill="#FDEFCE" />
@@ -427,6 +369,10 @@
                             </svg>
                         </a>
                     </div>
+                    <span class="footer__address">г. Петровск, ул. Зеленая 44</span>
+                    <span class="footer__write-btn">
+                        <button type="button" class="footer__write">Написать нам</button>
+                    </span>
                 </div>
             </div>
             <div class="footer__footer">
@@ -460,10 +406,10 @@
         </div>
     </section>
     <script src="vendors/js/jquery-3.5.1.min.js"></script>
-    <script src="vendors/js/owl.carousel.min.js"></script>
+   <script src="vendors/js/three.js"></script>
+    <script src="vendors/js/GLTFLoader.js"></script>
     <script src="vendors/js/aos.js"></script>
     <script src="vendors/js/scroll.js"></script>
-    <script src="vendors/js/formValidate.min.js"></script>
     <script src="js/scripts.js"></script>
 </body>
 

@@ -62,10 +62,6 @@ function setDeviceType() {
     })();
 }
 
-function isCustomWidth(width) {
-    return $(window).width() < width;
-}
-
 function setPageName() {
     pageName = $('template').html().toString().trim();
 }
@@ -120,12 +116,12 @@ function isIE() {
     return rv === -1 ? false : true;
 }
 
-function initModel() {
+function initModel(model) {
     let scene, camera, renderer, hLight, mushroom = null;
 
     function init() {
         scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(40, $('.eco__model').width() / $('.eco__model').height(), 1, 5000);
+        camera = new THREE.PerspectiveCamera(40, $(model).width() / $(model).height(), 1, 5000);
         camera.rotation.y = 45 / 180 * Math.PI;
         camera.position.x = 1000;
         camera.position.y = 400;
@@ -163,7 +159,7 @@ function initModel() {
         renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setClearColor(0x000000, 0);
-        document.querySelector('.eco__model').appendChild(renderer.domElement);
+        document.querySelector(model).appendChild(renderer.domElement);
 
         // var controls = new THREE.OrbitControls(camera, renderer.domElement);
         // controls.addEventListener('change', renderer);
@@ -189,7 +185,6 @@ function initModel() {
 }
 
 // END не лезь, оно тебя сожрёт
-
 
 // отключение скролла (по умолчанию у всей страницы) 
 function stopScroll(item = 'body') {
@@ -299,11 +294,12 @@ function initSlider(selector, params = {}) {
         lazyLoad: true,
         smartSpeed: 600,
     }
-
-    $(selector).owlCarousel({
-        ...defaultParams,
-        ...params,
-    });
+    if ($(selector).length > 0) {
+        $(selector).owlCarousel({
+            ...defaultParams,
+            ...params,
+        });
+    }
 }
 
 // замена контента формы при успешной отправке формы в модалке на блок .success
@@ -350,6 +346,37 @@ function showSuccessModal(modalForm) {
     });
 }
 
+function sendForm(e, form, url, onSuccess, onError, onLoadStart, params) {
+    console.log(params)
+    e.preventDefault();
+    formValidate({
+        form: form,
+        url: url,
+        onLoadStart: () => onLoadStart ? onLoadStart() : (() => {}),
+        onSuccess: (data) => onSuccess ? onSuccess(data) : (() => {}),
+        onError: (error) => onError ? onError(error) : console.log(error),
+        ...params
+    });
+}
+
+
+
+function showFeedbackScreen(feedback) {
+    let parent = feedback.closest('.feedback__item');
+    let img = parent.attr('data-screen');
+    let feedbackModal = $('.full-feedback .modal__box');
+
+    $('.full-feedback img').attr('src', img);
+    if (isDesktop) {
+        feedbackModal.css({
+            'position': 'absolute',
+            'top': `calc(${parent.offset().top - $(window).scrollTop()})px`,
+            'left': `${parent.offset().left + (parent.width() / 8)}px`,
+        })
+    }
+
+}
+
 // инициализация всех обработчиков
 function initListeners() {
     // ОБЩИЕ ОБРАБОТЧИКИ
@@ -381,39 +408,29 @@ function initListeners() {
     // Модалки
 
     $('.enter__form').on('submit', function(e) {
-        e.preventDefault();
-        formValidate({
-            form: '.enter__form',
-            url: 'https://cors-anywhere.herokuapp.com/http://mushrooms.asap-lp.ru/form.php',
-            onLoadStart: () => {
-                console.log('start')
-            },
-            onSuccess: (data) => {
-                showSuccessModal($(this));
-                console.log(data);
-            },
-            onError: (error) => {
-                console.log(error)
-            }
-        });
+        sendForm(e,
+            '.enter__form',
+            'https://cors-anywhere.herokuapp.com/http://mushrooms.asap-lp.ru/form.php',
+            data => showSuccessModal($(this))
+        );
     });
 
     $('.register__form').on('submit', function(e) {
-        e.preventDefault();
-        formValidate({
-            form: '.register__form',
-            url: 'https://cors-anywhere.herokuapp.com/http://mushrooms.asap-lp.ru/form.php',
-            onLoadStart: () => {
-                console.log('start')
-            },
-            onSuccess: (data) => {
-                showSuccessModal($(this));
-                console.log(data);
-            },
-            onError: (error) => {
-                console.log(error)
-            }
-        });
+        sendForm(e,
+            '.register__form',
+            'https://cors-anywhere.herokuapp.com/http://mushrooms.asap-lp.ru/form.php',
+            data => showSuccessModal($(this))
+        );
+    });
+
+    // Футер
+
+    $('.write__form').on('submit', function(e) {
+        sendForm(e,
+            '.write__form',
+            'https://cors-anywhere.herokuapp.com/http://mushrooms.asap-lp.ru/form.php',
+            data => showSuccessModal($(this)),
+        );
     });
 
     // ГЛАВНАЯ
@@ -490,33 +507,26 @@ function initListeners() {
         }
     });
 
-
-
     $('.cooperation-request__form').on('submit', function(e) {
-        e.preventDefault();
-        formValidate({
-            form: '.cooperation-request__form',
-            url: 'https://cors-anywhere.herokuapp.com/http://mushrooms.asap-lp.ru/form.php',
-            onLoadStart: () => {
-                console.log('start')
-            },
-            onSuccess: (data) => {
-                showSuccessModal($(this));
-                console.log(data);
-            },
-            onError: (error) => {
-                console.log(error)
-            }
-        });
+        sendForm(
+            e,
+            '.cooperation-request__form',
+            'https://cors-anywhere.herokuapp.com/http://mushrooms.asap-lp.ru/form.php',
+            data => showSuccessModal($(this))
+        );
     });
 
+    // ОТЗЫВЫ
 
+    $('.feedback__item-original').on('click', function() {
+        showFeedbackScreen($(this));
+    })
 
     // Только для десктопа
     if (isDesktop) {
         if (pageName === 'Главная') {
             if (!isIE()) {
-                initModel();
+                initModel('.eco__model');
             }
 
             let offset = 500;
@@ -530,6 +540,12 @@ function initListeners() {
                     $('.eco__table-container').addClass('third');
                 }
             });
+        }
+
+        if (pageName == '404') {
+            if (!isIE()) {
+                initModel('.notfound__model');
+            }
         }
     }
 
@@ -599,6 +615,9 @@ function initListeners() {
                 }
             }
         });
+
+        let contactsTitle = $('.contacts__title').detach();
+        $('.contacts__contacts').prepend(contactsTitle);
     }
 
     if (isTablet) {
@@ -624,8 +643,10 @@ $().ready(() => {
         { trigger: '.present__item-btn', modal: '.modal--enter' },
         { trigger: '.request__request-btn', modal: '.cooperation-request' },
         { trigger: '.mobile-menu__account', modal: '.modal--enter' },
-        {trigger: '.enter__register', modal: '.register'},
-        {trigger: '.register__enter', modal: '.enter'}
+        { trigger: '.enter__register', modal: '.register' },
+        { trigger: '.register__enter', modal: '.enter' },
+        { trigger: '.footer__write', modal: '.write' },
+        { trigger: '.feedback__item-original', modal: '.full-feedback' }
     ]);
 
     truncText('.recipes__slide-text', 200);
