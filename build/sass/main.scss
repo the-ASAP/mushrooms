@@ -19,7 +19,7 @@ body {
     padding: 0;
     cursor: default;
     background-color: $lightBrown;
-    color: $text;
+    color: $gen;
     @extend %scrollbar;
 }
 
@@ -292,7 +292,23 @@ h2 {
     }
 
     &__input {
-        @include input;
+        background: transparent;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        height: 52px;
+        margin-bottom: 1.5625rem;
+        padding: 0 25px;
+        font-size: 0.875rem;
+        transition: border-color .3s ease;
+
+        &:focus {
+            background: #fff;
+            border-color: $accent;
+        }
+
+        &.error {
+            border-color: $error;
+            background: url(../img/icons/error.png) 95%/25px 25px no-repeat;
+        }
     }
 
     &__inputs-container {
@@ -416,10 +432,6 @@ h2 {
         width: 100%;
         text-decoration: underline;
     }
-}
-
-.enter__checkbox-container {
-    margin-bottom: 0;
 }
 
 /*MENU*/
@@ -1180,6 +1192,7 @@ h2 {
         overflow: hidden;
         @include fadeUp;
 
+
         &-pic {
             height: 50%;
             width: 100%;
@@ -1206,7 +1219,7 @@ h2 {
             font-size: 1.5rem;
             line-height: 110.69%;
             color: $accent;
-            height: 55px;
+            height: 30px;
         }
 
         &-text {
@@ -1491,7 +1504,7 @@ h2 {
         filter: grayscale(100%);
 
         &-title {
-            font-weight: 600;
+            font-weight: 500;
             font-size: 1.5rem;
             line-height: 110.69%;
             margin-bottom: 0.9375rem;
@@ -2113,7 +2126,19 @@ h2 {
     }
 
     &__input {
-        @include input;
+        background: #FEFEFE;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        height: 4.4375rem;
+        width: 100%;
+        margin-bottom: 20px;
+        padding-left: 1.5625rem;
+        background: transparent;
+        @include placeholder($text);
+
+        &.error {
+            border: 1px solid red;
+        }
     }
 
     &__textarea {
@@ -3008,126 +3033,5 @@ h2 {
 
     &__back-btn {
         @extend %green-btn;
-    }
-}
-
-/*DELIVERY PAGE*/
-
-.delivery-header {
-    height: auto;
-    background-color: $lightBrown;
-
-    .wrapper {
-        padding-top: 2.5rem;
-    }
-
-    &__title {
-        margin: 5.625rem 0 4.375rem;
-        color: $text;
-    }
-
-    &__table {
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 55px;
-        border-bottom: 1px solid rgba($accent, .3);
-    }
-
-    &__item {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        &:last-child {
-            width: 30%;
-        }
-
-        &-title {
-            font-weight: 600;
-            font-size: 1.5rem;
-            line-height: 110.69%;
-            color: $accent;
-            opacity: 0.8;
-            margin-bottom: 3.4375rem;
-        }
-
-        &-text {
-            color: $text;
-            font-size: 1rem;
-            line-height: 140%;
-        }
-    }
-}
-
-.shops--delivery {
-    background-color: $lightBrown;
-    height: auto;
-
-    .shops__title {
-        color: $text;
-    }
-
-    .wrapper {
-        padding-top: 4.375rem;
-        border-bottom: 1px solid rgba($accent, .3);
-    }
-
-    .shops__table {
-        margin-top: 3.4375rem;
-        margin-bottom: 5.9375rem;
-    }
-
-    .shops__map-title {
-        color: $accent;
-    }
-
-    .shops__map-address {
-        color: $text;
-    }
-}
-
-.terms {
-    height: auto;
-    padding-bottom: 100px;
-
-    .wrapper {
-        padding-top: 4.375rem;
-    }
-
-    &__subtitle {
-        font-size: 16px;
-        line-height: 140%;
-        margin-top: 35px;
-        margin-bottom: 55px;
-        display: block;
-    }
-
-    &__link {
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: #000;
-        opacity: 0.5;
-        position: relative;
-        padding-bottom: 5px;
-        transition: opacity .3s;
-
-        &:hover {
-            opacity: 0.7;
-        }
-
-        &:after {
-            content: '';
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 2px;
-            background-color: $text;
-            transition: .3s ease-out;
-        }
     }
 }

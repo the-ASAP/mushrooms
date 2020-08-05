@@ -135,6 +135,15 @@
 }
 
 @media (max-width: 1024px) {
+    .write__input:not(.write__textarea) {
+        height: 60px;
+        @include placeholder($text, 12px)
+    }
+
+    .write__textarea {
+        @include placeholder($text, 12px)
+    }
+
     .menu__product {
         font-size: 16px;
         padding: 10px 0;
@@ -619,6 +628,10 @@
 }
 
 @media (max-width: 490px) {
+    .write__input:not(.write__textarea) {
+        height: 50px;
+    }
+
     .production__slide {
         height: 320px;
         margin-bottom: 65px;
@@ -815,6 +828,12 @@
         height: 20px;
     }
 
+    .enter__input,
+    .register__input,
+    .write__input {
+        height: 50px;
+    }
+
     .enter__submit,
     .register__submit,
     .write__submit {
@@ -851,30 +870,6 @@
     .delivery__item {
         padding-right: 0;
     }
-
-    .shops__map-title {
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 120.19%;
-        margin-bottom: 5px;
-    }
-
-    .shops__map-address {
-        font-size: 14px;
-        line-height: 140%;
-    }
-
-    .shops__map {
-        margin-bottom: 25px;
-    }
-
-    .shops__item:last-child {
-        margin-bottom: 0;
-    }
-
-    .map .modal__box {
-        height: 60vh;
-    }
 }
 
 @media (max-width: 350px) {
@@ -890,15 +885,13 @@
     h1 {
         font-size: 28px;
     }
+
+    .write__input:not(.write__textarea) {
+        height: 45px;
+    }
 }
 
 /*MAKING MEDIA*/
-
-@media(max-width: 1500px) {
-    .second-menu {
-        padding: 0 calc(7% - 15px) 0 5.3%;
-    }
-}
 
 @media (max-width: 1400px) {
     .about__photo-container {
@@ -1058,10 +1051,6 @@
         width: 100%;
         @include swipeDownAnimation(500px, '.about__photo-box');
     }
-
-    .shops__map {
-        height: 300px;
-    }
 }
 
 @media (max-width: 490px) {
@@ -1172,6 +1161,15 @@
 
     .cooperation-request__title {
         font-size: 24px;
+    }
+
+    .cooperation-request__input:not(.cooperation-request__textarea) {
+        height: 60px;
+        @include placeholder($text, 12px)
+    }
+
+    .cooperation-request__textarea {
+        @include placeholder($text, 12px)
     }
 
     .cooperation-request__submit-btn {
@@ -1325,6 +1323,10 @@
         font-size: 20px;
     }
 
+    .cooperation-request__input:not(.cooperation-request__textarea) {
+        height: 50px;
+    }
+
     .cooperation-request .modal__close {
         height: 20px;
         width: 20px;
@@ -1436,6 +1438,10 @@
 
     .cooperation-request__title {
         font-size: 16px;
+    }
+
+    .cooperation-request__input:not(.cooperation-request__textarea) {
+        height: 45px;
     }
 }
 
@@ -2318,76 +2324,5 @@
 @media(max-width: 350px) {
     .notfound__label {
         width: 90%;
-    }
-}
-
-/*DELIVERY PAGE MEDIA*/
-
-@media(max-width: 1024px) {
-    .delivery-header__table {
-        flex-wrap: wrap;
-    }
-
-    .delivery-header__item {
-        width: 60%;
-        margin-bottom: 50px;
-    }
-
-    .delivery-header__item:last-child {
-        margin-bottom: 0;
-        width: 60%;
-    }
-
-    .delivery-header__item-title {
-        margin-bottom: 30px;
-    }
-}
-
-@media(max-width: 620px) {
-    .shops--delivery .shops__table {
-        margin-bottom: 30px;
-    }
-}
-
-@media(max-width: 490px) {
-    .delivery-header__title {
-        margin-top: 40px;
-        margin-bottom: 30px;
-    }
-
-    .delivery-header__item-title {
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 120.19%;
-        margin-bottom: 15px;
-    }
-
-    .delivery-header__item-text {
-        font-size: 14px;
-        line-height: 140%;
-    }
-
-    .delivery-header__item {
-        margin-bottom: 40px;
-    }
-
-    .delivery-header__item:last-child {
-        width: 90%;
-    }
-
-    .delivery-header__table {
-        padding-bottom: 45px;
-    }
-
-    .shops--delivery .wrapper {
-        padding-top: 40px;
-    }
-
-    .shops--delivery .shops__table {
-        margin-bottom: 40px;
-    }
-
-    .terms__subtitle {
-        margin: 30px 0 40px;
     }
 }

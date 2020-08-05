@@ -1,0 +1,22 @@
+<div class="modal modal--write write">
+    <div class="modal__box">
+        <button class="modal__close"></button>
+        <div class="modal__content">
+            <p class="write__title">Напишите нам</p>
+            <form method="POST" class="write__form" name="write">
+                <input type="text" name="name" data-role="required" class="write__input write__input--name" placeholder="Имя">
+                <input type="text" name="phone" data-role="phone required" class="write__input enter__input--phone" placeholder="Телефон">
+                <input type="text" name="email" data-role="email required" class="write__input enter__input--email" placeholder="E-mail">
+                <textarea name="message" class="write__input write__textarea" placeholder="Комментарий"></textarea>
+                <button type="submit" class="write__submit">
+                    Отправить
+                </button>
+            </form>
+        </div>
+        <div class="success">
+            <p class="success__title">Спасибо за заявку</p>
+            <p class="success__subtitle">Наш менеджер скоро свяжется с вами</p>
+            <button type="button" class="success__btn">Понятно</button>
+        </div>
+    </div>
+</div>

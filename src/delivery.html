@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Описание страницы для SEO и соцсетей">
+    <meta name="keywords" content="ключевые, слова, через, запятую">
+    <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
+    <title>Доставка</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="vendors/css/aos.css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=59d7bd1e-0c50-476d-869e-e4fa06bfdc0c&lang=ru_RU">
+    </script>
+</head>
+
+<body>
+    <template>Доставка</template>
+    @import "preloader.html"
+    @import "register-modal.html"
+    @import "enter-modal.html"
+    @import "write-modal.html"
+    @import "map-modal.html"
+    @import "mobile-menu.html"
+    @import "menu.html"
+    <section class="delivery-header">
+        @import "second-menu.html"
+        <div class="wrapper">
+            <ul class="crumbs">
+                <li class="crumbs__crumb">
+                    <a href="index.html" class="crumbs__link">Главная</a>
+                </li>
+                <li class="crumbs__crumb active">
+                    <a href="#" class="crumbs__link">Доставка</a>
+                </li>
+            </ul>
+            <h1 class="delivery-header__title" data-aos="fade-up">Доставка</h1>
+            <div class="delivery-header__table">
+                <div class="delivery-header__item">
+                    <span class="delivery-header__item-title" data-aos="fade-up" data-aos-delay="100">По центру Саратова</span>
+                    <span class="delivery-header__item-text" data-aos="fade-up" data-aos-delay="100">от суммы 500 рублей</span>
+                </div>
+                <div class="delivery-header__item">
+                    <span class="delivery-header__item-title" data-aos="fade-up" data-aos-delay="200">По Энгельсу</span>
+                    <span class="delivery-header__item-text" data-aos="fade-up" data-aos-delay="200">от суммы 1500 рублей</span>
+                </div>
+                <div class="delivery-header__item">
+                    <span class="delivery-header__item-title" data-aos="fade-up" data-aos-delay="300">по&nbsp;Юбилейному, Ленинскому и&nbsp;Заводскому районам</span>
+                    <span class="delivery-header__item-text" data-aos="fade-up" data-aos-delay="300">от суммы 1000 рублей</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="shops shops--delivery">
+        <div class="wrapper wrapper--shops">
+            <h2 class="shops__title" data-aos="fade-up" data-aos-delay="400" data-aos-offset="0">Самовывоз</h2>
+            <div class="shops__table">
+                <div class="shops__item">
+                    <button type="button" class="shops__map shop__map--volzhski" style="background-image: url(img/map1.jpg);" data-coords="51.565698572361654,46.06488899999995">
+                    </button>
+                    <span class="shops__map-title">Рынок Юбилейный</span>
+                    <span class="shops__map-address">Усть-Курдюмская улица, 8</span>
+                </div>
+                <div class="shops__item">
+                    <button type="button" class="shops__map shop__map--leninski" style="background-image: url(img/map2.jpg);" data-coords="51.60778739150105,45.905211593254045">
+                    </button>
+                    <span class="shops__map-title">Рынок в пос. Елшанка</span>
+                    <span class="shops__map-address">Московское шоссе, 61 ст. 2</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="terms">
+        <div class="wrapper wrapper--terms">
+            <h2 class="terms__title" data-aos="fade-up">Условия доставки оптовым покупателям</h2>
+            <span class="terms__subtitle" data-aos="fade-up">в разделе Сотрудничество</span>
+            <span data-aos="fade-up">
+                <a href="cooperation.html" class="terms__link">Cотрудничество</a>
+            </span>
+        </div>
+    </section>
+    @import "footer.html"
+    <script src="vendors/js/jquery-3.5.1.min.js"></script>
+    <script src="vendors/js/owl.carousel.min.js"></script>
+    <script src="vendors/js/aos.js"></script>
+    <script src="vendors/js/scroll.js"></script>
+    <script src="vendors/js/formValidate.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
