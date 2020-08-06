@@ -8,16 +8,16 @@
     <meta name="description" content="Описание страницы для SEO и соцсетей">
     <meta name="keywords" content="ключевые, слова, через, запятую">
     <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
-    <title>Отзывы</title>
+    <title>Свежие шампиньоны</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1596718721063">
-    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1596718721063">
-    <link rel="stylesheet" href="vendors/css/aos.css?t=1596718721063">
-    <link rel="stylesheet" href="css/main.css?t=1596718721063" type="text/css">
+    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1596718721082">
+    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1596718721082">
+    <link rel="stylesheet" href="vendors/css/aos.css?t=1596718721082">
+    <link rel="stylesheet" href="css/main.css?t=1596718721082" type="text/css">
 </head>
 
 <body>
-    <template>Отзывы</template>
+    <template>Продукт</template>
     <div class="preloader"></div>
     <div class="modal register">
     <div class="modal__box">
@@ -256,15 +256,7 @@
         </div>
     </div>
 </div>
-    <div class="modal full-feedback">
-        <div class="modal__box">
-            <button class="modal__close"></button>
-            <div class="modal__content">
-                <img src="" alt="">
-            </div>
-        </div>
-    </div>
-    <section class="feedback">
+    <section class="product">
         <nav class="second-menu">
     <button type="button" class="burger">
         <span></span>
@@ -315,73 +307,202 @@
                 <li class="crumbs__crumb">
                     <a href="index.html" class="crumbs__link">Главная</a>
                 </li>
+                <li class="crumbs__crumb">
+                    <a href="#" class="crumbs__link">Все продукты</a>
+                </li>
                 <li class="crumbs__crumb active">
-                    <a href="#" class="crumbs__link">Отзывы</a>
+                    <a href="#" class="crumbs__link">Свежие шампиньоны</a>
                 </li>
             </ul>
-            <h1 class="feedback__title" data-aos="fade-up">Ценность вкуса от наших покупателей</h1>
-            <div class="feedback__header">
-                <p class="feedback__quote" data-aos="fade-up" data-aos-delay="100">«Все обращают внимание на настоящий лесной запах наших грибов».</p>
-                <div class="feedback__quote-author" data-aos="fade-up" data-aos-delay="100">
-                    <span class="feedback__quote-name">Людмила</span>
-                    <span class="feedback__quote-position">Директор предприятия</span>
+            <h1 class="product__title" data-aos="fade-up">Свежие шампиньоны</h1>
+            <div class="product-info">
+                <div class="product-info__info">
+                    <form method="POST" name="amount" class="product-info__amount">
+                        <span class="product-info__price" data-aos="fade-up" data-aos-delay="100">160 руб/кг</span>
+                        <div class="product-info__amount-controls" data-aos="fade-up" data-aos-delay="200">
+                            <button type="button" class="product-info__amount-control product-info__amount-control--minus">-</button>
+                            <input type="number" name="count" value="1" class="product-info__amount-control product-info__amount-control--amount">
+                            <button type="button" class="product-info__amount-control product-info__amount-control--plus">+</button>
+                        </div>
+                        <span data-aos="fade-up" data-aos-delay="300">
+                            <button type="submit" class="product-info__buy-btn">Купить</button>
+                        </span>
+                    </form>
+                    <div class="product-info__desc">
+                        <button type="button" class="product-info__desc-title-wrapper" data-aos="fade-up" data-aos-delay="400" data-aos-offset="0">
+                            <span class="product-info__desc-title">Описание</span>
+                            <span class="product-info__desc-hide showed">
+                                 <svg class="product-info__desc-arrow" width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 10L9 1L1 10" stroke="#61573E" />
+                            </span>
+                            </button>  
+                        </button>
+                        <div class="product-info__desc-table">
+                            <div class="product-info__desc-item" data-aos="fade-up">
+                                <span class="product-info__desc-key">Производитель</span>
+                                <span class="product-info__desc-value">ООО "Грибной комбинат Петровский"</span>
+                            </div>
+                            <div class="product-info__desc-item" data-aos="fade-up">
+                                <span class="product-info__desc-key">Пищевая ценность</span>
+                                <span class="product-info__desc-value">70 ккал</span>
+                            </div>
+                            <div class="product-info__desc-item" data-aos="fade-up">
+                                <span class="product-info__desc-key">Белки</span>
+                                <span class="product-info__desc-value">3,8 г</span>
+                            </div>
+                            <div class="product-info__desc-item" data-aos="fade-up">
+                                <span class="product-info__desc-key">Жиры</span>
+                                <span class="product-info__desc-value">5,4 г</span>
+                            </div>
+                            <div class="product-info__desc-item" data-aos="fade-up">
+                                <span class="product-info__desc-key">Углеводы</span>
+                                <span class="product-info__desc-value">17 г</span>
+                            </div>
+                            <div class="product-info__desc-item" data-aos="fade-up">
+                                <span class="product-info__desc-key">Срок годности</span>
+                                <span class="product-info__desc-value">7 дней</span>
+                            </div>
+                            <div class="product-info__desc-item" data-aos="fade-up">
+                                <span class="product-info__desc-key">Условия хранения</span>
+                                <span class="product-info__desc-value">не выше +4 С</span>
+                            </div>
+                            <div class="product-info__desc-item" data-aos="fade-up">
+                                <span class="product-info__desc-key">После вскрытия</span>
+                                <span class="product-info__desc-value">Хранить не более 36 часов</span>
+                            </div>
+                        </div>
+                        <div class="product-info__desc-text" data-aos="fade-up">
+                            <p>
+                                Известно, что грибы – отличный источник белка, шампиньоны не исключение, ведь более половины питательных веществ в них – белки. Также в их состав входят органические кислоты, минеральные вещества и витамины РР, Е, D, группы В, железо, калий и цинк.
+                            </p>
+                            <p>Известно, что грибы – отличный источник белка, шампиньоны не исключение, ведь более половины питательных веществ в них – белки. Также в их состав входят органические кислоты, минеральные вещества и витамины РР, Е, D, группы В, железо, калий и цинк.
+                                Известно, что грибы – отличный источник белка, шампиньоны не исключение, ведь более половины питательных веществ в них – белки. Также в их состав входят органические кислоты, минеральные вещества и витамины РР, Е, D, группы В, железо, калий и цинк.
+                            </p>
+                            <p>Известно, что грибы – отличный источник белка, шампиньоны не исключение, ведь более половины питательных веществ в них – белки. Также в их состав входят органические кислоты, минеральные вещества и витамины РР, Е, D, группы В, железо, калий и цинк.
+                                Известно, что грибы – отличный источник белка, шампиньоны не исключение, ведь более половины питательных веществ в них – белки. Также в их состав входят органические кислоты, минеральные вещества и витамины РР, Е, D, группы В, железо, калий и цинк.
+                            </p>
+                            <span>
+                                <button type="button" class="product-info__desc-show-more">Подробнее</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info__pic">
+                    <div class="product-info__box" data-aos="swipe-down" data-aos-offset="-300">
+                        <img src="img/production/Свежие_шампиньоны.jpg" alt="">
+                    </div>
                 </div>
             </div>
-            <div class="feedback__feedback">
-                <h2 class="feedback__table-title" data-aos="fade-up" data-aos-delay="300">Отзывы</h2>
-                <div class="feedback__table">
-                    <div class="feedback__item" data-screen="img/feedback/feedback1screen.jpg">
-                        <div class="feedback__item-pic">
-                            <div class="feedback__item-box" data-aos="swipe-down">
-                                <img src="img/feedback/feedback1.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="feedback__item-content" data-aos="fade-in">
-                            <span class="feedback__item-title">
-                                #Светлана
-                            </span>
-                            <p class="feedback__item-text">
-                                Грибной!!! Вы как всегда на высоте!!! Грибная приправа сделала мои выходные волшебными! Вкус супа нереальный. Просто БОМБА!!! Спасибо огромное!Грибной!!!
-                                Вы как всегда на высоте!!! Грибная приправа сделала мои выходные волшебными! Вкус супа нереальный. Просто БОМБА!!! Спасибо огромное!
-                            </p>
-                            <button class="feedback__item-original">Оригинал</button>
-                        </div>
-                    </div>
-                    <div class="feedback__item" data-screen="img/feedback/feedback2screen.jpg">
-                        <div class="feedback__item-pic">
-                            <div class="feedback__item-box" data-aos="swipe-down">
-                                <img src="img/feedback/feedback2.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="feedback__item-content" data-aos="fade-in">
-                            <span class="feedback__item-title">
-                                #Nesterova.tn
-                            </span>
-                            <p class="feedback__item-text">
-                                Какая же вкуснятина!! #gribnoikombinat.
-                            </p>
-                            <button class="feedback__item-original">Оригинал</button>
-                        </div>
-                    </div>
-                    <div class="feedback__item" data-screen="img/feedback/feedback3screen.jpg">
-                        <div class="feedback__item-pic">
-                            <div class="feedback__item-box" data-aos="swipe-down">
-                                <img src="img/feedback/feedback3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="feedback__item-content" data-aos="fade-in">
-                            <span class="feedback__item-title">
-                                #Тамара
-                            </span>
-                            <p class="feedback__item-text">
-                                Суп просто обалденный))) спасибо большое))
-                            </p>
-                            <button class="feedback__item-original">Оригинал</button>
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </section>
+    <section class="product-recipes">
+        <div class="wrapper wrapper--product-recipes">
+            <div class="product-recipes__title-wrapper">
+                <h2 class="product-recipes__title" data-aos="fade-up">Рецепты с этим товаром</h2>
+                <a href="recipes.html" class="product-recipes__link" data-aos="fade-up" data-aos-delay="100">Все рецепты</a>
             </div>
-            <button class="feedback__more-btn" data-aos="fade-up">Больше отзывов</button>
+            <div class="recipes__slider recipes__slider--product owl-carousel">
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe2.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Летний салат с свежими шампиньонами</p>
+                        <p class="recipes__slide-text">Этот рецепт я нашла в канадской кулинарной книге. Оказалось не только просто, но и вкусно.</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">25 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe3.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Крем суп из шампиньонов</p>
+                        <p class="recipes__slide-text">Приготовим крем-суп из шампиньов. Сочетание грибов и петрушки, сытный, ароматный, полезный, легкий суп быстрого</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+             <a href="recipes.html" class="product-recipes__mobile-link">Все рецепты</a>
         </div>
     </section>
     <section class="footer">
@@ -468,12 +589,12 @@
         </div>
     </div>
 </section>
-    <script src="vendors/js/jquery-3.5.1.min.js?t=1596718721063"></script>
-    <script src="vendors/js/owl.carousel.min.js?t=1596718721063"></script>
-    <script src="vendors/js/aos.js?t=1596718721063"></script>
-    <script src="vendors/js/scroll.js?t=1596718721063"></script>
-    <script src="vendors/js/formValidate.min.js?t=1596718721063"></script>
-    <script src="js/scripts.js?t=1596718721063"></script>
+    <script src="vendors/js/jquery-3.5.1.min.js?t=1596718721082"></script>
+    <script src="vendors/js/owl.carousel.min.js?t=1596718721082"></script>
+    <script src="vendors/js/aos.js?t=1596718721082"></script>
+    <script src="vendors/js/scroll.js?t=1596718721082"></script>
+    <script src="vendors/js/formValidate.min.js?t=1596718721082"></script>
+    <script src="js/scripts.js?t=1596718721082"></script>
 </body>
 
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Описание страницы для SEO и соцсетей">
+    <meta name="keywords" content="ключевые, слова, через, запятую">
+    <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
+    <title>Все продукты</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vendors/css/aos.css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+</head>
+
+<body>
+    <template>Все продукты</template>
+    @import "preloader.html"
+    @import "register-modal.html"
+    @import "enter-modal.html"
+    @import "write-modal.html"
+    @import "mobile-menu.html"
+    @import "menu.html"
+    <section class="products">
+        @import "second-menu.html"
+        <div class="wrapper">
+            <ul class="crumbs">
+                <li class="crumbs__crumb">
+                    <a href="index.html" class="crumbs__link">Главная</a>
+                </li>
+                <li class="crumbs__crumb active">
+                    <a href="#" class="crumbs__link">Все продукты</a>
+                </li>
+            </ul>
+            <h1 class="products__title" data-aos="fade-up">Грибные продукты</h1>
+            <div class="products__table">
+                <a href="product.html" class="products__item">
+                    <span class="products__item-pic">
+                        <span class="products__item-box" data-aos="swipe-down" data-aos-offset="50">
+                            <img src="img/production/Свежие_шампиньоны.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="products__item-content" data-aos="fade-in" data-aos-offset="0">
+                        <span class="products__item-title">Свежие шампиньоны</span>
+                    </span>
+                </a>
+                <a href="product.html" class="products__item">
+                    <span class="products__item-pic">
+                        <span class="products__item-box" data-aos="swipe-down" data-aos-offset="50">
+                            <img src="img/production/Маринованные_шампиньоны.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="products__item-content" data-aos="fade-in" data-aos-offset="0">
+                        <span class="products__item-title">Маринованные шампиньоны</span>
+                    </span>
+                </a>
+                <a href="product.html" class="products__item">
+                    <span class="products__item-pic">
+                        <span class="products__item-box" data-aos="swipe-down" data-aos-offset="50">
+                            <img src="img/production/Сушеные_снеки.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="products__item-content" data-aos="fade-in" data-aos-offset="0">
+                        <span class="products__item-title">Сушеные снеки</span>
+                    </span>
+                </a>
+                <a href="product.html" class="products__item">
+                    <span class="products__item-pic">
+                        <span class="products__item-box" data-aos="swipe-down" data-aos-offset="50">
+                            <img src="img/production/Закуска_острая.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="products__item-content" data-aos="fade-in" data-aos-offset="0">
+                        <span class="products__item-title">Закуска острая по-корейски</span>
+                    </span>
+                </a>
+                <a href="product.html" class="products__item">
+                    <span class="products__item-pic">
+                        <span class="products__item-box" data-aos="swipe-down" data-aos-offset="50">
+                            <img src="img/production/Закуска_с_соевым.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="products__item-content" data-aos="fade-in" data-aos-offset="0">
+                        <span class="products__item-title">Закуска с соевым соусом и укропом</span>
+                    </span>
+                </a>
+                <a href="product.html" class="products__item">
+                    <span class="products__item-pic">
+                        <span class="products__item-box" data-aos="swipe-down" data-aos-offset="50">
+                            <img src="img/production/Закуска_с_розмарином.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="products__item-content" data-aos="fade-in" data-aos-offset="0">
+                        <span class="products__item-title">Закуска с розмарином и базиликом</span>
+                    </span>
+                </a>
+                <a href="product.html" class="products__item">
+                    <span class="products__item-pic">
+                        <span class="products__item-box" data-aos="swipe-down" data-aos-offset="50">
+                            <img src="img/production/Грибной_крем-суп.jpg" alt="">
+                        </span>
+                    </span>
+                    <span class="products__item-content" data-aos="fade-in" data-aos-offset="0">
+                        <span class="products__item-title">Грибной крем-суп</span>
+                    </span>
+                </a>
+            </div>
+            <button type="button" class="products__more-btn">Больше продуктов</button>
+        </div>
+    </section>
+    @import "footer.html"
+    <script src="vendors/js/jquery-3.5.1.min.js"></script>
+    <script src="vendors/js/aos.js"></script>
+    <script src="vendors/js/scroll.js"></script>
+    <script src="vendors/js/formValidate.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

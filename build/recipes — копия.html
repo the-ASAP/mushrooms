@@ -8,16 +8,14 @@
     <meta name="description" content="Описание страницы для SEO и соцсетей">
     <meta name="keywords" content="ключевые, слова, через, запятую">
     <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
-    <title>Отзывы</title>
+    <title>Рецепты</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1596718721063">
-    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1596718721063">
-    <link rel="stylesheet" href="vendors/css/aos.css?t=1596718721063">
-    <link rel="stylesheet" href="css/main.css?t=1596718721063" type="text/css">
+    <link rel="stylesheet" href="vendors/css/aos.css?t=1596694048023">
+    <link rel="stylesheet" href="css/main.css?t=1596694048023" type="text/css">
 </head>
 
 <body>
-    <template>Отзывы</template>
+    <template>Рецепты</template>
     <div class="preloader"></div>
     <div class="modal register">
     <div class="modal__box">
@@ -256,135 +254,563 @@
         </div>
     </div>
 </div>
-    <div class="modal full-feedback">
-        <div class="modal__box">
-            <button class="modal__close"></button>
-            <div class="modal__content">
-                <img src="" alt="">
+    <section class="recipes-header">
+       <nav class="second-menu">
+            <button type="button" class="burger">
+                <span></span>
+            </button>
+            <a href="/" class="second-menu__logo" style="background-image: url(img/mobile-logo.png);"></a>
+            <ul class="second-menu__list">
+                <li class="second-menu__item">
+                    <a href="making.html" class="second-menu__link">Производство</a>
+                </li>
+                <li class="second-menu__item">
+                    <a href="products.html" class="second-menu__link">Все продукты</a>
+                </li>
+                <li class="second-menu__item">
+                    <a href="cooperation.html" class="second-menu__link">Сотрудничество</a>
+                </li>
+                <li class="second-menu__item">
+                    <a href="contacts.html" class="second-menu__link">Контакты</a>
+                </li>
+                <li class="second-menu__item second-menu__item--phone">
+                    <a href="tel:+79053843999" class="second-menu__link second-menu__link--phone">+7 905 38-43-999</a>
+                </li>
+            </ul>
+            <div class="second-menu__icons">
+                <a href="cabinet.html" class="second-menu__icon second-menu__icon--man">
+                    <svg width="33" height="39" viewBox="0 0 33 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.4144 21.1709C7.46325 21.1709 0.182373 28.4518 0.182373 37.403C0.182373 37.7456 0.482174 38.0454 0.824803 38.0454H31.9613C32.3039 38.0454 32.6037 37.7456 32.6037 37.403C32.6465 28.4518 25.3656 21.1709 16.4144 21.1709ZM16.4144 22.4558C18.3846 22.4558 20.3119 22.8412 22.025 23.5693L16.6286 27.5524L10.8467 23.5693C12.5599 22.8412 14.4443 22.4558 16.4144 22.4558ZM1.51006 36.7605C1.72421 31.3213 4.93636 26.6101 9.4762 24.1689L16.286 28.8372C16.4144 28.9229 16.5429 28.9657 16.6286 28.9657C16.7571 28.9657 16.8856 28.9229 17.014 28.8372L23.3527 24.1689C27.9354 26.5673 31.1047 31.2785 31.3188 36.7605H1.51006Z" fill="#FDEFCE" />
+                        <path d="M16.1575 19.4145C21.2969 19.4145 25.4941 15.2173 25.4941 10.0779C25.4941 4.93842 21.2969 0.741211 16.1575 0.741211C11.018 0.741211 6.8208 4.93842 6.8208 10.0779C6.8208 15.2601 11.018 19.4145 16.1575 19.4145ZM16.1575 2.0689C19.5838 2.0689 22.4961 4.21034 23.6525 7.20834C23.267 6.9942 22.7959 6.73723 22.3676 6.48026C20.5688 5.40954 19.3268 4.72428 18.513 4.80994C16.8855 4.93842 15.9433 5.58085 14.9154 6.22328C14.3586 6.56591 13.759 6.95137 13.031 7.25117L12.8168 7.33683C11.2322 7.97926 10.2471 8.40755 8.3198 8.62169C8.96224 4.89559 12.2172 2.0689 16.1575 2.0689ZM8.10566 9.90655C10.4184 9.69241 11.5748 9.22129 13.2451 8.49321L13.4592 8.40755C14.3158 8.06492 14.9583 7.63663 15.5579 7.25117C16.5001 6.65157 17.3138 6.13763 18.5987 6.05197C19.0698 6.00914 20.6973 6.9942 21.6824 7.55097C22.6674 8.15058 23.4812 8.62169 24.0808 8.79301C24.1664 9.22129 24.2092 9.64958 24.2092 10.0779C24.2092 14.4892 20.6116 18.1297 16.1575 18.1297C11.7033 18.1297 8.10566 14.5321 8.10566 10.0779C8.10566 10.035 8.10566 9.99221 8.10566 9.90655Z" fill="#FDEFCE" />
+                    </svg>
+                </a>
+                <a href="cart.html" class="second-menu__icon second-menu__icon--cart">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M35.5571 5.32063C35.4439 5.18829 35.2781 5.11216 35.1035 5.11216H6.89188L5.74154 1.25697C5.66541 1.00347 5.43263 0.830078 5.16836 0.830078H0.756337C0.425903 0.830078 0.158447 1.09753 0.158447 1.42797C0.158447 1.7584 0.425903 2.02586 0.756337 2.02586H4.72273L11.9907 26.3815C11.9915 26.3843 11.9939 26.3867 11.9947 26.3895L12.8975 29.4602C12.3275 30.0266 11.9743 30.8106 11.9743 31.6752C11.9743 33.4011 13.3778 34.8053 15.1025 34.8053C16.7718 34.8053 18.1354 33.4868 18.2195 31.8354H26.0554C26.055 31.8574 26.0522 31.8789 26.0522 31.9012C26.0522 33.6255 27.4549 35.0286 29.1788 35.0286C30.9027 35.0286 32.3058 33.6255 32.3058 31.9012C32.3058 30.1769 30.9027 28.7738 29.1788 28.7738C27.9037 28.7738 26.8064 29.5423 26.3205 30.6397H18.0489C17.8958 30.2032 17.6491 29.8018 17.3123 29.465C16.722 28.8747 15.9375 28.549 15.1037 28.549C15.1033 28.549 15.1029 28.549 15.1029 28.549C14.6927 28.549 14.3017 28.6303 13.9426 28.7746L13.3646 26.8084H31.9682C32.2635 26.8084 32.5146 26.5927 32.5589 26.301L35.6946 5.80013C35.7209 5.62794 35.6707 5.45296 35.5571 5.32063ZM29.1788 29.97C30.2434 29.97 31.11 30.8366 31.11 31.9016C31.11 32.9666 30.2434 33.8332 29.1788 33.8332C28.1142 33.8332 27.248 32.9666 27.248 31.9016C27.248 30.8366 28.1142 29.97 29.1788 29.97ZM15.1029 29.7452H15.1033C15.6179 29.7452 16.1018 29.9461 16.4661 30.3108C16.8308 30.6755 17.0313 31.1606 17.0313 31.676C17.0313 32.7426 16.1659 33.6104 15.1021 33.6104C14.0367 33.6104 13.1697 32.7426 13.1697 31.676C13.1701 30.6113 14.0371 29.7452 15.1029 29.7452ZM31.4544 25.613H13.0127L11.8823 21.7674C11.8679 21.7187 11.8464 21.6745 11.8217 21.6326L7.24862 6.30794H34.4071L31.4544 25.613Z" fill="#FDEFCE" />
+                    </svg>
+                    <span class="second-menu__cart-sum">
+                        1
+                    </span>
+                </a>
+                <a href="tel:+79053843999" class="second-menu__call-btn">
+                    <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.9372 35.6875C16.243 35.3617 17.3229 34.3984 19.3081 33.124C21.3079 31.8385 22.7827 31.0369 23.2057 30.85C23.243 30.8335 23.2841 30.8274 23.3245 30.8325C23.365 30.8375 23.4033 30.8535 23.4354 30.8787C24.1168 31.4102 25.2641 32.3863 25.3256 32.4391C25.7229 32.7795 25.7229 32.7795 26.0481 32.6734C26.62 32.4859 28.3965 31.5426 29.9446 29.991C31.4926 28.4395 32.4846 26.619 32.6721 26.0477C32.7793 25.7219 32.7793 25.7219 32.4377 25.3246C32.385 25.2631 31.4082 24.1158 30.8768 23.435C30.8516 23.4029 30.8356 23.3646 30.8305 23.3241C30.8255 23.2836 30.8316 23.2426 30.8481 23.2053C31.035 22.7817 31.8366 21.3074 33.1221 19.3076C34.3983 17.3231 35.3604 16.2432 35.6862 15.9373C35.7161 15.9091 35.753 15.8895 35.7931 15.8805C35.8333 15.8715 35.875 15.8736 35.9141 15.8863C37.0529 16.2777 38.1516 16.777 39.1954 17.3776C40.2029 17.9633 41.1568 18.6368 42.0459 19.3902C42.077 19.4166 42.1002 19.451 42.1133 19.4896C42.1263 19.5282 42.1285 19.5696 42.1198 19.6094C41.9973 20.1801 41.412 22.5625 39.5956 25.8625C37.7422 29.2305 36.4579 30.9561 33.7362 33.6684C31.0145 36.3807 29.2344 37.7424 25.8629 39.5957C22.5629 41.4121 20.1793 41.9981 19.6098 42.1193C19.5699 42.128 19.5285 42.1257 19.4898 42.1127C19.4511 42.0997 19.4166 42.0765 19.3901 42.0455C18.6368 41.1564 17.9634 40.2025 17.378 39.1949C16.7776 38.1512 16.2782 37.0524 15.8868 35.9137C15.8742 35.8749 15.8723 35.8335 15.8812 35.7937C15.89 35.754 15.9094 35.7173 15.9372 35.6875Z" fill="#FDEFCE" />
+                        <rect x="0.5" y="0.5" width="58" height="58" rx="29" stroke="#FDEFCE" />
+                    </svg>
+                </a>
             </div>
-        </div>
-    </div>
-    <section class="feedback">
-        <nav class="second-menu">
-    <button type="button" class="burger">
-        <span></span>
-    </button>
-    <a href="/" class="second-menu__logo" style="background-image: url(img/mobile-logo.png);"></a>
-    <ul class="second-menu__list">
-        <li class="second-menu__item">
-            <a href="making.html" class="second-menu__link">Производство</a>
-        </li>
-        <li class="second-menu__item">
-            <a href="products.html" class="second-menu__link">Все продукты</a>
-        </li>
-        <li class="second-menu__item">
-            <a href="cooperation.html" class="second-menu__link">Сотрудничество</a>
-        </li>
-        <li class="second-menu__item">
-            <a href="contacts.html" class="second-menu__link">Контакты</a>
-        </li>
-        <li class="second-menu__item second-menu__item--phone">
-            <a href="tel:+79053843999" class="second-menu__link second-menu__link--phone">+7 905 38-43-999</a>
-        </li>
-    </ul>
-    <div class="second-menu__icons">
-        <a href="cabinet.html" class="second-menu__icon second-menu__icon--man">
-            <svg width="33" height="39" viewBox="0 0 33 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.4144 21.1709C7.46325 21.1709 0.182373 28.4518 0.182373 37.403C0.182373 37.7456 0.482174 38.0454 0.824803 38.0454H31.9613C32.3039 38.0454 32.6037 37.7456 32.6037 37.403C32.6465 28.4518 25.3656 21.1709 16.4144 21.1709ZM16.4144 22.4558C18.3846 22.4558 20.3119 22.8412 22.025 23.5693L16.6286 27.5524L10.8467 23.5693C12.5599 22.8412 14.4443 22.4558 16.4144 22.4558ZM1.51006 36.7605C1.72421 31.3213 4.93636 26.6101 9.4762 24.1689L16.286 28.8372C16.4144 28.9229 16.5429 28.9657 16.6286 28.9657C16.7571 28.9657 16.8856 28.9229 17.014 28.8372L23.3527 24.1689C27.9354 26.5673 31.1047 31.2785 31.3188 36.7605H1.51006Z" fill="#FDEFCE" />
-                <path d="M16.1575 19.4145C21.2969 19.4145 25.4941 15.2173 25.4941 10.0779C25.4941 4.93842 21.2969 0.741211 16.1575 0.741211C11.018 0.741211 6.8208 4.93842 6.8208 10.0779C6.8208 15.2601 11.018 19.4145 16.1575 19.4145ZM16.1575 2.0689C19.5838 2.0689 22.4961 4.21034 23.6525 7.20834C23.267 6.9942 22.7959 6.73723 22.3676 6.48026C20.5688 5.40954 19.3268 4.72428 18.513 4.80994C16.8855 4.93842 15.9433 5.58085 14.9154 6.22328C14.3586 6.56591 13.759 6.95137 13.031 7.25117L12.8168 7.33683C11.2322 7.97926 10.2471 8.40755 8.3198 8.62169C8.96224 4.89559 12.2172 2.0689 16.1575 2.0689ZM8.10566 9.90655C10.4184 9.69241 11.5748 9.22129 13.2451 8.49321L13.4592 8.40755C14.3158 8.06492 14.9583 7.63663 15.5579 7.25117C16.5001 6.65157 17.3138 6.13763 18.5987 6.05197C19.0698 6.00914 20.6973 6.9942 21.6824 7.55097C22.6674 8.15058 23.4812 8.62169 24.0808 8.79301C24.1664 9.22129 24.2092 9.64958 24.2092 10.0779C24.2092 14.4892 20.6116 18.1297 16.1575 18.1297C11.7033 18.1297 8.10566 14.5321 8.10566 10.0779C8.10566 10.035 8.10566 9.99221 8.10566 9.90655Z" fill="#FDEFCE" />
-            </svg>
-        </a>
-        <a href="cart.html" class="second-menu__icon second-menu__icon--cart">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M35.5571 5.32063C35.4439 5.18829 35.2781 5.11216 35.1035 5.11216H6.89188L5.74154 1.25697C5.66541 1.00347 5.43263 0.830078 5.16836 0.830078H0.756337C0.425903 0.830078 0.158447 1.09753 0.158447 1.42797C0.158447 1.7584 0.425903 2.02586 0.756337 2.02586H4.72273L11.9907 26.3815C11.9915 26.3843 11.9939 26.3867 11.9947 26.3895L12.8975 29.4602C12.3275 30.0266 11.9743 30.8106 11.9743 31.6752C11.9743 33.4011 13.3778 34.8053 15.1025 34.8053C16.7718 34.8053 18.1354 33.4868 18.2195 31.8354H26.0554C26.055 31.8574 26.0522 31.8789 26.0522 31.9012C26.0522 33.6255 27.4549 35.0286 29.1788 35.0286C30.9027 35.0286 32.3058 33.6255 32.3058 31.9012C32.3058 30.1769 30.9027 28.7738 29.1788 28.7738C27.9037 28.7738 26.8064 29.5423 26.3205 30.6397H18.0489C17.8958 30.2032 17.6491 29.8018 17.3123 29.465C16.722 28.8747 15.9375 28.549 15.1037 28.549C15.1033 28.549 15.1029 28.549 15.1029 28.549C14.6927 28.549 14.3017 28.6303 13.9426 28.7746L13.3646 26.8084H31.9682C32.2635 26.8084 32.5146 26.5927 32.5589 26.301L35.6946 5.80013C35.7209 5.62794 35.6707 5.45296 35.5571 5.32063ZM29.1788 29.97C30.2434 29.97 31.11 30.8366 31.11 31.9016C31.11 32.9666 30.2434 33.8332 29.1788 33.8332C28.1142 33.8332 27.248 32.9666 27.248 31.9016C27.248 30.8366 28.1142 29.97 29.1788 29.97ZM15.1029 29.7452H15.1033C15.6179 29.7452 16.1018 29.9461 16.4661 30.3108C16.8308 30.6755 17.0313 31.1606 17.0313 31.676C17.0313 32.7426 16.1659 33.6104 15.1021 33.6104C14.0367 33.6104 13.1697 32.7426 13.1697 31.676C13.1701 30.6113 14.0371 29.7452 15.1029 29.7452ZM31.4544 25.613H13.0127L11.8823 21.7674C11.8679 21.7187 11.8464 21.6745 11.8217 21.6326L7.24862 6.30794H34.4071L31.4544 25.613Z" fill="#FDEFCE" />
-            </svg>
-            <span class="second-menu__cart-sum">
-                1
-            </span>
-        </a>
-    </div>
-    <a href="tel:+79053843999" class="second-menu__call-btn">
-        <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15.9372 35.6875C16.243 35.3617 17.3229 34.3984 19.3081 33.124C21.3079 31.8385 22.7827 31.0369 23.2057 30.85C23.243 30.8335 23.2841 30.8274 23.3245 30.8325C23.365 30.8375 23.4033 30.8535 23.4354 30.8787C24.1168 31.4102 25.2641 32.3863 25.3256 32.4391C25.7229 32.7795 25.7229 32.7795 26.0481 32.6734C26.62 32.4859 28.3965 31.5426 29.9446 29.991C31.4926 28.4395 32.4846 26.619 32.6721 26.0477C32.7793 25.7219 32.7793 25.7219 32.4377 25.3246C32.385 25.2631 31.4082 24.1158 30.8768 23.435C30.8516 23.4029 30.8356 23.3646 30.8305 23.3241C30.8255 23.2836 30.8316 23.2426 30.8481 23.2053C31.035 22.7817 31.8366 21.3074 33.1221 19.3076C34.3983 17.3231 35.3604 16.2432 35.6862 15.9373C35.7161 15.9091 35.753 15.8895 35.7931 15.8805C35.8333 15.8715 35.875 15.8736 35.9141 15.8863C37.0529 16.2777 38.1516 16.777 39.1954 17.3776C40.2029 17.9633 41.1568 18.6368 42.0459 19.3902C42.077 19.4166 42.1002 19.451 42.1133 19.4896C42.1263 19.5282 42.1285 19.5696 42.1198 19.6094C41.9973 20.1801 41.412 22.5625 39.5956 25.8625C37.7422 29.2305 36.4579 30.9561 33.7362 33.6684C31.0145 36.3807 29.2344 37.7424 25.8629 39.5957C22.5629 41.4121 20.1793 41.9981 19.6098 42.1193C19.5699 42.128 19.5285 42.1257 19.4898 42.1127C19.4511 42.0997 19.4166 42.0765 19.3901 42.0455C18.6368 41.1564 17.9634 40.2025 17.378 39.1949C16.7776 38.1512 16.2782 37.0524 15.8868 35.9137C15.8742 35.8749 15.8723 35.8335 15.8812 35.7937C15.89 35.754 15.9094 35.7173 15.9372 35.6875Z" fill="#FDEFCE" />
-            <rect x="0.5" y="0.5" width="58" height="58" rx="29" stroke="#FDEFCE" />
-        </svg>
-    </a>
-</nav>
+        </nav>
         <div class="wrapper">
             <ul class="crumbs">
                 <li class="crumbs__crumb">
                     <a href="index.html" class="crumbs__link">Главная</a>
                 </li>
                 <li class="crumbs__crumb active">
-                    <a href="#" class="crumbs__link">Отзывы</a>
+                    <a href="#" class="crumbs__link">Рецепты</a>
                 </li>
             </ul>
-            <h1 class="feedback__title" data-aos="fade-up">Ценность вкуса от наших покупателей</h1>
-            <div class="feedback__header">
-                <p class="feedback__quote" data-aos="fade-up" data-aos-delay="100">«Все обращают внимание на настоящий лесной запах наших грибов».</p>
-                <div class="feedback__quote-author" data-aos="fade-up" data-aos-delay="100">
-                    <span class="feedback__quote-name">Людмила</span>
-                    <span class="feedback__quote-position">Директор предприятия</span>
-                </div>
+            <h1 class="recipes-header__title" data-aos="fade-up">Рецепты</h1>
+            <div class="recipes-header__table">
+                <a href="recipe.html" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="recipes__slide">
+                    <div class="recipes__slide-pic">
+                        <img src="img/recipes/recipe1.jpg" alt="">
+                    </div>
+                    <div class="recipes__slide-content">
+                        <p class="recipes__slide-title">Фаршированные шампиньоны</p>
+                        <p class="recipes__slide-text">В связи с высоким спросом на наши шампиньоны и частые вопросы - что приготовить, мы</p>
+                        <div class="recipes__slide-info">
+                            <div class="recipes__slide-time">
+                                <p class="recipes__slide-time-title">Время приготовления:</p>
+                                <div class="recipes__slide-time-container">
+                                    <div class="recipes__slide-time-icon"><svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4993 30.1666C24.5535 30.1666 31.0827 23.8239 31.0827 15.9999C31.0827 8.17588 24.5535 1.83325 16.4993 1.83325C8.4452 1.83325 1.91602 8.17588 1.91602 15.9999C1.91602 23.8239 8.4452 30.1666 16.4993 30.1666Z" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M16.5 7.5V16L22.3333 18.8333" stroke="#5C8741" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-time-label">30 минут</p>
+                                </div>
+                            </div>
+                            <div class="recipes__slide-portion">
+                                <p class="recipes__slide-portion-title">Порция на:</p>
+                                <div class="recipes__slide-portion-container">
+                                    <div class="recipes__slide-portion-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 24C2 24 0 24 0 22C0 20 2 14 12 14C22 14 24 20 24 22C24 24 22 24 22 24H2ZM12 12C13.5913 12 15.1174 11.3679 16.2426 10.2426C17.3679 9.11742 18 7.5913 18 6C18 4.4087 17.3679 2.88258 16.2426 1.75736C15.1174 0.632141 13.5913 0 12 0C10.4087 0 8.88258 0.632141 7.75736 1.75736C6.63214 2.88258 6 4.4087 6 6C6 7.5913 6.63214 9.11742 7.75736 10.2426C8.88258 11.3679 10.4087 12 12 12Z" fill="#5C8741" />
+                                        </svg>
+                                    </div>
+                                    <p class="recipes__slide-portion-label">2-3 человека</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="feedback__feedback">
-                <h2 class="feedback__table-title" data-aos="fade-up" data-aos-delay="300">Отзывы</h2>
-                <div class="feedback__table">
-                    <div class="feedback__item" data-screen="img/feedback/feedback1screen.jpg">
-                        <div class="feedback__item-pic">
-                            <div class="feedback__item-box" data-aos="swipe-down">
-                                <img src="img/feedback/feedback1.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="feedback__item-content" data-aos="fade-in">
-                            <span class="feedback__item-title">
-                                #Светлана
-                            </span>
-                            <p class="feedback__item-text">
-                                Грибной!!! Вы как всегда на высоте!!! Грибная приправа сделала мои выходные волшебными! Вкус супа нереальный. Просто БОМБА!!! Спасибо огромное!Грибной!!!
-                                Вы как всегда на высоте!!! Грибная приправа сделала мои выходные волшебными! Вкус супа нереальный. Просто БОМБА!!! Спасибо огромное!
-                            </p>
-                            <button class="feedback__item-original">Оригинал</button>
-                        </div>
-                    </div>
-                    <div class="feedback__item" data-screen="img/feedback/feedback2screen.jpg">
-                        <div class="feedback__item-pic">
-                            <div class="feedback__item-box" data-aos="swipe-down">
-                                <img src="img/feedback/feedback2.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="feedback__item-content" data-aos="fade-in">
-                            <span class="feedback__item-title">
-                                #Nesterova.tn
-                            </span>
-                            <p class="feedback__item-text">
-                                Какая же вкуснятина!! #gribnoikombinat.
-                            </p>
-                            <button class="feedback__item-original">Оригинал</button>
-                        </div>
-                    </div>
-                    <div class="feedback__item" data-screen="img/feedback/feedback3screen.jpg">
-                        <div class="feedback__item-pic">
-                            <div class="feedback__item-box" data-aos="swipe-down">
-                                <img src="img/feedback/feedback3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="feedback__item-content" data-aos="fade-in">
-                            <span class="feedback__item-title">
-                                #Тамара
-                            </span>
-                            <p class="feedback__item-text">
-                                Суп просто обалденный))) спасибо большое))
-                            </p>
-                            <button class="feedback__item-original">Оригинал</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="feedback__more-btn" data-aos="fade-up">Больше отзывов</button>
+            <button type="button" class="recipes-header__more-btn">Больше рецептов</button>
         </div>
     </section>
-    <section class="footer">
+   <section class="footer">
     <div class="wrapper wrapper--footer">
         <div class="footer__nav">
             <div class="footer__row">
@@ -468,12 +894,12 @@
         </div>
     </div>
 </section>
-    <script src="vendors/js/jquery-3.5.1.min.js?t=1596718721063"></script>
-    <script src="vendors/js/owl.carousel.min.js?t=1596718721063"></script>
-    <script src="vendors/js/aos.js?t=1596718721063"></script>
-    <script src="vendors/js/scroll.js?t=1596718721063"></script>
-    <script src="vendors/js/formValidate.min.js?t=1596718721063"></script>
-    <script src="js/scripts.js?t=1596718721063"></script>
+    <script src="vendors/js/jquery-3.5.1.min.js?t=1596694048023"></script>
+    <script src="vendors/js/owl.carousel.min.js?t=1596694048023"></script>
+    <script src="vendors/js/aos.js?t=1596694048023"></script>
+    <script src="vendors/js/scroll.js?t=1596694048023"></script>
+    <script src="vendors/js/formValidate.min.js?t=1596694048023"></script>
+    <script src="js/scripts.js?t=1596694048023"></script>
 </body>
 
 </html>

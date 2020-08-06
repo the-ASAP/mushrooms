@@ -116,7 +116,7 @@ function isIE() {
     return rv === -1 ? false : true;
 }
 
-function initModel(model, width=window.innerWidth, height=window.innerWidth) {
+function initModel(model, width = window.innerWidth, height = window.innerWidth) {
     let scene, camera, renderer, hLight, mushroom = null;
 
     function init() {
@@ -525,8 +525,31 @@ function initListeners() {
     // 404
 
     if (pageName == '404' && !isIE()) {
-            initModel('.notfound__model', $('.notfound__model').width(), $('.notfound__model').height());
+        initModel('.notfound__model', $('.notfound__model').width(), $('.notfound__model').height());
+    }
+
+    // ПРОДУКТ
+
+    $('.product-info__desc-show-more').on('click', function() {
+        if ($('.product-info__desc-text').hasClass('show-more')) {
+            $('.product-info__desc-text').removeClass('show-more');
+            $('.product-info__desc-show-more').text('Подробнее');
+        } else {
+            $('.product-info__desc-text').addClass('show-more');
+            $('.product-info__desc-show-more').text('Скрыть');
         }
+    });
+
+    $('.product-info__desc-title-wrapper').on('click', function() {
+        if($('.product-info__desc-table').hasClass('hidden')) {
+             $('.product-info__desc-table').slideDown().removeClass('hidden');
+             $('.product-info__desc-hide').addClass('showed');
+
+        } else {
+             $('.product-info__desc-table').slideUp().addClass('hidden');
+             $('.product-info__desc-hide').removeClass('showed');
+        }  
+    });
 
     // Только для десктопа
     if (isDesktop) {
@@ -546,7 +569,7 @@ function initListeners() {
                     $('.eco__table-container').addClass('third');
                 }
             });
-        }  
+        }
     }
 
     //Для десктопа и планшета
@@ -562,7 +585,9 @@ function initListeners() {
             $('.supplies__item-box'),
             $('.docs__slide'),
             $('.recipe__ingredient'),
-            $('.feedback__item-box')
+            $('.feedback__item-box'),
+            $('.products__item-box'),
+            $('.product-info__desc-item')
         ]);
 
         initSlider('.production__slider', {
@@ -622,6 +647,7 @@ function initListeners() {
 
     if (isTablet) {
         truncText('.feedback__item-text', 170);
+         truncText('.recipes__slider--product .recipes__slide-text', 100);
     }
 
     // Только для мобилки
@@ -629,6 +655,22 @@ function initListeners() {
     if (isMobile) {
         truncText('.recipes__slide-text', 75);
         truncText('.feedback__item-text', 150);
+
+         initSlider('.recipes__slider--product', {
+            items: 2,
+            nav: false,
+            margin: 15,
+            responsive: {
+                0: {
+                    items: 1,
+                    margin: 8
+                },
+                490: {
+                    items: 2,
+                    margin: 15,
+                }
+            }
+        });
     }
 }
 

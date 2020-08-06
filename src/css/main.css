@@ -9,6 +9,16 @@
     height: 31.25rem;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
 @keyframes fadeUpTeam {
   from {
     opacity: 0;
@@ -21,6 +31,16 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeUpTeam {
   from {
     opacity: 0;
@@ -30,6 +50,16 @@
   to {
     opacity: 1;
     height: 31.25rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
@@ -155,7 +185,9 @@ body::-webkit-scrollbar-thumb,
 .recipes-header__more-btn,
 .news-header__more-btn,
 .feedback__more-btn,
-.notfound__back-btn {
+.notfound__back-btn,
+.products__more-btn,
+.product-info__buy-btn {
   width: 20.6875rem;
   background-color: #5C8741;
   text-align: center;
@@ -184,7 +216,9 @@ body::-webkit-scrollbar-thumb,
 .recipes-header__more-btn:hover,
 .news-header__more-btn:hover,
 .feedback__more-btn:hover,
-.notfound__back-btn:hover {
+.notfound__back-btn:hover,
+.products__more-btn:hover,
+.product-info__buy-btn:hover {
   background-color: #4C693A !important;
   color: #FDEFCE !important;
 }
@@ -229,6 +263,10 @@ body::-webkit-scrollbar-thumb,
 
 /*DELIVERY PAGE MEDIA*/
 
+/*PRODUCTS PAGE MEDIA*/
+
+/*PRODUCT PAGE MEDIA*/
+
 @keyframes fadeUpTeam {
   from {
     opacity: 0;
@@ -241,6 +279,16 @@ body::-webkit-scrollbar-thumb,
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeUpTeam {
   from {
     opacity: 0;
@@ -250,6 +298,16 @@ body::-webkit-scrollbar-thumb,
   to {
     opacity: 1;
     height: 31.25rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
@@ -375,7 +433,9 @@ body::-webkit-scrollbar-thumb,
 .recipes-header__more-btn,
 .news-header__more-btn,
 .feedback__more-btn,
-.notfound__back-btn {
+.notfound__back-btn,
+.products__more-btn,
+.product-info__buy-btn {
   width: 20.6875rem;
   background-color: #5C8741;
   text-align: center;
@@ -404,7 +464,9 @@ body::-webkit-scrollbar-thumb,
 .recipes-header__more-btn:hover,
 .news-header__more-btn:hover,
 .feedback__more-btn:hover,
-.notfound__back-btn:hover {
+.notfound__back-btn:hover,
+.products__more-btn:hover,
+.product-info__buy-btn:hover {
   background-color: #4C693A !important;
   color: #FDEFCE !important;
 }
@@ -3951,6 +4013,443 @@ h2 {
   transition: .3s ease-out;
 }
 
+.products {
+  height: auto;
+  padding-bottom: 10.625rem;
+}
+
+.products .wrapper {
+  padding-top: 2.5rem;
+}
+
+.products__title {
+  margin-top: 5rem;
+  margin-bottom: 6.25rem;
+}
+
+.products__table {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products__item {
+  margin-right: 5%;
+  width: 30%;
+  height: 34.375rem;
+  margin-bottom: 4.375rem;
+}
+
+.products__item:nth-child(3n + 3) {
+  margin-right: 0;
+}
+
+.products__item-pic {
+  height: 27.5rem;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  height: 27.5rem;
+}
+
+.products__item-pic .products__item-box {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: height 0.7s ease-out;
+}
+
+.products__item-pic .products__item-box.animated {
+  height: 27.5rem;
+}
+
+.products__item-pic .products__item-box[data-aos="swipe-down"].aos-animate {
+  height: 27.5rem;
+  transition: height 0.7s ease-out;
+}
+
+.products__item-pic .products__item-box img {
+  object-position: center;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  height: 27.5rem;
+  left: 0;
+  object-fit: cover;
+}
+
+.products__item-content {
+  height: 17%;
+  display: flex;
+  align-items: center;
+}
+
+.products__item-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 110.69%;
+  color: #61573E;
+  width: 80%;
+}
+
+/*PRODUCT PAGE*/
+
+.product {
+  height: auto;
+}
+
+.product .wrapper {
+  padding-top: 2.5rem;
+}
+
+.product__title {
+  margin-top: 4.6875rem;
+  margin-bottom: 3.4375rem;
+}
+
+.product-info {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 3.75rem;
+  position: relative;
+  padding-bottom: 4.375rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.product-info__info {
+  min-height: 100%;
+  height: 100%;
+  width: 50%;
+  transition: all .3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-info__price {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 117.8%;
+}
+
+.product-info__amount {
+  width: 50%;
+}
+
+.product-info__amount-controls {
+  width: 9.375rem;
+  margin-top: 3.4375rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-info__amount-control {
+  width: 2.625rem;
+  height: 2.625rem;
+}
+
+.product-info__amount-control--amount {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 110.69%;
+  color: #000;
+}
+
+.product-info__amount-control--amount::-webkit-outer-spin-button,
+.product-info__amount-control--amount::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.product-info__amount-control--minus,
+.product-info__amount-control--plus {
+  border-radius: 100%;
+  border: 0.5px solid #5C8741;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #5C8741;
+  font-weight: 500;
+  transition: background-color .2s, color .3s;
+}
+
+.product-info__amount-control--minus:hover,
+.product-info__amount-control--plus:hover {
+  background-color: #5C8741;
+  color: #FDEFCE;
+}
+
+.product-info__buy-btn {
+  height: 70px;
+  margin: 3.125rem 0 0;
+}
+
+.product-info__pic {
+  position: absolute;
+  width: 45%;
+  height: 50rem;
+  overflow: hidden;
+  position: relative;
+  height: 50rem;
+}
+
+.product-info__pic .product-info__box {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: height 0.7s ease-out;
+}
+
+.product-info__pic .product-info__box.animated {
+  height: 50rem;
+}
+
+.product-info__pic .product-info__box[data-aos="swipe-down"].aos-animate {
+  height: 50rem;
+  transition: height 0.7s ease-out;
+}
+
+.product-info__pic .product-info__box img {
+  object-position: center;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  height: 50rem;
+  left: 0;
+  object-fit: cover;
+}
+
+.product-info__pic img {
+  width: 100%;
+  height: 100%;
+}
+
+.product-info__desc {
+  padding-top: 4.375rem;
+  transition: all .3s ease;
+}
+
+.product-info__desc-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 110.69%;
+}
+
+.product-info__desc-title-wrapper {
+  margin-bottom: 1.875rem;
+}
+
+.product-info__desc-hide {
+  transition: transform .3s ease;
+  display: none;
+  transform: rotate(180deg);
+}
+
+.product-info__desc-hide.showed {
+  transform: rotate(0);
+}
+
+.product-info__desc-item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 7px;
+}
+
+.product-info__desc-key {
+  width: 37%;
+  font-size: 1rem;
+  line-height: 140%;
+  color: #5C8741;
+}
+
+.product-info__desc-value {
+  width: 60%;
+  font-size: 1rem;
+  line-height: 140%;
+  color: #61573E;
+}
+
+.product-info__desc-text {
+  font-size: 1rem;
+  line-height: 140%;
+}
+
+.product-info__desc-text.show-more p {
+  display: block;
+}
+
+.product-info__desc-text p {
+  padding-top: 1.875rem;
+  opacity: 0;
+  display: none;
+  overflow: hidden;
+  transition: all .3s ease;
+  animation: fadeIn .4s ease-out forwards;
+}
+
+.product-info__desc-text p:first-child {
+  opacity: 1;
+  display: block;
+  padding-top: 0;
+}
+
+.product-info__desc-show-more {
+  color: #5C8741;
+  transition: color .3s;
+  font-size: 1rem;
+  line-height: 140%;
+  padding-top: 1.875rem;
+}
+
+.product-info__desc-show-more:hover {
+  color: #4C693A;
+}
+
+.product-recipes {
+  height: auto;
+  padding-bottom: 11.25rem;
+}
+
+.product-recipes .wrapper {
+  padding-top: 3.4375rem;
+}
+
+.product-recipes__title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.product-recipes__title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 110.69%;
+}
+
+.product-recipes__mobile-link {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  padding: 30px 0;
+  color: #5C8741;
+  background-color: transparent;
+  display: none;
+}
+
+.product-recipes__mobile-link:hover {
+  color: #5C8741 !important;
+  background-color: transparent !important;
+}
+
+.product-recipes__link {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5C8741;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.product-recipes__link:hover:after {
+  width: 100%;
+}
+
+.product-recipes__link:after {
+  content: '';
+  width: 90%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  background-color: #5C8741;
+  transition: .3s ease-out;
+}
+
+.recipes__slider--product {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0;
+}
+
+.recipes__slider--product .recipes__slide {
+  width: 32%;
+}
+
+/*CART PAGE*/
+
+.cart {
+  height: auto;
+}
+
+.cart .wrapper {
+  padding-top: 2.5rem;
+}
+
+.cart__title {
+  margin-top: 5rem;
+  margin-bottom: 4.375rem;
+}
+
+.cart__table {
+  width: 100%;
+}
+
+.cart__table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 30px;
+}
+
+.cart__table-header-name,
+.cart__table-header-amount,
+.cart__table-header-price {
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+}
+
+.cart__table-header-name {
+  width: 50%;
+  background: white;
+}
+
+.cart__table-header-amount {
+  width: 25%;
+  background: blue;
+}
+
+.cart__table-header-price {
+  width: 25%;
+  background: red;
+}
+
+.cart__table-item {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (max-width: 1600px) {
   html {
     font-size: 16px;
@@ -4263,6 +4762,47 @@ h2 {
   .notfound__label {
     width: 60%;
   }
+
+  .products__item {
+    margin-bottom: 30px;
+  }
+
+  .product-info__pic {
+    height: 550px;
+    position: relative;
+    height: 550px;
+  }
+
+  .product-info__pic .product-info__box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .product-info__pic .product-info__box.animated {
+    height: 550px;
+  }
+
+  .product-info__pic .product-info__box[data-aos="swipe-down"].aos-animate {
+    height: 550px;
+    transition: height 0.7s ease-out;
+  }
+
+  .product-info__pic .product-info__box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 550px;
+    left: 0;
+    object-fit: cover;
+  }
 }
 
 @media (max-width: 1200px) and (max-width: 768px) {
@@ -4272,6 +4812,10 @@ h2 {
 
   .news-header__pic-container .news-header__pic-box {
     height: 280px !important;
+  }
+
+  .product-info__pic .product-info__box {
+    height: 550px !important;
   }
 }
 
@@ -4965,6 +5509,54 @@ h2 {
 
   .delivery-header__item-title {
     margin-bottom: 30px;
+  }
+
+  .products__item {
+    width: 32%;
+    margin-right: 2%;
+    height: 400px;
+  }
+
+  .products__item-pic {
+    height: 300px;
+  }
+
+  .products__item-title {
+    font-size: 20px;
+  }
+
+  .recipes__slider--product .recipes__slide-pic {
+    height: 40%;
+  }
+
+  .recipes__slider--product .recipes__slide-title {
+    font-size: 20px;
+    height: 60px;
+  }
+
+  .recipes__slider--product .recipes__slide-content {
+    height: 60%;
+  }
+
+  .recipes__slider--product .recipes__slide-text {
+    width: 100%;
+  }
+
+  .recipes__slider--product .recipes__slide-portion-title,
+  .recipes__slider--product .recipes__slide-time-title {
+    font-size: 12px;
+  }
+
+  .recipes__slider--product .recipes__slide-portion,
+  .recipes__slider--product .recipes__slide-time {
+    width: 45%;
+  }
+
+  .recipes__slider--product .recipes__slide-portion-icon,
+  .recipes__slider--product .recipes__slide-time-icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
   }
 
   .enter__input:not(textarea),
@@ -5124,6 +5716,10 @@ h2 {
   .feedback__item-pic .feedback__item-box {
     height: 170px !important;
   }
+
+  .product-info__pic .product-info__box {
+    height: 400px !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -5666,6 +6262,82 @@ h2 {
     margin-bottom: 23px;
   }
 
+  .products__item {
+    margin-right: 2%;
+    height: 350px;
+  }
+
+  .products__item-pic {
+    height: 270px;
+  }
+
+  .products__item-title {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .products__item-content {
+    height: 80px;
+  }
+
+  .product-info__pic {
+    height: 400px;
+    position: relative;
+    height: 400px;
+  }
+
+  .product-info__pic .product-info__box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .product-info__pic .product-info__box.animated {
+    height: 400px;
+  }
+
+  .product-info__pic .product-info__box[data-aos="swipe-down"].aos-animate {
+    height: 400px;
+    transition: height 0.7s ease-out;
+  }
+
+  .product-info__pic .product-info__box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 400px;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .product-info__desc-item {
+    flex-direction: column;
+  }
+
+  .product-info__desc-key,
+  .product-info__desc-value {
+    width: 100%;
+  }
+
+  .product-info__desc-key {
+    padding-bottom: 5px;
+  }
+
+  .product-info__price {
+    font-size: 24px;
+  }
+
+  .recipes__slider--product .recipes__slide {
+    width: auto;
+  }
+
   .production__slide-pic-container .production__slide-box {
     height: 31.25rem !important;
   }
@@ -5728,6 +6400,14 @@ h2 {
 
   .feedback__item-pic .feedback__item-box {
     height: 20rem !important;
+  }
+
+  .products__item-pic .products__item-box {
+    height: 27.5rem !important;
+  }
+
+  .product-info__pic .product-info__box {
+    height: 50rem !important;
   }
 }
 
@@ -6040,6 +6720,161 @@ h2 {
 
   .shops--delivery .shops__table {
     margin-bottom: 30px;
+  }
+
+  .products__table {
+    justify-content: space-between;
+  }
+
+  .products__item {
+    margin-right: 0%;
+    width: 47%;
+    height: 340px;
+  }
+
+  .products__item-pic {
+    height: 270px;
+  }
+
+  .products__item-content {
+    height: 70px;
+  }
+
+  .products {
+    padding-bottom: 85px;
+  }
+
+  .product-info {
+    flex-direction: column;
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .product-info__info {
+    width: 100%;
+  }
+
+  .product-info__pic {
+    width: 100%;
+    order: -1;
+  }
+
+  .product-info__amount {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-info__amount-controls {
+    margin: 25px auto;
+    width: 170px;
+    order: -1;
+  }
+
+  .product-info__price {
+    font-weight: 500;
+  }
+
+  .product-info__buy-btn {
+    margin: 25px auto 0;
+    width: 100%;
+  }
+
+  .product-info__amount-control--minus,
+  .product-info__amount-control--plus {
+    width: 48px;
+    height: 48px;
+  }
+
+  .product-info__amount-control--amount {
+    height: 48px;
+    font-size: 24px;
+  }
+
+  .product-info__amount {
+    width: 70%;
+  }
+
+  .product-info__desc {
+    display: flex;
+    flex-direction: column;
+    padding-top: 45px;
+  }
+
+  .product-info__desc-text {
+    order: -2;
+    margin-bottom: 50px;
+  }
+
+  .product-info__desc-show-more {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .product-info__desc-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .product-info__desc-hide {
+    display: inline-block;
+  }
+
+  .product-info {
+    padding-bottom: 45px;
+  }
+
+  .product-recipes__link {
+    display: none;
+  }
+
+  .product-recipes__title {
+    font-size: 18px;
+  }
+
+  .recipes__slider--product .recipes__slide-title {
+    font-size: 18px;
+  }
+
+  .recipes__slider--product .recipes__slide-text {
+    font-size: 14px;
+  }
+
+  .product-recipes__mobile-link {
+    margin-top: 15px;
+    display: block;
+  }
+
+  .product-recipes {
+    padding-bottom: 70px;
+  }
+
+  .product-info__desc-title {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .product-info__desc-key,
+  .product-info__desc-value {
+    font-size: 14px;
+  }
+
+  .product-info__desc-key {
+    padding-bottom: 5px;
+  }
+
+  .product-info__desc-item {
+    padding-bottom: 0;
+    margin-bottom: 20px;
+  }
+
+  .product-info__desc-item:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -6975,6 +7810,82 @@ h2 {
     margin: 30px 0 40px;
   }
 
+  .products__item {
+    width: 100%;
+    height: auto;
+    margin-bottom: 45px;
+  }
+
+  .products__title {
+    margin-top: 40px;
+    margin-bottom: 55px;
+  }
+
+  .products__item-pic {
+    height: 315px;
+  }
+
+  .products__item-content {
+    height: auto;
+  }
+
+  .products__item-title {
+    font-size: 16px;
+    margin-top: 15px;
+    line-height: 140%;
+    font-weight: 400;
+  }
+
+  .product-info__pic {
+    height: 315px;
+    position: relative;
+    height: 315px;
+  }
+
+  .product-info__pic .product-info__box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .product-info__pic .product-info__box.animated {
+    height: 315px;
+  }
+
+  .product-info__pic .product-info__box[data-aos="swipe-down"].aos-animate {
+    height: 315px;
+    transition: height 0.7s ease-out;
+  }
+
+  .product-info__pic .product-info__box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 315px;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .product-info__amount {
+    width: 100%;
+  }
+
+  .product-info__desc-text p {
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  .product-recipes .wrapper {
+    padding-top: 25px;
+  }
+
   .enter__input:not(textarea),
   .register__input:not(textarea),
   .write__input:not(textarea) {
@@ -7001,6 +7912,10 @@ h2 {
 
   .feedback__item-pic .feedback__item-box {
     height: 295px !important;
+  }
+
+  .product-info__pic .product-info__box {
+    height: 315px !important;
   }
 }
 
@@ -7137,6 +8052,10 @@ h2 {
     width: 90%;
   }
 
+  .products__item-pic {
+    height: 290px;
+  }
+
   .enter__input:not(textarea),
   .register__input:not(textarea),
   .write__input:not(textarea) {
@@ -7169,6 +8088,16 @@ h2 {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeUpTeam {
   from {
     opacity: 0;
@@ -7178,6 +8107,16 @@ h2 {
   to {
     opacity: 1;
     height: 31.25rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
@@ -7198,6 +8137,10 @@ h2 {
 /*404 PAGE MEDIA*/
 
 /*DELIVERY PAGE MEDIA*/
+
+/*PRODUCTS PAGE MEDIA*/
+
+/*PRODUCT PAGE MEDIA*/
 
 @media (max-width: 1600px) {
   html {
@@ -7511,6 +8454,47 @@ h2 {
   .notfound__label {
     width: 60%;
   }
+
+  .products__item {
+    margin-bottom: 30px;
+  }
+
+  .product-info__pic {
+    height: 550px;
+    position: relative;
+    height: 550px;
+  }
+
+  .product-info__pic .product-info__box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .product-info__pic .product-info__box.animated {
+    height: 550px;
+  }
+
+  .product-info__pic .product-info__box[data-aos="swipe-down"].aos-animate {
+    height: 550px;
+    transition: height 0.7s ease-out;
+  }
+
+  .product-info__pic .product-info__box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 550px;
+    left: 0;
+    object-fit: cover;
+  }
 }
 
 @media (max-width: 1200px) and (max-width: 768px) {
@@ -7520,6 +8504,10 @@ h2 {
 
   .news-header__pic-container .news-header__pic-box {
     height: 280px !important;
+  }
+
+  .product-info__pic .product-info__box {
+    height: 550px !important;
   }
 }
 
@@ -8214,6 +9202,54 @@ h2 {
   .delivery-header__item-title {
     margin-bottom: 30px;
   }
+
+  .products__item {
+    width: 32%;
+    margin-right: 2%;
+    height: 400px;
+  }
+
+  .products__item-pic {
+    height: 300px;
+  }
+
+  .products__item-title {
+    font-size: 20px;
+  }
+
+  .recipes__slider--product .recipes__slide-pic {
+    height: 40%;
+  }
+
+  .recipes__slider--product .recipes__slide-title {
+    font-size: 20px;
+    height: 60px;
+  }
+
+  .recipes__slider--product .recipes__slide-content {
+    height: 60%;
+  }
+
+  .recipes__slider--product .recipes__slide-text {
+    width: 100%;
+  }
+
+  .recipes__slider--product .recipes__slide-portion-title,
+  .recipes__slider--product .recipes__slide-time-title {
+    font-size: 12px;
+  }
+
+  .recipes__slider--product .recipes__slide-portion,
+  .recipes__slider--product .recipes__slide-time {
+    width: 45%;
+  }
+
+  .recipes__slider--product .recipes__slide-portion-icon,
+  .recipes__slider--product .recipes__slide-time-icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+  }
 }
 
 @media (max-width: 1024px) and (max-width: 768px) {
@@ -8249,6 +9285,10 @@ h2 {
 
   .feedback__item-pic .feedback__item-box {
     height: 170px !important;
+  }
+
+  .product-info__pic .product-info__box {
+    height: 400px !important;
   }
 }
 
@@ -8791,6 +9831,82 @@ h2 {
   .shops--contacts .shops__map {
     margin-bottom: 23px;
   }
+
+  .products__item {
+    margin-right: 2%;
+    height: 350px;
+  }
+
+  .products__item-pic {
+    height: 270px;
+  }
+
+  .products__item-title {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .products__item-content {
+    height: 80px;
+  }
+
+  .product-info__pic {
+    height: 400px;
+    position: relative;
+    height: 400px;
+  }
+
+  .product-info__pic .product-info__box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .product-info__pic .product-info__box.animated {
+    height: 400px;
+  }
+
+  .product-info__pic .product-info__box[data-aos="swipe-down"].aos-animate {
+    height: 400px;
+    transition: height 0.7s ease-out;
+  }
+
+  .product-info__pic .product-info__box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 400px;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .product-info__desc-item {
+    flex-direction: column;
+  }
+
+  .product-info__desc-key,
+  .product-info__desc-value {
+    width: 100%;
+  }
+
+  .product-info__desc-key {
+    padding-bottom: 5px;
+  }
+
+  .product-info__price {
+    font-size: 24px;
+  }
+
+  .recipes__slider--product .recipes__slide {
+    width: auto;
+  }
 }
 
 @media (max-width: 620px) {
@@ -9102,6 +10218,161 @@ h2 {
 
   .shops--delivery .shops__table {
     margin-bottom: 30px;
+  }
+
+  .products__table {
+    justify-content: space-between;
+  }
+
+  .products__item {
+    margin-right: 0%;
+    width: 47%;
+    height: 340px;
+  }
+
+  .products__item-pic {
+    height: 270px;
+  }
+
+  .products__item-content {
+    height: 70px;
+  }
+
+  .products {
+    padding-bottom: 85px;
+  }
+
+  .product-info {
+    flex-direction: column;
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .product-info__info {
+    width: 100%;
+  }
+
+  .product-info__pic {
+    width: 100%;
+    order: -1;
+  }
+
+  .product-info__amount {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-info__amount-controls {
+    margin: 25px auto;
+    width: 170px;
+    order: -1;
+  }
+
+  .product-info__price {
+    font-weight: 500;
+  }
+
+  .product-info__buy-btn {
+    margin: 25px auto 0;
+    width: 100%;
+  }
+
+  .product-info__amount-control--minus,
+  .product-info__amount-control--plus {
+    width: 48px;
+    height: 48px;
+  }
+
+  .product-info__amount-control--amount {
+    height: 48px;
+    font-size: 24px;
+  }
+
+  .product-info__amount {
+    width: 70%;
+  }
+
+  .product-info__desc {
+    display: flex;
+    flex-direction: column;
+    padding-top: 45px;
+  }
+
+  .product-info__desc-text {
+    order: -2;
+    margin-bottom: 50px;
+  }
+
+  .product-info__desc-show-more {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .product-info__desc-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .product-info__desc-hide {
+    display: inline-block;
+  }
+
+  .product-info {
+    padding-bottom: 45px;
+  }
+
+  .product-recipes__link {
+    display: none;
+  }
+
+  .product-recipes__title {
+    font-size: 18px;
+  }
+
+  .recipes__slider--product .recipes__slide-title {
+    font-size: 18px;
+  }
+
+  .recipes__slider--product .recipes__slide-text {
+    font-size: 14px;
+  }
+
+  .product-recipes__mobile-link {
+    margin-top: 15px;
+    display: block;
+  }
+
+  .product-recipes {
+    padding-bottom: 70px;
+  }
+
+  .product-info__desc-title {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .product-info__desc-key,
+  .product-info__desc-value {
+    font-size: 14px;
+  }
+
+  .product-info__desc-key {
+    padding-bottom: 5px;
+  }
+
+  .product-info__desc-item {
+    padding-bottom: 0;
+    margin-bottom: 20px;
+  }
+
+  .product-info__desc-item:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -10036,6 +11307,82 @@ h2 {
   .terms__subtitle {
     margin: 30px 0 40px;
   }
+
+  .products__item {
+    width: 100%;
+    height: auto;
+    margin-bottom: 45px;
+  }
+
+  .products__title {
+    margin-top: 40px;
+    margin-bottom: 55px;
+  }
+
+  .products__item-pic {
+    height: 315px;
+  }
+
+  .products__item-content {
+    height: auto;
+  }
+
+  .products__item-title {
+    font-size: 16px;
+    margin-top: 15px;
+    line-height: 140%;
+    font-weight: 400;
+  }
+
+  .product-info__pic {
+    height: 315px;
+    position: relative;
+    height: 315px;
+  }
+
+  .product-info__pic .product-info__box {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: height 0.7s ease-out;
+  }
+
+  .product-info__pic .product-info__box.animated {
+    height: 315px;
+  }
+
+  .product-info__pic .product-info__box[data-aos="swipe-down"].aos-animate {
+    height: 315px;
+    transition: height 0.7s ease-out;
+  }
+
+  .product-info__pic .product-info__box img {
+    object-position: center;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    height: 315px;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .product-info__amount {
+    width: 100%;
+  }
+
+  .product-info__desc-text p {
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  .product-recipes .wrapper {
+    padding-top: 25px;
+  }
 }
 
 @media (max-width: 490px) and (max-width: 768px) {
@@ -10053,6 +11400,10 @@ h2 {
 
   .feedback__item-pic .feedback__item-box {
     height: 295px !important;
+  }
+
+  .product-info__pic .product-info__box {
+    height: 315px !important;
   }
 }
 
@@ -10188,6 +11539,10 @@ h2 {
   .notfound__label {
     width: 90%;
   }
+
+  .products__item-pic {
+    height: 290px;
+  }
 }
 
 @media (max-width: 350px) and (max-width: 768px) {
@@ -10208,5 +11563,15 @@ h2 {
   to {
     opacity: 1;
     height: 31.25rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

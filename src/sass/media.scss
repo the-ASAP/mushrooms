@@ -2391,3 +2391,339 @@
         margin: 30px 0 40px;
     }
 }
+
+/*PRODUCTS PAGE MEDIA*/
+
+@media (max-width: 1200px) {
+    .products__item {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .products__item {
+        width: 32%;
+        margin-right: 2%;
+        height: 400px;
+    }
+
+    .products__item-pic {
+        height: 300px;
+    }
+
+    .products__item-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .products__item {
+        margin-right: 2%;
+        height: 350px;
+    }
+
+    .products__item-pic {
+        height: 270px;
+    }
+
+    .products__item-title {
+        font-size: 18px;
+        width: 100%;
+    }
+
+    .products__item-content {
+        height: 80px;
+    }
+}
+
+@media (max-width: 620px) {
+    .products__table {
+        justify-content: space-between;
+    }
+
+    .products__item {
+        margin-right: 0%;
+        width: 47%;
+        height: 340px;
+    }
+
+    .products__item-pic {
+        height: 270px;
+    }
+
+    .products__item-content {
+        height: 70px;
+    }
+
+    .products {
+        padding-bottom: 85px;
+    }
+}
+
+@media (max-width: 490px) {
+    .products__item {
+        width: 100%;
+        height: auto;
+        margin-bottom: 45px;
+    }
+
+    .products__title {
+        margin-top: 40px;
+        margin-bottom: 55px;
+    }
+
+    .products__item-pic {
+        height: 315px;
+    }
+
+    .products__item-content {
+        height: auto;
+    }
+
+    .products__item-title {
+        font-size: 16px;
+        margin-top: 15px;
+        line-height: 140%;
+        font-weight: 400;
+    }
+}
+
+@media (max-width: 350px) {
+    .products__item-pic {
+        height: 290px;
+    }
+}
+
+/*PRODUCT PAGE MEDIA*/
+
+@media (max-width: 1200px) {
+    .product-info__pic {
+        height: 550px;
+        @include swipeDownAnimation(550px, '.product-info__box');
+    }
+}
+
+@media (max-width: 1024px) {
+    .recipes__slider--product {
+        .recipes__slide-pic {
+            height: 40%;
+        }
+
+        .recipes__slide-title {
+            font-size: 20px;
+            height: 60px;
+        }
+
+        .recipes__slide-content {
+            height: 60%;
+        }
+
+        .recipes__slide-text {
+            width: 100%;
+        }
+
+        .recipes__slide-portion-title,
+        .recipes__slide-time-title {
+            font-size: 12px;
+        }
+
+        .recipes__slide-portion,
+        .recipes__slide-time {
+            width: 45%;
+        }
+
+        .recipes__slide-portion-icon,
+        .recipes__slide-time-icon {
+            height: 20px;
+            width: 20px;
+            margin-right: 5px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .product-info__pic {
+        height: 400px;
+        @include swipeDownAnimation(400px, '.product-info__box');
+    }
+
+    .product-info__desc-item {
+        flex-direction: column;
+    }
+
+    .product-info__desc-key,
+    .product-info__desc-value {
+        width: 100%;
+    }
+
+    .product-info__desc-key {
+        padding-bottom: 5px;
+    }
+
+    .product-info__price {
+        font-size: 24px;
+    }
+
+    .recipes__slider--product {
+        .recipes__slide {
+            width: auto;
+        }
+
+    }
+}
+
+
+@media (max-width: 620px) {
+    .product-info {
+        flex-direction: column;
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .product-info__info {
+        width: 100%;
+    }
+
+    .product-info__pic {
+        width: 100%;
+        order: -1;
+    }
+
+    .product-info__amount {
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-info__amount-controls {
+        margin: 25px auto;
+        width: 170px;
+        order: -1;
+    }
+
+    .product-info__price {
+        font-weight: 500;
+    }
+
+    .product-info__buy-btn {
+        margin: 25px auto 0;
+        width: 100%;
+    }
+
+    .product-info__amount-control--minus,
+    .product-info__amount-control--plus {
+        width: 48px;
+        height: 48px;
+    }
+
+    .product-info__amount-control--amount {
+        height: 48px;
+        font-size: 24px;
+    }
+
+    .product-info__amount {
+        width: 70%;
+    }
+
+    .product-info__desc {
+        display: flex;
+        flex-direction: column;
+        padding-top: 45px;
+    }
+
+    .product-info__desc-text {
+        order: -2;
+        margin-bottom: 50px;
+    }
+
+    .product-info__desc-show-more {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+
+    .product-info__desc-title-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .product-info__desc-hide {
+        display: inline-block;
+    }
+
+    .product-info {
+        padding-bottom: 45px;
+    }
+
+    .product-recipes__link {
+        display: none;
+    }
+
+    .product-recipes__title {
+        font-size: 18px;
+    }
+
+    .recipes__slider--product .recipes__slide-title {
+        font-size: 18px;
+    }
+
+    .recipes__slider--product .recipes__slide-text {
+        font-size: 14px;
+    }
+
+    .product-recipes__mobile-link {
+        margin-top: 15px;
+        display: block;
+    }
+
+    .product-recipes {
+        padding-bottom: 70px;
+    }
+
+     .product-info__desc-title {
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .product-info__desc-key, .product-info__desc-value {
+        font-size: 14px;
+    }
+
+    .product-info__desc-key {
+        padding-bottom: 5px;
+    }
+    
+
+    .product-info__desc-item {
+        padding-bottom: 0;
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (max-width: 490px) {
+    .product-info__pic {
+        height: 315px;
+        @include swipeDownAnimation(315px, '.product-info__box');
+    }
+
+    .product-info__amount {
+        width: 100%;
+    }
+
+    .product-info__desc-text p {
+        font-size: 14px;
+        line-height: 140%;
+    }
+
+    .product-recipes .wrapper {
+        padding-top: 25px;
+    }
+}
