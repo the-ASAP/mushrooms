@@ -3261,7 +3261,7 @@ h2 {
                     border-radius: 100%;
                     border: 0.5px solid $accent;
                     text-align: center;
-                    font-size: 1.25rem;
+                    font-size: 1.5rem;
                     color: $accent;
                     font-weight: 500;
                     transition: background-color .2s, color .3s;
@@ -3301,9 +3301,13 @@ h2 {
                 font-weight: 600;
                 font-size: 1.5rem;
                 line-height: 110.69%;
-                margin-bottom: 1.875rem;
+
+                &-wrapper {
+                    margin-bottom: 1.875rem;
+                }
+
             }
-            
+
             &-hide {
                 transition: transform .3s ease;
                 display: none;
@@ -3356,6 +3360,7 @@ h2 {
                 p:first-child {
                     opacity: 1;
                     display: block;
+                    padding-top: 0;
                 }
             }
 
@@ -3387,7 +3392,7 @@ h2 {
         display: flex;
         justify-content: space-between;
         align-items: center;
-         margin-bottom: 2.5rem;
+        margin-bottom: 2.5rem;
     }
 
     &__title {
@@ -3396,6 +3401,7 @@ h2 {
         font-size: 1.5rem;
         line-height: 110.69%;
     }
+
     &__mobile-link {
         @include mobileGreenBtn;
         display: none;
@@ -3424,11 +3430,9 @@ h2 {
             position: absolute;
             bottom: 0;
             left: 50%;
-            -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
             height: 2px;
-            background: #5c8741;
-            -webkit-transition: .3s ease-out;
+            background-color: $accent;
             transition: .3s ease-out;
         }
     }
@@ -3442,4 +3446,60 @@ h2 {
     .recipes__slide {
         width: 32%;
     }
+}
+
+/*CART PAGE*/
+
+.cart {
+    height: auto;
+
+    .wrapper {
+        padding-top: 2.5rem;
+    }
+
+    &__title {
+        margin-top: 5rem;
+        margin-bottom: 4.375rem;
+    }
+
+    &__table {
+        width: 100%;
+
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 30px;
+
+            &-name,
+            &-amount,
+            &-price {
+                font-size: 13px;
+                line-height: 15px;
+                text-align: center;
+            }
+
+            &-name {
+                width: 50%;
+                background: white;
+            }
+
+            &-amount {
+                width: 25%;
+                background: blue;
+            }
+
+            &-price {
+                width: 25%;
+                background: red;
+            }
+        }
+
+        &-item {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+
 }

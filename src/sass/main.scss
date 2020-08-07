@@ -3470,6 +3470,7 @@ h2 {
             justify-content: space-between;
             align-items: flex-start;
             padding-bottom: 30px;
+            border-bottom: 1px solid rgba($accent, .4);
 
             &-name,
             &-amount,
@@ -3481,25 +3482,175 @@ h2 {
 
             &-name {
                 width: 50%;
-                background: white;
+                text-align: left;
+                padding-left: calc(10.9375rem + 6.25rem);
             }
 
             &-amount {
                 width: 25%;
-                background: blue;
             }
 
             &-price {
                 width: 25%;
-                background: red;
             }
         }
 
         &-item {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            padding: 1.5625rem 0 0.9375rem;
+            border-bottom: 1px solid rgba($accent, .4);
+        }
+
+        &-name {
+            width: 50%;
+            display: flex;
+            align-items: center;
+        }
+
+        &-pic {
+            width: 10.9375rem;
+            height: 10.9375rem;
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-position: center;
+                object-fit: cover;
+            }
+        }
+
+        &-title {
+            width: calc(100% - 10.9375rem);
+            font-weight: 600;
+            font-size: 1.5rem;
+            line-height: 110.69%;
+            padding-left: 6.25rem;
+        }
+
+        &-amount {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 25%;
+        }
+
+        &-amount-controls {
+            width: 150px;
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &-amount-control {
+            width: 42px;
+            height: 42px;
+            font-size: 16px;
+            line-height: 140%;
+            text-align: center;
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+
+        &-amount-control--minus,
+        &-amount-control--plus {
+            border-radius: 100%;
+            border: .5px solid $accent;
+            text-align: center;
+            font-size: 1.5rem;
+            color: $accent;
+            font-weight: 500;
+            transition: background-color .2s, color .3s;
+
+            &:hover {
+                background-color: $accent;
+                color: $cream;
+            }
+        }
+
+        &-price {
+            text-align: center;
+            width: 25%;
+            font-weight: 600;
+            font-size: 1.5rem;
+            line-height: 110.69%;
+            color: $accent;
         }
     }
 
+    &__sum-table {
+        display: flex;
+        justify-content: space-between;
+        padding: 5rem 0;
+         border-bottom: 1px solid rgba($accent, .4);
 
+        &-radio-container {
+            margin-bottom: 35px;
+        }
+
+        &-radio:checked+label:after {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        &-label {
+            font-weight: 600;
+            font-size: 1.5rem;
+            line-height: 110.69%;
+            position: relative;
+            padding-left: calc(1.25rem + 3.125rem);
+            position: relative;
+            cursor: pointer;
+
+            &:before,
+            &:after {
+                content: '';
+                border-radius: 100%;
+            }
+
+            &:before {
+                width: 29px;
+                height: 29px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: 1px solid rgba(0, 0, 0, .2);
+            }
+
+            &:after {
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                top: 8px;
+                left: 8px;
+                background: $accent;
+                visibility: hidden;
+                opacity: 0;
+                transition: .3s;
+            }
+        }
+
+        &-sum {
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 117.8%;
+            width: 30%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-right: 5%;
+
+            &-price {
+                i {
+                    font-style: normal;
+                }
+            }
+        }
+    }
 }
