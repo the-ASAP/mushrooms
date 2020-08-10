@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Описание страницы для SEO и соцсетей">
     <meta name="keywords" content="ключевые, слова, через, запятую">
-    <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
+    <link rel="shortcut icon" type='image/x-icon' href="img/icons/favicon.ico" />
     <title>Корзина</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="vendors/css/owl.carousel.min.css">
@@ -59,7 +59,7 @@
                         </div>
                         <div class="cart__table-price">160 руб/кг</div>
                     </div>
-                     <div class="cart__table-item">
+                    <div class="cart__table-item">
                         <div class="cart__table-name">
                             <div class="cart__table-pic">
                                 <img src="img/production/Маринованные_шампиньоны.jpg" alt="">
@@ -77,22 +77,67 @@
                     </div>
                 </div>
             </div>
-            <div class="cart__sum-table">
-                <div class="cart__sum-table-radios">
-                    <div class="cart__sum-table-radio-container">
-                        <input type="radio" id="self" name="self" data-role="radio" class="cart__sum-table-radio" checked>
-                        <label for="self" class="cart__sum-table-label">Самовывоз</label>
+            <form action="POST" class="cart__form" name="order">
+                <div class="cart__sum-table">
+                    <div class="cart__sum-table-radios">
+                        <div class="cart__sum-table-radio-container">
+                            <input type="radio" id="self" name="self" data-role="radio" class="cart__sum-table-radio" checked>
+                            <label for="self" class="cart__sum-table-label">Самовывоз</label>
+                        </div>
+                        <div class="cart__sum-table-radio-container">
+                            <input type="radio" id="delivery" name="self" data-role="radio" class="cart__sum-table-radio">
+                            <label for="delivery" class="cart__sum-table-label">Доставка</label>
+                        </div>
                     </div>
-                    <div class="cart__sum-table-radio-container">
-                        <input type="radio" id="delivery" name="self" data-role="radio" class="cart__sum-table-radio">
-                        <label for="delivery" class="cart__sum-table-label">Доставка</label>
+                    <div class="cart__sum-table-sum">
+                        <span class="cart__sum-table-sum-label">Сумма:</span>
+                        <span class="cart__sum-table-sum-price"><i>530</i> рублей</span>
                     </div>
                 </div>
-                <div class="cart__sum-table-sum">
-                    <span class="cart__sum-table-sum-label">Сумма:</span>
-                    <span class="cart__sum-table-sum-price"><i>530</i> рублей</span>
+                <div class="cart__offer">
+                    <h2 class="cart__offer-title">Оформление заказа</h2>
+                    <div class="cart__offer-table">
+                        <div class="cart__offer-data">
+                            <span class="cart__offer-subtitle">
+                                Данные для заказа
+                            </span>
+                            <input type="text" class="cart__offer-data-input" placeholder="Адрес">
+                            <input type="text" class="cart__offer-data-input" placeholder="Имя">
+                            <input type="text" class="cart__offer-data-input" placeholder="Телефон">
+                        </div>
+                        <div class="cart__offer-pay">
+                            <div class="cart__offer-container">
+                                <span class="cart__offer-subtitle">
+                                    Форма оплаты
+                                </span>
+                                <div class="cart__offer-pay-radio-container">
+                                    <input type="radio" id="card" name="card" data-role="radio" class="cart__offer-pay-radio" checked>
+                                    <label for="self" class="cart__offer-pay-label">Оплатить банковской картой</label>
+                                    <div class="cart__offer-pay-card-table">
+                                        <span class="cart__offer-pay-card">
+                                            <img src="img/icons/mir.png" alt="">
+                                        </span>
+                                        <span class="cart__offer-pay-card">
+                                            <img src="img/icons/visa.png" alt="">
+                                        </span>
+                                        <span class="cart__offer-pay-card">
+                                            <img src="img/icons/mastercard.png" alt="">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="cart__offer-pay-radio-container">
+                                    <input type="radio" id="card" name="card" data-role="radio" class="cart__offer-pay-radio" checked>
+                                    <label for="self" class="cart__offer-pay-label">На точке (наличными или картой)</label>
+                                </div>
+                            </div>
+                            <div class="cart__offer-pay-checkbox-container">
+                                <input type="checkbox" id="accept" name="accept" data-role="checkbox" class="cart__offer-pay-accept">
+                                <label for="remember" class="cart__offer-pay-label cart__offer-pay-label--accept">* Я согласен на обработку персональных данных и ознакомился с правилами</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </section>
     @import "footer.html"

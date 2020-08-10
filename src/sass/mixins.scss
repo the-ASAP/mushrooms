@@ -291,11 +291,11 @@
     }
 }
 
-@mixin input() {
+@mixin input($height:52px) {
     & {
         width: 100%;
         border: 1px solid rgba(0, 0, 0, 0.2);
-        height: 52px;
+        height: $height;
         margin-bottom: 1.5625rem;
         padding: 0 25px;
         font-size: 0.875rem;

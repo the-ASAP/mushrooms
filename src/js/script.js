@@ -9,6 +9,12 @@ const contentFadeInOnReady = () => {
     });
 };
 
+var d = new Date().getSeconds();
+console.log(d - 60);
+
+
+
+
 // Открытие и закрытие модальных окон
 const bindModalListeners = modalArr => {
     modalArr.forEach(obj => {
