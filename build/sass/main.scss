@@ -3588,7 +3588,7 @@ h2 {
         display: flex;
         justify-content: space-between;
         padding: 5rem 0;
-         border-bottom: 1px solid rgba($accent, .4);
+        border-bottom: 1px solid rgba($accent, .4);
 
         &-radio-container {
             margin-bottom: 35px;
@@ -3650,6 +3650,43 @@ h2 {
                 i {
                     font-style: normal;
                 }
+            }
+        }
+    }
+
+    &__offer {
+        padding-top: 3.4375rem;
+
+        &-title {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 2rem;
+            line-height: 117.8%;
+            font-family: $font;
+            margin-bottom: 3.4375rem;
+        }
+
+        &-subtitle {
+            font-weight: 600;
+            font-size: 1.5rem;
+            line-height: 110.69%;
+            color: $accent;
+            opacity: 0.8;
+            margin-bottom: 1.875rem;
+        }
+
+        &-table {
+            display: flex;
+
+        }
+
+        &-data {
+            width: 28%;
+            margin-right: 7.8125rem;
+        
+            &-input {
+                @include input(70px);
+               
             }
         }
     }

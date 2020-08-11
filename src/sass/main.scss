@@ -3677,16 +3677,98 @@ h2 {
 
         &-table {
             display: flex;
-
+            margin-bottom: 5.625rem;
         }
 
         &-data {
             width: 28%;
             margin-right: 7.8125rem;
-        
+
             &-input {
                 @include input(70px);
-               
+            }
+        }
+
+        &-pay {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &-radio-container {
+                
+            }
+
+            &-radio:checked+label:after {
+                  visibility: visible;
+                    opacity: 1;
+            }
+
+            &-label {
+                position: relative;
+                padding-left: 50px;
+                display: flex;
+                height: 29px;
+                align-items: center;
+                margin-bottom: 17px;
+
+                &:before {
+                    content: '';
+                    width: 29px;
+                    height: 29px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border-radius: 100%;
+                    border: 1px solid rgba($accent, 0.2);
+                }
+
+                &:after {
+                    content: '';
+                    width: 17px;
+                    height: 17px;
+                    position: absolute;
+                    top: 7px;
+                    left: 7px;
+                    background: $accent;
+                    visibility: hidden;
+                    opacity: 0;
+                     border-radius: 100%;
+                    transition: all .3s ease;
+                }
+
+                &--accept {
+                    font-size: 13px;
+                    line-height: 15px;
+                    width: 80%;
+                    
+                    &:before, &:after {
+                        border-radius: 0;
+                    }
+
+                    &:before {
+                        width: 19px;
+                        height: 19px;
+                    }
+
+                    &:after {
+                        
+                    }
+                }
+            }
+
+            &-card {
+                &-table {
+                    display: flex;
+                    align-items: center;
+                    padding-left: calc(29px + 25px);
+
+                }
+
+                img {
+                    object-fit: contain;
+                    object-position: center;
+                    margin-right: 20px;
+                }
             }
         }
     }
