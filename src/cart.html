@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="vendors/css/aos.css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=59d7bd1e-0c50-476d-869e-e4fa06bfdc0c&lang=ru_RU">
+    </script>
 </head>
 
 <body>
@@ -22,6 +24,7 @@
     @import "register-modal.html"
     @import "enter-modal.html"
     @import "write-modal.html"
+    @import "map-modal.html"
     @import "mobile-menu.html"
     @import "menu.html"
     <section class="cart">
@@ -37,13 +40,13 @@
             </ul>
             <h1 class="cart__title" data-aos="fade-up">Корзина</h1>
             <div class="cart__table">
-                <div class="cart__table-header">
+                <div class="cart__table-header" data-aos="fade-up">
                     <span class="cart__table-header-name">Наименование</span>
                     <span class="cart__table-header-amount">Количество</span>
                     <span class="cart__table-header-price">Цена</span>
                 </div>
                 <div class="cart__table-content">
-                    <div class="cart__table-item">
+                    <div class="cart__table-item" data-aos-offset="-300">
                         <div class="cart__table-name">
                             <div class="cart__table-pic">
                                 <img src="img/production/Свежие_шампиньоны.jpg" alt="">
@@ -51,7 +54,7 @@
                             <span class="cart__table-title">Свежие шампиньоны</span>
                         </div>
                         <div class="cart__table-amount">
-                            <div class="cart__table-amount-controls" data-aos="fade-up" data-aos-delay="200">
+                            <div class="cart__table-amount-controls">
                                 <button type="button" class="cart__table-amount-control cart__table-amount-control--minus">-</button>
                                 <input type="number" name="count" value="1" class="cart__table-amount-control cart__table-amount-control--amount">
                                 <button type="button" class="cart__table-amount-control cart__table-amount-control--plus">+</button>
@@ -59,7 +62,7 @@
                         </div>
                         <div class="cart__table-price">160 руб/кг</div>
                     </div>
-                    <div class="cart__table-item">
+                    <div class="cart__table-item" data-aos-offset="-300">
                         <div class="cart__table-name">
                             <div class="cart__table-pic">
                                 <img src="img/production/Маринованные_шампиньоны.jpg" alt="">
@@ -67,7 +70,7 @@
                             <span class="cart__table-title">Маринованные шампиньоны</span>
                         </div>
                         <div class="cart__table-amount">
-                            <div class="cart__table-amount-controls" data-aos="fade-up" data-aos-delay="200">
+                            <div class="cart__table-amount-controls">
                                 <button type="button" class="cart__table-amount-control cart__table-amount-control--minus">-</button>
                                 <input type="number" name="count" value="1" class="cart__table-amount-control cart__table-amount-control--amount">
                                 <button type="button" class="cart__table-amount-control cart__table-amount-control--plus">+</button>
@@ -80,39 +83,53 @@
             <form action="POST" class="cart__form" name="order">
                 <div class="cart__sum-table">
                     <div class="cart__sum-table-radios">
-                        <div class="cart__sum-table-radio-container">
+                        <div class="cart__sum-table-radio-container" data-aos="fade-up">
                             <input type="radio" id="self" name="self" data-role="radio" class="cart__sum-table-radio" checked>
                             <label for="self" class="cart__sum-table-label">Самовывоз</label>
                         </div>
-                        <div class="cart__sum-table-radio-container">
+                        <div class="cart__sum-table-radio-container" data-aos="fade-up">
                             <input type="radio" id="delivery" name="self" data-role="radio" class="cart__sum-table-radio">
                             <label for="delivery" class="cart__sum-table-label">Доставка</label>
                         </div>
                     </div>
-                    <div class="cart__sum-table-sum">
+                    <div class="cart__sum-table-sum" data-aos="fade-up">
                         <span class="cart__sum-table-sum-label">Сумма:</span>
                         <span class="cart__sum-table-sum-price"><i>530</i> рублей</span>
                     </div>
                 </div>
                 <div class="cart__offer">
-                    <h2 class="cart__offer-title">Оформление заказа</h2>
+                    <h2 class="cart__offer-title" data-aos="fade-up">Оформление заказа</h2>
+                    <div class="delivery-header__table hidden">
+                        <div class="delivery-header__item">
+                            <span class="delivery-header__item-title aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">По центру Саратова</span>
+                            <span class="delivery-header__item-text aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">от суммы 500 рублей</span>
+                        </div>
+                        <div class="delivery-header__item">
+                            <span class="delivery-header__item-title aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">По Энгельсу</span>
+                            <span class="delivery-header__item-text aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">от суммы 1500 рублей</span>
+                        </div>
+                        <div class="delivery-header__item">
+                            <span class="delivery-header__item-title aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">по&nbsp;Юбилейному, Ленинскому и&nbsp;Заводскому районам</span>
+                            <span class="delivery-header__item-text aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">от суммы 1000 рублей</span>
+                        </div>
+                    </div>
                     <div class="cart__offer-table">
                         <div class="cart__offer-data">
-                            <span class="cart__offer-subtitle">
+                            <span class="cart__offer-subtitle" data-aos="fade-up">
                                 Данные для заказа
                             </span>
-                            <input type="text" class="cart__offer-data-input" placeholder="Адрес">
-                            <input type="text" class="cart__offer-data-input" placeholder="Имя">
-                            <input type="text" class="cart__offer-data-input" placeholder="Телефон">
+                            <input type="text" class="cart__offer-data-input cart__offer-data-input--address hidden" placeholder="Адрес">
+                            <input type="text" class="cart__offer-data-input cart__offer-data-input--name" placeholder="Имя" data-aos="fade-up">
+                            <input type="text" class="cart__offer-data-input cart__offer-data-input--phone" placeholder="Телефон" data-aos="fade-up">
                         </div>
                         <div class="cart__offer-pay">
                             <div class="cart__offer-container">
-                                <span class="cart__offer-subtitle">
+                                <span class="cart__offer-subtitle" data-aos="fade-up">
                                     Форма оплаты
                                 </span>
-                                <div class="cart__offer-pay-radio-container">
-                                    <input type="radio" id="pay" name="online" data-role="radio" class="cart__offer-pay-radio" checked>
-                                    <label for="pay" class="cart__offer-pay-label">Оплатить банковской картой</label>
+                                <div class="cart__offer-pay-radio-container" data-aos="fade-up">
+                                    <input type="radio" id="online" name="pay" data-role="radio" class="cart__offer-pay-radio" checked>
+                                    <label for="online" class="cart__offer-pay-label">Оплатить банковской картой</label>
                                     <div class="cart__offer-pay-card-table">
                                         <span class="cart__offer-pay-card">
                                             <img src="img/icons/mir.png" alt="">
@@ -125,18 +142,61 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="cart__offer-pay-radio-container">
-                                    <input type="radio" id="pay" name="offline" data-role="radio" class="cart__offer-pay-radio">
-                                    <label for="pay" class="cart__offer-pay-label">На точке (наличными или картой)</label>
+                                <div class="cart__offer-pay-radio-container" data-aos="fade-up">
+                                    <input type="radio" id="offline" name="pay" data-role="radio" class="cart__offer-pay-radio">
+                                    <label for="offline" class="cart__offer-pay-label">На точке (наличными или картой)</label>
                                 </div>
                             </div>
-                            <div class="cart__offer-pay-checkbox-container">
+                            <div class="cart__offer-pay-checkbox-container" data-aos="fade-up">
                                 <input type="checkbox" id="accept" name="accept" data-role="checkbox" class="cart__offer-pay-accept">
-                                <label for="remember" class="cart__offer-pay-label cart__offer-pay-label--accept">* Я согласен на обработку персональных данных и ознакомился с правилами</label>
+                                <label for="accept" class="cart__offer-pay-label cart__offer-pay-label--accept">* Я согласен на обработку персональных данных и ознакомился с правилами</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart__delivery hidden">
+                        <h2 class="cart__delivery-title">
+                            Уточните адрес
+                        </h2>
+                        <div class="cart__delivery-map" id="delivery-map">
+                        </div>
+                    </div>
+                </div>
+                <div class="shops shops--cart">
+                    <h2 class="shops__title" data-aos="fade-up" data-aos-delay="400" data-aos-offset="0">Продуктовые точки для самовывоза</h2>
+                    <div class="shops__table">
+                        <div class="shops__item">
+                            <button type="button" class="shops__map shop__map--volzhski" style="background-image: url(img/map1.jpg);" data-coords="51.565698572361654,46.06488899999995">
+                            </button>
+                            <div class="shops__contacts-wrapper">
+                                <div class="shops__contacts-labels">
+                                    <span class="shops__map-title">Рынок Юбилейный</span>
+                                    <span class="shops__map-address">Усть-Курдюмская улица, 8</span>
+                                </div>
+                                <div class="shops__contacts-radio-container">
+                                    <input type="radio" id="volzhski" name="point" data-role="radio" class="shops__contacts-radio" checked>
+                                    <label for="volzhski" class="shops__contacts-label">Выбрать точку</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shops__item">
+                            <button type="button" class="shops__map shop__map--leninski" style="background-image: url(img/map2.jpg);" data-coords="51.60778739150105,45.905211593254045">
+                            </button>
+                            <div class="shops__contacts-wrapper">
+                                <div class="shops__contacts-labels">
+                                    <span class="shops__map-title">Рынок в пос. Елшанка</span>
+                                    <span class="shops__map-address">Московское шоссе, 61 ст. 2</span>
+                                </div>
+                                <div class="shops__contacts-radio-container">
+                                    <input type="radio" id="leninski" name="point" data-role="radio" class="shops__contacts-radio">
+                                    <label for="leninski" class="shops__contacts-label">Выбрать точку</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <span class="cart__offer-btn-container" data-aos="fade-up">
+                    <button type="submit" class="cart__offer-btn">Оформить заказ</button>
+                </span>
             </form>
         </div>
     </section>

@@ -41,6 +41,10 @@ ul {
     list-style: none;
 }
 
+.hidden {
+    display: none !important;
+}
+
 .flexbox {
     display: flex;
     align-items: center;
@@ -1546,6 +1550,10 @@ h2 {
     &__link {
         padding: 1.125rem 0;
         font-size: 1rem;
+
+        &:hover {
+            color: darken($cream, 5%);
+        }
     }
 
     &__search {
@@ -3452,6 +3460,7 @@ h2 {
 
 .cart {
     height: auto;
+    padding-bottom: 10.625rem;
 
     .wrapper {
         padding-top: 2.5rem;
@@ -3469,14 +3478,14 @@ h2 {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding-bottom: 30px;
+            padding-bottom: 1.875rem;
             border-bottom: 1px solid rgba($accent, .4);
 
             &-name,
             &-amount,
             &-price {
-                font-size: 13px;
-                line-height: 15px;
+                font-size: 0.8125rem;
+                line-height: 0.9375rem;
                 text-align: center;
             }
 
@@ -3501,6 +3510,7 @@ h2 {
             align-items: center;
             padding: 1.5625rem 0 0.9375rem;
             border-bottom: 1px solid rgba($accent, .4);
+            @include fadeUp;
         }
 
         &-name {
@@ -3638,7 +3648,7 @@ h2 {
 
         &-sum {
             font-weight: 600;
-            font-size: 32px;
+            font-size: 2rem;
             line-height: 117.8%;
             width: 30%;
             display: flex;
@@ -3677,17 +3687,229 @@ h2 {
 
         &-table {
             display: flex;
-
+            margin-bottom: 5.625rem;
         }
 
         &-data {
             width: 28%;
             margin-right: 7.8125rem;
-        
+
             &-input {
                 @include input(70px);
-               
             }
+        }
+
+        &-pay {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &-radio:checked+label:after {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            &-label {
+                position: relative;
+                padding-left: 3.125rem;
+                display: flex;
+                height: 1.8125rem;
+                align-items: center;
+                margin-bottom: 1.0625rem;
+                cursor: pointer;
+
+                &:before {
+                    content: '';
+                    width: 1.8125rem;
+                    height: 1.8125rem;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border-radius: 100%;
+                    border: 1px solid rgba($accent, 0.2);
+                }
+
+                &:after {
+                    content: '';
+                    width: 1.0625rem;
+                    height: 1.0625rem;
+                    position: absolute;
+                    top: 0.4375rem;
+                    left: 0.4375rem;
+                    background: $accent;
+                    visibility: hidden;
+                    opacity: 0;
+                    border-radius: 100%;
+                    transition: all .3s ease;
+                }
+
+                &--accept {
+                    font-size: 0.8125rem;
+                    line-height: 0.9375rem;
+                    width: 80%;
+                    cursor: pointer;
+
+                    &:before,
+                    &:after {
+                        border-radius: 0;
+                    }
+
+                    &:before {
+                        width: 1.1875rem;
+                        height: 1.1875rem;
+                    }
+
+                    &:after {
+                        content: '';
+                        width: 1.25rem;
+                        height: 1.25rem;
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        background: url(../img/icons/checked.png) center/contain no-repeat;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: all .3s ease;
+                    }
+                }
+            }
+
+            &-card {
+                &-table {
+                    display: flex;
+                    align-items: center;
+                    padding-left: calc(1.8125rem + 1.5625rem);
+
+                }
+
+                img {
+                    object-fit: contain;
+                    object-position: center;
+                    margin-right: 1.25rem;
+                }
+            }
+
+            &-accept:checked+label:after {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        .delivery-header__table {
+            margin-bottom: 6.25rem;
+        }
+    }
+
+    &__offer-btn {
+        @extend %green-btn;
+
+        &-container {
+            display: block;  
+            margin: 0 auto;
+        }
+    }
+
+    &__delivery {
+        &-title {
+            font-weight: 600;
+            font-size: 1.5rem;
+            line-height: 110.69%;
+            color: $accent;
+            opacity: 0.8;
+            font-family: $font;
+            margin-bottom: 1.5625rem;
+        }
+
+        &-map {
+            width: 100%;
+            height: 25rem;
+            margin-bottom: 6.25rem;
+            filter: grayscale(100%);
+        }
+    }
+}
+
+.shops--cart {
+    background-color: $lightBrown;
+
+    .shops__title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 110.69%;
+        font-family: $font;
+        color: $text;
+        width: 18.75rem;
+    }
+
+    .shops__table {
+        margin-top: 50px;
+    }
+
+    .shops__map-title {
+        color: $accent;
+    }
+
+    .shops__map-address {
+        color: $text;
+    }
+
+    .shops__contacts-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .shops__contacts-radio-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .shops__contacts-labels {
+        width: 70%;
+    }
+
+    .shops__contacts-radio:checked+label:after {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .shops__contacts-label {
+        font-weight: 600;
+        font-size: 0.875rem;
+        line-height: 1rem;
+        height: 1.8125rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: $text;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-left: 50px;
+        cursor: pointer;
+
+        &:before {
+            content: '';
+            width: 1.8125rem;
+            height: 1.8125rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 100%;
+            border: 1px solid rgba($accent, 0.2);
+        }
+
+        &:after {
+            content: '';
+            width: 1.0625rem;
+            height: 1.0625rem;
+            position: absolute;
+            top: 0.4375rem;
+            left: 0.4375rem;
+            background: $accent;
+            visibility: hidden;
+            opacity: 0;
+            border-radius: 100%;
+            transition: all .3s ease;
         }
     }
 }

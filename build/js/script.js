@@ -9,12 +9,6 @@ const contentFadeInOnReady = () => {
     });
 };
 
-var d = new Date().getSeconds();
-console.log(d - 60);
-
-
-
-
 // Открытие и закрытие модальных окон
 const bindModalListeners = modalArr => {
     modalArr.forEach(obj => {
@@ -75,6 +69,7 @@ function setPageName() {
 function initAnimationsArray(elems) {
     //добавление data-атрибута с задержкой анимации (не трож)
     addDataDelayAttr(elems);
+    triggerSwipeDownAnimation(elems);
 
     $(window).on('scroll', function() {
         // обработчик срабатывания анимации на элементах из массива elems (не трож)
@@ -257,13 +252,13 @@ function hideMenu(className) {
 }
 
 // инициализация карты по переданным координатам
-function initMap(coords) {
+function initMap(coords, selector) {
     let coordsArr = coords.split(',');
 
-    $('#map').html('');
+    $(selector).html('');
 
     ymaps.ready(function() {
-        var myMap = new ymaps.Map('map', {
+        var myMap = new ymaps.Map(`${selector.slice(1)}`, {
                 center: coords.split(','),
                 zoom: 18,
                 controls: []
@@ -278,6 +273,93 @@ function initMap(coords) {
         myMap.geoObjects.add(myPlacemark);
         myMap.container.fitToViewport();
     });
+}
+
+function initCartMap() {
+    if ($('#delivery-map').find('*').length === 0) {
+        var myMap;
+        var myPlacemark;
+        var startPlacemark;
+        ymaps.geolocation.get().then(function(res) {
+            var mapContainer = $('#delivery-map'),
+                bounds = res.geoObjects.get(0).properties.get('boundedBy'),
+                // Рассчитываем видимую область для текущей положения пользователя.
+                mapState = ymaps.util.bounds.getCenterAndZoom(
+                    bounds,
+                    [mapContainer.width(), mapContainer.height()]
+                );
+            createMap({
+                center: res.geoObjects.position,
+                zoom: 17,
+            });
+            startPlacemark = createPlacemark(res.geoObjects.position)
+            myMap.geoObjects.add(startPlacemark);
+        }, function(e) {
+            // Если местоположение невозможно получить, то просто создаем карту.
+            createMap({
+                center: [51.533103, 46.034158],
+                zoom: 17,
+            });
+        });
+
+        function createMap(state) {
+            myMap = new ymaps.Map('delivery-map', state);
+
+            myMap.events.add('click', function(e) {
+                var coords = e.get('coords');
+
+                // Если метка уже создана – просто передвигаем ее.
+                if (myPlacemark) {
+                    myPlacemark.geometry.setCoordinates(coords);
+                    myMap.geoObjects.remove(startPlacemark);
+                }
+                // Если нет – создаем.
+                else {
+                    myMap.geoObjects.remove(startPlacemark);
+                    myPlacemark = createPlacemark(coords);
+                    myMap.geoObjects.add(myPlacemark);
+                    // Слушаем событие окончания перетаскивания на метке.
+                    myPlacemark.events.add('dragend', function() {
+                        getAddress(myPlacemark.geometry.getCoordinates());
+                    });
+                }
+
+                myMap.container.fitToViewport();
+                getAddress(coords);
+            });
+        }
+
+        // Создание метки.
+        function createPlacemark(coords) {
+            return new ymaps.Placemark(coords, {}, {
+                iconColor: '#d32f2f',
+                draggable: true
+            });
+        }
+
+        // Определяем адрес по координатам (обратное геокодирование).
+        function getAddress(coords) {
+            myPlacemark.properties.set('iconCaption', 'поиск...');
+            ymaps.geocode(coords).then(function(res) {
+                var firstGeoObject = res.geoObjects.get(0);
+
+                myPlacemark.properties
+                    .set({
+                        // Формируем строку с данными об объекте.
+                        iconCaption: [
+                            // Название населенного пункта или вышестоящее административно-территориальное образование.
+                            firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
+                            // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
+                            firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
+                        ].filter(Boolean).join(', '),
+                        // В качестве контента балуна задаем строку с адресом объекта.
+                        balloonContent: firstGeoObject.getAddressLine()
+
+                    });
+                $('.cart__offer-data-input--address').val(firstGeoObject.getAddressLine());
+            });
+        }
+    }
 }
 
 // обрезка текста
@@ -366,8 +448,6 @@ function sendForm(e, form, url, onSuccess, onError, onLoadStart, params) {
     });
 }
 
-
-
 function showFeedbackScreen(feedback) {
     let parent = feedback.closest('.feedback__item');
     let img = parent.attr('data-screen');
@@ -442,7 +522,7 @@ function initListeners() {
     // ГЛАВНАЯ
 
     $('.shops__map').on('click', function() {
-        initMap($(this).attr('data-coords'));
+        initMap($(this).attr('data-coords'), '#map');
     });
 
     initSlider('.recipes .recipes__slider', {
@@ -547,15 +627,32 @@ function initListeners() {
     });
 
     $('.product-info__desc-title-wrapper').on('click', function() {
-        if($('.product-info__desc-table').hasClass('hidden')) {
-             $('.product-info__desc-table').slideDown().removeClass('hidden');
-             $('.product-info__desc-hide').addClass('showed');
+        if ($('.product-info__desc-table').hasClass('hidden')) {
+            $('.product-info__desc-table').slideDown().removeClass('hidden');
+            $('.product-info__desc-hide').addClass('showed');
 
         } else {
-             $('.product-info__desc-table').slideUp().addClass('hidden');
-             $('.product-info__desc-hide').removeClass('showed');
-        }  
+            $('.product-info__desc-table').slideUp().addClass('hidden');
+            $('.product-info__desc-hide').removeClass('showed');
+        }
     });
+
+    // КОРЗИНА
+
+    $('input#delivery').on('click', function() {
+        $('.delivery-header__table, .cart__delivery, .cart__offer-data-input--address').removeClass('hidden');
+        $('.shops--cart').addClass('hidden');
+        $('label[for="offline"]').text('Курьеру (наличными или картой)');
+
+        initCartMap();
+    });
+
+    $('input#self').on('click', function() {
+        $('.delivery-header__table, .cart__delivery, .cart__offer-data-input--address').addClass('hidden');
+        $('.shops--cart').removeClass('hidden');
+        $('label[for="offline"]').text('На точке (наличными или картой)');
+    });
+
 
     // Только для десктопа
     if (isDesktop) {
@@ -593,7 +690,8 @@ function initListeners() {
             $('.recipe__ingredient'),
             $('.feedback__item-box'),
             $('.products__item-box'),
-            $('.product-info__desc-item')
+            $('.product-info__desc-item'),
+            $('.cart__table-item')
         ]);
 
         initSlider('.production__slider', {
@@ -653,7 +751,7 @@ function initListeners() {
 
     if (isTablet) {
         truncText('.feedback__item-text', 170);
-         truncText('.recipes__slider--product .recipes__slide-text', 100);
+        truncText('.recipes__slider--product .recipes__slide-text', 100);
     }
 
     // Только для мобилки
@@ -662,7 +760,7 @@ function initListeners() {
         truncText('.recipes__slide-text', 75);
         truncText('.feedback__item-text', 150);
 
-         initSlider('.recipes__slider--product', {
+        initSlider('.recipes__slider--product', {
             items: 2,
             nav: false,
             margin: 15,
