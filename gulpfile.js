@@ -31,6 +31,11 @@ gulp.task('clean', function(done) {
     done();
     return del.sync('build');
 });
+
+gulp.task('corr', function(done) {
+    done();
+    return del.sync(['build/components']);
+});
 //CSS
 gulp.task('buildSass', function() {
     return gulp.src('src/sass/*.scss')
@@ -168,7 +173,8 @@ gulp.task('devbuild', gulp.series(
     'img',
     'buildFonts',
     'vendors',
-    'dest'
+    'dest',
+    'corr'
 ));
 //dev build
 //production build
